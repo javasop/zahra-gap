@@ -59,20 +59,62 @@ angular.module('myControllers', [])
             model.get(ser);
 
         })
-        .controller('StoreDetailCtrl', function($scope, model,$rootScope, $stateParams) {
+        
+        
+        
+        
+        
+        .controller('StoreDetailCtrl', function($scope, model,$rootScope, $stateParams,$ionicModal) {
             
-            //get the product given the id
+            
+            //if($rootScope.products == undefined) request it from server
+
+    
             model.search("product_id",$stateParams.product_id,$rootScope.products)
             $scope.product = $rootScope.result;
             
             
             
             $scope.addCart = function(prod){
-                
-                
-                
+                             
             }
-    
+            
+            
+            
+            
+            
+            
+            //carts Modal
+            $ionicModal.fromTemplateUrl('cart.html', {
+                scope: $rootScope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $rootScope.modal = modal;
+            });
+            $scope.openModal = function() {
+                $rootScope.modal.show();
+            };
+            $rootScope.closeModal = function() {
+                $rootScope.modal.hide();
+            };
+	    $rootScope.submit = function(){
+		$rootScope.closeModal();
+		$scope.sync($scope.item);
+
+	    }
+            //Cleanup the modal when we're done with it!
+            $rootScope.$on('$destroy', function() {
+                $rootScope.modal.remove();
+            });
+            // Execute action on hide modal
+            $rootScope.$on('modal.hidden', function() {
+                // Execute action
+            });
+            // Execute action on remove modal
+            $rootScope.$on('modal.removed', function() {
+                // Execute action
+            });
+            
 
         })
 

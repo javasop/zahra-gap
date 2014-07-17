@@ -1,1 +1,59 @@
 {{product}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal -->   
+    <script id="cart.html" type="text/ng-template">
+        <div class="modal">
+        <ion-header-bar>   
+        <h1 class="title">Add Expense</h1>
+        <button class="button button-icon icon ion-close-round" 
+        ng-click="closeModal()"></button>
+        </ion-header-bar>
+      <form  >
+        <ion-content>
+        <div class="list">
+        <label class="item item-input">
+        <input type="text"  ng-model="item.name" placeholder="Expense Name" required>
+        </label>
+        <label class="item item-input">
+        <input type="number"  ng-model="item.value" name="hello" placeholder="Amount" required>
+        </label>
+        <label class="item-input item-select">
+        <div class="input-label">
+        select an icon
+        </div>
+	<button ng-click="openIconsModal()" class="button button-block button-dark"><i class=
+"icon {{item.icon}}"></i></button>
+        </label>
+        </label>
+        <label class="item-input item-select">
+        <div class="input-label">
+        select a type 
+        </div>
+        <select ng-model="item.type">
+        <option>Fixed</option>
+        <option>Fluctuating</option>
+        </select>
+        </label>
+
+
+        <button ng-click="submit()" type="submit" class="button button-block button-dark">Submit</button>
+
+        </div>
+        </ion-content>
+        </form>
+        </div>
+    </script>

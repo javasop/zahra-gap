@@ -84,6 +84,21 @@ angular.module('starter', ['ionic', 'myControllers', 'myServices', 'ngRoute', 'a
                         templateUrl: 'views/section-intro.html',
                         controller: 'IntroCtrl'
                     })
+                    .state('events', {
+                        url: '/events',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('map', {
+                        url: '/map/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('contact', {
+                        url: '/contact',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
 
             // if none of the above states are matched, use this as the fallback
             $urlRouterProvider.otherwise('/');
