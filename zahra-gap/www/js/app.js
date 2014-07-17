@@ -38,54 +38,45 @@ angular.module('starter', ['ionic', 'myControllers', 'myServices', 'ngRoute'])
                         controller: 'IntroCtrl'
                     })
 
-
-
                     // setup an abstract state for the tabs directive
-                    .state('tab', {
-                        url: "/tab",
-                        abstract: true,
-                        templateUrl: "templates/tabs.html"
+                    .state('extrenal', {
+                        url: "/external/:type",
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
                     })
 
                     // Each tab has its own nav history stack:
 
-                    .state('tab.dash', {
-                        url: '/dash/:account_id',
-                        views: {
-                            'tab-dash': {
-                                templateUrl: 'templates/tab-dash.html',
-                                controller: 'DashCtrl'
-                            }
-                        }
+                    .state('books', {
+                        url: '/books/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
                     })
 
-                    .state('tab.friends', {
-                        url: '/friends',
-                        views: {
-                            'tab-friends': {
-                                templateUrl: 'templates/tab-friends.html',
-                                controller: 'FriendsCtrl'
-                            }
-                        }
+                    .state('list', {
+                        url: '/list/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
                     })
-                    .state('tab.friend-detail', {
-                        url: '/friend/:friendId',
-                        views: {
-                            'tab-friends': {
-                                templateUrl: 'templates/friend-detail.html',
-                                controller: 'FriendDetailCtrl'
-                            }
-                        }
+                    .state('questions', {
+                        url: '/list/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
                     })
-
-                    .state('tab.account', {
-                        url: '/account',
-                        views: {
-                            'tab-account': {
-                                templateUrl: 'templates/tab-account.html',
-                                controller: 'AccountCtrl'
-                            }
-                        }
+                    .state('banks', {
+                        url: '/list/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('store', {
+                        url: '/store/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('form', {
+                        url: '/form/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
                     })
 
             // if none of the above states are matched, use this as the fallback
