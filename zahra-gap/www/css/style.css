@@ -1,10 +1,10 @@
 /* Empty. Add your own CSS if you like */
-.pane{
+body{
     
  background: 
    url(../img/background/font1.png) 20px 30px,
    url(../img/background/font2.png) 10px 10px,
    url(../img/background/font3.png) 50px 10px,
-   url(../img/background/background@2x.png);
+   url(../img/background/background@2x.png)!important;
     
 }

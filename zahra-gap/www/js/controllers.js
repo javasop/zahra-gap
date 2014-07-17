@@ -13,7 +13,7 @@ angular.module('myControllers', [])
 
         })
 
-        .controller('IntroCtrl', function($scope, model,$routeParams) {
+        .controller('IntroCtrl', function($scope, model,$stateParams) {
 
             //we will get the type from the url
             //there's a json with all intros and buttons that
@@ -51,7 +51,7 @@ angular.module('myControllers', [])
                 
             ]
             
-            var type = $routeParams.type;
+            var type = $stateParams.type;
                         
             $scope.intro = intro[type];
 
