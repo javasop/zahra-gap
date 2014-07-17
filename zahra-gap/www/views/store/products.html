@@ -1,0 +1,13 @@
+<ion-view style='background-color:transparent;overflow: visible;margin-top:50px'>
+    <ion-content scroll='true' scrollbar-y="false">
+       <div deckgrid class="deckgrid repeat-item" source="products">
+            <div  class="a-card">
+                <a ng-click='mother.go(card.product_id)'><img height='300px' width="100%" style="padding:10px"  src="" data-ng-src="{{card.featured_image}}" alt="{{card.name}}"></a>
+                <p style="font-size:18px;color:white;text-align:center">{{card.product_name}}</p>
+              
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+

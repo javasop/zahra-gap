@@ -38,8 +38,42 @@ angular.module('myControllers', [])
             search(type)
             console.log($scope.intro);
 
+        })
+        .controller('StoreCtrl', function($scope, model,$rootScope, $stateParams,$location) {
 
+            //we will get the type from the url
+            //there's a json with all intros and buttons that
+            //renders when the view is loaded
+            var ser;
+            if ($stateParams.type == "main") {
+                ser = "store"
+            }
+            else {
 
+                ser = "lamsa"
+            }
+            
+            $scope.go = function(id){
+                $location.path('store/'+$stateParams.type+'/'+id);              
+            }
+            model.get(ser);
 
         })
+        .controller('StoreDetailCtrl', function($scope, model,$rootScope, $stateParams) {
+            
+            //get the product given the id
+            model.search("product_id",$stateParams.product_id,$rootScope.products)
+            $scope.product = $rootScope.result;
+            
+            
+            
+            $scope.addCart = function(prod){
+                
+                
+                
+            }
+    
+
+        })
+
 
