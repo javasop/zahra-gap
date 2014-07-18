@@ -76,9 +76,6 @@ angular.module('myControllers', [])
 
 
 
-
-
-
             //carts Modal
             $ionicModal.fromTemplateUrl('cart.html', {
                 scope: $rootScope,

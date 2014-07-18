@@ -4,7 +4,20 @@
         سلة المشتريات
       </button>
     </ion-nav-buttons>
-    <ion-content scroll='true' scrollbar-y="false">
+    <ion-content scroll='false' scrollbar-y="false">
+
+
+<!-- caresoul -->
+<ul rn-carousel rn-carousel-control class="image">
+<li ng-repeat="img in product.product_images track by $index"> 
+<div class="item item-image">
+<img src="{{img}}">
+</div>
+</li>
+</ul>
+
+<!-- -->
+
 
     </ion-content>
 </ion-view>
