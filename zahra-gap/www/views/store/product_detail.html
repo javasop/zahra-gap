@@ -16,16 +16,28 @@
 </li>
 </ul>
 
-<!-- price and description -->
-<div>
-<img width="90" height="70"  src={{desc}}>
-<p class >hello<p>
-</div>
-<div style="clear:both" ></div>
-<img width="90" height="70"   style="float:right"  src="{{pricelb}}">
+<div class="" style="background-color: transparent">
 
-<button width="90" height="70"  src="{{button_add}}"></button>
-<img width="100%" class="button"    src="{{button_tweet}}">
+    <a style="background-color:transparent" class="item item-icon-left">
+      <i style="font-size:18px;color:white" class="icon col col-offset-50">{{product.product_price}}</i>
+    <img width="90" height="70"   style="float:right"  src="{{pricelb}}">
+  </a>
+
+  <a style="background-color:transparent" class="item item-icon-left">
+    <i style="font-size:16px;color:white;text-align:right" class="icon">{{product.product_description}}</i>
+    <img width="90" height="70" style="float:right"  src={{desc}}>
+  </a>
+
+</div>
+
+
+<div style="background-color:transparent" class="card">
+  
+    <img  width="90" height="70"  src="{{button_tweet}}">
+    
+    <img ng-click="addCart()" style="float:right" width="90" height="70"  src="{{button_add}}">
+    
+</div>
     </ion-content>
 </ion-view>
 
@@ -47,40 +59,26 @@
 
         </div>
     </ion-header-bar>
+<ion-content>
+        <ion-list show-delete="data.showDelete" canSwipeItems="true">
+                    <ion-item  class="item-icon-left item-icon-right" ng-repeat="item in currentCart" 
+                               item="item">
+              
+            <p style="float:right">
+            {{item.product_name}}
+</p>
 
-        <ion-list  show-delete="data.showDelete" canSwipeItems="true">
-            <div class="card">
-                <div ng-repeat="(type,list) in groups">
-                    <div class="item item-divider">
-                        {{type}} Expenses
-                    </div>
-
-                    <ion-item  class="item-icon-left item-icon-right" ng-repeat="item in list" 
-                               item="item"
-                                ng-dblclick="edit(item)">
-
-                        <i class="icon {{item.icon}}"></i>
-
-                        <p  style="float: right">
-                            {{item.value}}
-
-
-                        </p>
-                        <p style="float: left">
-                            {{ item.name}}
-                        </p>
-
+            <p style="float:left">
+            {{item.product_price}}
+</p>
 
                         <ion-delete-button class="ion-minus-circled" 
                                            ng-click="onItemDelete(item)">
                         </ion-delete-button>
 
-
-                        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
                     </ion-item>
-                </div>
-            </div>
 
         </ion-list>
+</ion-content>
         </div>
     </script>

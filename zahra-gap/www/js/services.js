@@ -23,6 +23,13 @@ angular.module('myServices', ['ngResource'])
                         {"hospitals": "hospitals_list_json"},
                         {"members": "register_a_member"}
                     ]
+                    
+            $rootScope.log = function(ms){
+                
+                
+                console.log(ms);
+                
+            }
 
 
 

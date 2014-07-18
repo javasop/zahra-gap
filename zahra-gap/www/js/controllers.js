@@ -75,8 +75,8 @@ angular.module('myControllers', [])
             stores.get($stateParams.product_id);
             
             
-            $scope.addCart = function(prod) {
-
+            $scope.addCart = function() {
+               $rootScope.currentCart = stores.addCart($rootScope.product);
             }
 
 
