@@ -65,6 +65,11 @@ angular.module('myControllers', [])
 
         .controller('StoreDetailCtrl', function($scope, stores, $rootScope, $stateParams, $ionicModal) {
 
+             var img_folder = "img/sections/stores/";
+             $scope.desc = img_folder+"description_text.png";
+             $scope.pricelb = img_folder+"price_text.png";
+	     $scope.button_add = img_folder+"button_add.png";
+             $scope.button_tweet = img_folder+"button_tweet.png";
 
             //if($rootScope.products == undefined) request it from server
             stores.get($stateParams.product_id);
