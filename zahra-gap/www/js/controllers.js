@@ -39,51 +39,46 @@ angular.module('myControllers', [])
             console.log($scope.intro);
 
         })
-        .controller('StoreCtrl', function($scope, model,$rootScope, $stateParams,$location) {
+        /**
+         * todo: merge stores in one service
+         * @param {type} $scope
+         * @param {type} model
+         * @param {type} $rootScope
+         * @param {type} $stateParams
+         * @param {type} $location
+         * @returns {undefined}
+         */
+        .controller('StoreCtrl', function($scope, $rootScope, $stateParams, $location, stores) {
 
-            //we will get the type from the url
-            //there's a json with all intros and buttons that
-            //renders when the view is loaded
-            var ser;
-            if ($stateParams.type == "main") {
-                ser = "store"
+            $scope.go = function(id) {
+                $location.path('store/' + $stateParams.type + '/' + id);
             }
-            else {
 
-                ser = "lamsa"
-            }
+            stores.get($rootScope);
             
-            $scope.go = function(id){
-                $location.path('store/'+$stateParams.type+'/'+id);              
-            }
-            model.get(ser);
 
         })
-        
-        
-        
-        
-        
-        .controller('StoreDetailCtrl', function($scope, model,$rootScope, $stateParams,$ionicModal) {
-            
-            
-            //if($rootScope.products == undefined) request it from server
 
-    
-            model.search("product_id",$stateParams.product_id,$rootScope.products)
-            $scope.product = $rootScope.result;
+
+
+
+
+        .controller('StoreDetailCtrl', function($scope, stores, $rootScope, $stateParams, $ionicModal) {
+
+
+            //if($rootScope.products == undefined) request it from server
+            stores.get($stateParams.product_id);
             
             
-            
-            $scope.addCart = function(prod){
-                             
+            $scope.addCart = function(prod) {
+
             }
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
             //carts Modal
             $ionicModal.fromTemplateUrl('cart.html', {
                 scope: $rootScope,
@@ -97,11 +92,11 @@ angular.module('myControllers', [])
             $rootScope.closeModal = function() {
                 $rootScope.modal.hide();
             };
-	    $rootScope.submit = function(){
-		$rootScope.closeModal();
-		$scope.sync($scope.item);
+            $rootScope.submit = function() {
+                $rootScope.closeModal();
+                $scope.sync($scope.item);
 
-	    }
+            }
             //Cleanup the modal when we're done with it!
             $rootScope.$on('$destroy', function() {
                 $rootScope.modal.remove();
@@ -114,7 +109,7 @@ angular.module('myControllers', [])
             $rootScope.$on('modal.removed', function() {
                 // Execute action
             });
-            
+
 
         })
 

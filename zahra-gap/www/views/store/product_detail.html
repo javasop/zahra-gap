@@ -1,59 +1,66 @@
-{{product}}
+<ion-view style='background-color:transparent;overflow: visible;margin-top:50px'>
+     <ion-nav-buttons side="right">
+      <button class="button button-positive" ng-click="openModal()">
+        سلة المشتريات
+      </button>
+    </ion-nav-buttons>
+    <ion-content scroll='true' scrollbar-y="false">
 
-
-
-
-
-
-
-
-
-
-
-
-
+    </ion-content>
+</ion-view>
 
 
     <!-- Modal -->   
     <script id="cart.html" type="text/ng-template">
         <div class="modal">
-        <ion-header-bar>   
-        <h1 class="title">Add Expense</h1>
-        <button class="button button-icon icon ion-close-round" 
+    <ion-header-bar  class="bar-positive">
+        <div class="buttons">
+        
+                  <button class="button button-icon icon ion-close-round" 
         ng-click="closeModal()"></button>
-        </ion-header-bar>
-      <form  >
-        <ion-content>
-        <div class="list">
-        <label class="item item-input">
-        <input type="text"  ng-model="item.name" placeholder="Expense Name" required>
-        </label>
-        <label class="item item-input">
-        <input type="number"  ng-model="item.value" name="hello" placeholder="Amount" required>
-        </label>
-        <label class="item-input item-select">
-        <div class="input-label">
-        select an icon
-        </div>
-	<button ng-click="openIconsModal()" class="button button-block button-dark"><i class=
-"icon {{item.icon}}"></i></button>
-        </label>
-        </label>
-        <label class="item-input item-select">
-        <div class="input-label">
-        select a type 
-        </div>
-        <select ng-model="item.type">
-        <option>Fixed</option>
-        <option>Fluctuating</option>
-        </select>
-        </label>
 
 
-        <button ng-click="submit()" type="submit" class="button button-block button-dark">Submit</button>
+           <!--go back one month --> <h1  class="title header-text"> سلة المشتريات</h1>
+            <button class="button button-icon" 
+                    ng-click="data.showDelete = !data.showDelete;
+                        data.showReorder = false">تعديل</button>
 
         </div>
-        </ion-content>
-        </form>
+    </ion-header-bar>
+
+        <ion-list  show-delete="data.showDelete" canSwipeItems="true">
+            <div class="card">
+                <div ng-repeat="(type,list) in groups">
+                    <div class="item item-divider">
+                        {{type}} Expenses
+                    </div>
+
+                    <ion-item  class="item-icon-left item-icon-right" ng-repeat="item in list" 
+                               item="item"
+                                ng-dblclick="edit(item)">
+
+                        <i class="icon {{item.icon}}"></i>
+
+                        <p  style="float: right">
+                            {{item.value}}
+
+
+                        </p>
+                        <p style="float: left">
+                            {{ item.name}}
+                        </p>
+
+
+                        <ion-delete-button class="ion-minus-circled" 
+                                           ng-click="onItemDelete(item)">
+                        </ion-delete-button>
+
+
+                        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+                    </ion-item>
+                </div>
+            </div>
+
+        </ion-list>
         </div>
     </script>
