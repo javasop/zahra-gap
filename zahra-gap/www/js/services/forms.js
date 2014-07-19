@@ -1,5 +1,5 @@
 angular.module('starter')
-        .service('stores', function($resource, $rootScope, $http, $ionicLoading, model, $stateParams, $ionicPopup, $location) {
+        .service('forms', function($resource, $rootScope, $http, $ionicLoading, model, $stateParams, $ionicPopup, $location) {
 
 
             this.products = "hello";
@@ -115,42 +115,12 @@ angular.module('starter')
 
                 //this will have both the item and the value
                 var ser = checkStore();
-
+                
                 //delete the item from current cart
                 var index = $rootScope.currentCart.indexOf(item);
+                
+                $rootScope.currentCart.splice(0,1);
 
-                $rootScope.currentCart.splice(0, 1);
-
-
-
-            }
-            this.checkCoupon = function(number) {
-
-                //call the service to check the coupon
-
-                //prepare the coupon param
-                var cop = {cc: number}
-                var temp = '... جاري التحقق من الكوبون';
-                model.get("verify_coupon", cop, temp).success(function(a) {
-                    $ionicLoading.hide();
-                    if (a == "No code") {
-                        var alertPopup = $ionicPopup.alert({
-                            title: '<p class="alert">لم يتم العثور علئ الكوبون</p>',
-                            template: 'الرجاء التأكد من الرقم '
-                        });
-
-                    }
-                    else {
-                        
-                        var tm = "%"+parseInt(a.value)+" "+'قيمة الخصم ';
-                        var alertPopup = $ionicPopup.alert({
-                            title: '<p class="success"> تم العثور علئ الكوبون</p>',
-                            template: tm
-                        });
-
-                    }
-
-                });
 
 
             }

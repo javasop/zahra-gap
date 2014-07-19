@@ -54,7 +54,7 @@ angular.module('myControllers', [])
                 $location.path('store/' + $stateParams.type + '/' + id);
             }
 
-            stores.get($rootScope);
+            stores.get();
             
 
         })
@@ -120,7 +120,12 @@ angular.module('myControllers', [])
         
         .controller('BuyCtrl', function($scope, $rootScope, $stateParams, $location, stores) {
             
-            
+            $scope.co = {cc:""};
+    
+            $scope.checkCoupon = function(){
+               //send request
+               stores.checkCoupon($scope.co.cc);
+            }
 
         })
 
