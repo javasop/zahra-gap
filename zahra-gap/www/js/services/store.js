@@ -1,12 +1,37 @@
 angular.module('starter')
-        .service('stores', function($resource, $rootScope, $http, $ionicLoading, model, $stateParams, $ionicPopup) {
+        .service('stores', function($resource, $rootScope, $http, $ionicLoading, model, $stateParams, $ionicPopup, $location) {
 
 
             this.products = "hello";
 
+
+            this.go = function() {
+
+                if ($rootScope.currentCart.length > 0) {
+                    $rootScope.modal.hide();
+                    $location.path('/buy');
+                }
+                else {
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: '<p class="alert">سلة المشتريات فارغة</p>',
+                        template: 'الرجاء اضافة منتج لاتمام عملية الشراء'
+                    });
+
+                }
+
+            }
+
             function update() {
 
                 //loop through the items and update the total?
+                if ($rootScope.currentCart != undefined) {
+                    $rootScope.total = 0;
+                    $rootScope.currentCart.forEach(function(el) {
+
+                        $rootScope.total = $rootScope.total + parseInt(el.product_price);
+                    })
+                }
 
             }
 
@@ -32,17 +57,11 @@ angular.module('starter')
 
             }
 
-            $rootScope.$watchCollection("cart.main", function(n, d) {
+            $rootScope.currency = "ريال"
 
+            $rootScope.$watchCollection("currentCart", function(n, d) {
                 update();
-
             })
-            $rootScope.$watchCollection("cart.lamsa", function(n, d) {
-
-                update();
-
-            })
-
 
             this.get = function(id) {
 
@@ -63,19 +82,44 @@ angular.module('starter')
 
                 //this will have both the item and the value
                 var ser = checkStore();
-                
-                $rootScope.cart[ser].push(item);
-                
-                //check if the item is in the cart already .. 
-                
-                var alertPopup = $ionicPopup.alert({
-                    title: 'تم اضافة المنتج',
-                    template: 'المنتج موجود حاليا في سلة المشتريات'
-                });
-                alertPopup.then(function(res) {
-                    console.log('Thank you for not eating my delicious ice cream cone');
-                });
+
+                //check if the item is in the cart already ..
+                if (model.search("product_id", item.product_id, $rootScope.currentCart)) {
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: '<p class="alert">تم اضافة المنتج مسبقا  </p>',
+                        template: 'المنتج موجود حاليا في سلة المشتريات'
+                    });
+
+
+                }
+
+                else {
+                    $rootScope.cart[ser].push(item);
+                    var alertPopup = $ionicPopup.alert({
+                        title: '<p class="success">تم اضافة المنتج</p>',
+                        template: 'المنتج موجود حاليا في سلة المشتريات'
+                    });
+                    alertPopup.then(function(res) {
+                        console.log('Thank you for not eating my delicious ice cream cone');
+                    });
+
+                }
+
                 return $rootScope.cart[ser]
+
+
+
+            }
+            this.deleteCart = function(item) {
+
+                //this will have both the item and the value
+                var ser = checkStore();
+                
+                //delete the item from current cart
+                var index = $rootScope.currentCart.indexOf(item);
+                
+                $rootScope.currentCart.splice(0,1);
 
 
 

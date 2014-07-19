@@ -63,7 +63,7 @@ angular.module('myControllers', [])
 
 
 
-        .controller('StoreDetailCtrl', function($scope, stores, $rootScope, $stateParams, $ionicModal) {
+        .controller('StoreDetailCtrl', function($scope, stores, $rootScope, $stateParams,$location, $ionicModal,$ionicPopup) {
 
              var img_folder = "img/sections/stores/";
              $scope.desc = img_folder+"description_text.png";
@@ -74,12 +74,17 @@ angular.module('myControllers', [])
             //if($rootScope.products == undefined) request it from server
             stores.get($stateParams.product_id);
             
+            $rootScope.go = stores.go;
             
             $scope.addCart = function() {
                $rootScope.currentCart = stores.addCart($rootScope.product);
             }
-
-
+            
+            $rootScope.deleteCart = function(item){
+                stores.deleteCart(item);
+                
+            }
+            
 
             //carts Modal
             $ionicModal.fromTemplateUrl('cart.html', {
@@ -96,8 +101,6 @@ angular.module('myControllers', [])
             };
             $rootScope.submit = function() {
                 $rootScope.closeModal();
-                $scope.sync($scope.item);
-
             }
             //Cleanup the modal when we're done with it!
             $rootScope.$on('$destroy', function() {
@@ -114,5 +117,12 @@ angular.module('myControllers', [])
 
 
         })
+        
+        .controller('BuyCtrl', function($scope, $rootScope, $stateParams, $location, stores) {
+            
+            
+
+        })
+
 
 
