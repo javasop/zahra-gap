@@ -8,8 +8,17 @@ body{
    url(../img/background/background@2x.png)!important;
     
 }
+.slider-pager .slider-pager-page{
+color:white;
+}
+.slider-pager{
+position:static;
+max-width:90%
+}
 
-
+.slider{
+overflow:inherit;
+}
 .responsive {
     height:300px;
     width: 44%;

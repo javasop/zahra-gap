@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','myControllers','myServices','ngRoute'])
+angular.module('starter', ['ionic', 'myControllers', 'myServices', 'ngRoute', 'akoenig.deckgrid', 'angular-carousel'])
 
         .run(function($ionicPlatform) {
             $ionicPlatform.ready(function() {
@@ -17,25 +17,96 @@ angular.module('starter', ['ionic','myControllers','myServices','ngRoute'])
                 }
             });
         })
-        .config(function($routeProvider) {
+        .config(function($stateProvider, $urlRouterProvider) {
 
-            $routeProvider
-                    .when('/', {
-                        //this will display the beginnings of each section according to a json 
+
+            // Ionic uses AngularUI Router which uses the concept of states
+            // Learn more here: https://github.com/angular-ui/ui-router
+            // Set up the various states which the app can be in.
+            // Each state's controller can be found in controllers.js
+            $stateProvider
+
+                    //login page leading --> accounts
+                    .state('main', {
+                        url: "/",
                         templateUrl: 'views/main.html',
                         controller: 'MainCtrl'
                     })
-                    .when('/intro/:type', {
-                        //this will display the beginnings of each section according to a json 
+
+                    .state('intro', {
+                        url: "/intro/:type",
                         templateUrl: 'views/section-intro.html',
                         controller: 'IntroCtrl'
                     })
-                    .when('/about', {
-                        templateUrl: 'views/about.html',
-                        controller: 'AboutCtrl'
+
+                    // setup an abstract state for the tabs directive
+                    .state('extrenal', {
+                        url: "/external/:type",
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
                     })
-                    .otherwise({
-                        redirectTo: '/'
-                    });
+
+                    // Each tab has its own nav history stack:
+
+                    .state('books', {
+                        url: '/books/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+
+                    .state('list', {
+                        url: '/list/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('questions', {
+                        url: '/list/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('banks', {
+                        url: '/list/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('store', {
+                        url: '/store/:type',
+                        templateUrl: 'views/store/products.html',
+                        controller: 'StoreCtrl'
+                    })
+                    .state('storeDetail', {
+                        url: '/store/:type/:product_id',
+                        templateUrl: 'views/store/product_detail.html',
+                        controller: 'StoreDetailCtrl'
+                    })
+                    .state('buy', {
+                        url: '/buy',
+                        templateUrl: 'views/store/buy.html',
+                        controller: 'BuyCtrl'
+                    })
+                    .state('form', {
+                        url: '/form/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('events', {
+                        url: '/events',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('map', {
+                        url: '/map/:type',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+                    .state('contact', {
+                        url: '/contact',
+                        templateUrl: 'views/section-intro.html',
+                        controller: 'IntroCtrl'
+                    })
+
+            // if none of the above states are matched, use this as the fallback
+            $urlRouterProvider.otherwise('/');
 
         })
+
