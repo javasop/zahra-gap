@@ -24,13 +24,11 @@ angular.module('starter')
             }
 
             function update() {
-
                 //loop through the items and update the total?
                 if ($rootScope.currentCart != undefined) {
                     $rootScope.total = {discounted: false, value: 0};
                     $rootScope.currentCart.forEach(function(el) {
-
-                        $rootScope.total.value = $rootScope.total.value + parseInt(el.product_price);
+                        $rootScope.total.value = $rootScope.total.value + (parseInt(el.product_price)*el.quantity);
                     })
                 }
 
@@ -63,6 +61,11 @@ angular.module('starter')
             $rootScope.$watchCollection("currentCart", function(n, d) {
                 update();
             })
+            $rootScope.$watch("currentCart", function(n, d) {
+                update();
+            },true)
+
+            
 
             this.get = function(id) {
 
@@ -83,7 +86,7 @@ angular.module('starter')
 
                 //this will have both the item and the value
                 var ser = checkStore();
-
+                item["quantity"] = 1;
                 //check if the item is in the cart already ..
                 if (model.search("product_id", item.product_id, $rootScope.currentCart)) {
 
@@ -100,9 +103,6 @@ angular.module('starter')
                     var alertPopup = $ionicPopup.alert({
                         title: '<p class="success">تم اضافة المنتج</p>',
                         template: 'المنتج موجود حاليا في سلة المشتريات'
-                    });
-                    alertPopup.then(function(res) {
-                        console.log('Thank you for not eating my delicious ice cream cone');
                     });
 
                 }

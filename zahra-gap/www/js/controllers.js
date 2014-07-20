@@ -133,6 +133,7 @@ angular.module('myControllers', [])
             $scope.co = {cc: ""};
 
 
+
             $scope.checkCoupon = function() {
                 //send request
                 stores.checkCoupon($scope.co.cc);
@@ -154,18 +155,22 @@ angular.module('myControllers', [])
                         "email": null,
                         "phone": null
                     }
-            
-            
+
+
+
+
+
 
 
             $scope.submit = function() {
 
-                if(stores.validate($scope.forms)){
-                    
+                if (stores.validate($scope.forms)) {
+
                     //now you can submit the order ...
                     stores.submitOrder($scope.forms);
-                    
-                };
+
+                }
+                ;
 
 
 
