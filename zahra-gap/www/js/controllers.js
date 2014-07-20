@@ -2,6 +2,16 @@ angular.module('myControllers', [])
 
         .controller('MainCtrl', function($rootScope, model, $http, $ionicLoading) {
 
+            // Depending on the device, a few examples are:
+//   - "Android"
+//   - "BlackBerry"
+//   - "iOS"
+//   - "webOS"
+//   - "WinCE"
+//   - "Tizen"
+// checking the device platform
+//var devicePlatform = device.platform;
+
 
 
         })
@@ -55,7 +65,7 @@ angular.module('myControllers', [])
             }
 
             stores.get();
-            
+
 
         })
 
@@ -63,28 +73,28 @@ angular.module('myControllers', [])
 
 
 
-        .controller('StoreDetailCtrl', function($scope, stores, $rootScope, $stateParams,$location, $ionicModal,$ionicPopup) {
+        .controller('StoreDetailCtrl', function($scope, stores, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup) {
 
-             var img_folder = "img/sections/stores/";
-             $scope.desc = img_folder+"description_text.png";
-             $scope.pricelb = img_folder+"price_text.png";
-	     $scope.button_add = img_folder+"button_add.png";
-             $scope.button_tweet = img_folder+"button_tweet.png";
+            var img_folder = "img/sections/stores/";
+            $scope.desc = img_folder + "description_text.png";
+            $scope.pricelb = img_folder + "price_text.png";
+            $scope.button_add = img_folder + "button_add.png";
+            $scope.button_tweet = img_folder + "button_tweet.png";
 
             //if($rootScope.products == undefined) request it from server
             stores.get($stateParams.product_id);
-            
+
             $rootScope.go = stores.go;
-            
+
             $scope.addCart = function() {
-               $rootScope.currentCart = stores.addCart($rootScope.product);
+                $rootScope.currentCart = stores.addCart($rootScope.product);
             }
-            
-            $rootScope.deleteCart = function(item){
+
+            $rootScope.deleteCart = function(item) {
                 stores.deleteCart(item);
-                
+
             }
-            
+
 
             //carts Modal
             $ionicModal.fromTemplateUrl('cart.html', {
@@ -117,15 +127,51 @@ angular.module('myControllers', [])
 
 
         })
-        
+
         .controller('BuyCtrl', function($scope, $rootScope, $stateParams, $location, stores) {
-            
-            $scope.co = {cc:""};
-    
-            $scope.checkCoupon = function(){
-               //send request
-               stores.checkCoupon($scope.co.cc);
+
+            $scope.co = {cc: ""};
+
+
+            $scope.checkCoupon = function() {
+                //send request
+                stores.checkCoupon($scope.co.cc);
+
             }
+
+        })
+        .controller('CheckoutCtrl', function($scope, $rootScope, $stateParams, $location, stores, $ionicPopup) {
+
+            //still using currentCart for the store
+            $scope.forms =
+                    {
+                        "first_name": null,
+                        "last_name": null,
+                        "address": null,
+                        "city": null,
+                        "region": null,
+                        "district": null,
+                        "email": null,
+                        "phone": null
+                    }
+            
+            
+
+
+            $scope.submit = function() {
+
+                if(stores.validate($scope.forms)){
+                    
+                    //now you can submit the order ...
+                    stores.submitOrder($scope.forms);
+                    
+                };
+
+
+
+            }
+
+
 
         })
 

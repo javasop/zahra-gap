@@ -46,6 +46,13 @@ overflow:inherit;
     text-align: center;
     
 }
+.red{
+    
+   color:red!important;
+}
+.green{
+    color:green!important;
+}
 .item-content{
     
     padding:10px;
