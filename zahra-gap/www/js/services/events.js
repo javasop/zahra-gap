@@ -69,19 +69,42 @@ angular.module('starter')
 
             this.get = function(id) {
 
-                var ser = checkStore();
-                model.get(ser).success(function(a) {
+                model.get("events").success(function(a) {
                     $ionicLoading.hide();
-                    $rootScope.products = a;
+                    $rootScope.events = a;
+                    console.log(a);
+                    $rootScope.marks = [];
+                    formatDates($rootScope.marks)
                     if (id) {
-                        var product_id = $stateParams.product_id;
-                        $rootScope.product = model.search("product_id", product_id, $rootScope.products);
-                        $rootScope.currentCart = $rootScope.cart[ser];
+                        $rootScope.event = model.search("event_id", id, $rootScope.events);
+                        console.log($rootScope.event);
                     }
 
                 })
 
             };
+            
+            function formatDates (obj){
+                var d;
+
+                $rootScope.events.forEach(function(el){
+                    
+                    var mark = {date:null,name:null,id:null};
+                    d = new Date(el.event_start_date);
+                    
+
+                    //it's not know why it's showing the previous day, I am assuming it's parsing
+                    d.setDate(d.getDate()+1)
+                    mark.date = d;
+                    mark.name = el.event_name;
+                    mark.id = el.event_id;
+                    obj.push(mark);
+                    
+  
+                })
+                
+                
+            }
             this.addCart = function(item) {
 
                 //this will have both the item and the value

@@ -158,10 +158,6 @@ angular.module('myControllers', [])
 
 
 
-
-
-
-
             $scope.submit = function() {
 
                 if (stores.validate($scope.forms)) {
@@ -182,5 +178,78 @@ angular.module('myControllers', [])
 
         .controller('EventCtrl', function($scope, $rootScope, $stateParams, $location, events) {
 
+            //get the events list
+            // look for the days where there's events, call update to add all events to the calendar and mark them?
+
+
+            events.get();
+
+            $scope.sel = [];
+            $scope.clicked = function(day) {
+                $scope.sel = [];
+                //find the event on marks list
+                $rootScope.marks.forEach(function(el) {
+
+                    if (day.getDate() == el.date.getDate()) {
+                        $scope.sel.push(el);
+                    }
+
+                })
+
+            }
+
+
         })
 
+        .controller('EventDetailCtrl', function($scope, $rootScope, $stateParams, $location, events, $ionicModal) {
+
+            //get the events list
+            // look for the days where there's events, call update to add all events to the calendar and mark them?
+            var img_folder = "img/sections/events/";
+            $scope.place = img_folder + "place_text.png";
+            $scope.time = img_folder + "time_text.png";
+            $scope.price = img_folder + "price_text.png";
+            $scope.desc = img_folder + "description_text.png"
+            $scope.zoom_text = img_folder + "zoom_text.png";
+
+
+            events.get($stateParams.id);
+
+            $scope.map = {
+                center: {
+                    latitude: 45,
+                    longitude: -73
+                },
+                zoom: 8
+            };
+//google.maps.event.trigger(map, 'resize')
+            //map Modal
+            $ionicModal.fromTemplateUrl('map.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $scope.mapModal = modal;
+            });
+            $scope.openModal = function() {
+                $scope.mapModal.show();
+            };
+            $scope.closeModal = function() {
+                $scope.mapModal.hide();
+            };
+            $scope.submit = function() {
+                $scope.closeModal();
+            }
+            //Cleanup the modal when we're done with it!
+            $scope.$on('$destroy', function() {
+                $scope.mapModal.remove();
+            });
+            // Execute action on hide modal
+            $scope.$on('modal.hidden', function() {
+                // Execute action
+            });
+            // Execute action on remove modal
+            $scope.$on('modal.removed', function() {
+                // Execute action
+            });
+
+        })

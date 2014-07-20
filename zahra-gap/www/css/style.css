@@ -8,6 +8,9 @@ body{
    url(../img/background/background@2x.png)!important;
     
 }
+.angular-google-map-container { 
+    height: 600px;
+}
 .slider-pager .slider-pager-page{
 color:white;
 }
