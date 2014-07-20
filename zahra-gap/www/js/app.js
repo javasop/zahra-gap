@@ -91,8 +91,8 @@ angular.module('starter', ['ionic','myFilters','myDirectives' ,'myControllers', 
                     })
                     .state('events', {
                         url: '/events',
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                        templateUrl: 'views/events/calendar.html',
+                        controller: 'EventCtrl'
                     })
                     .state('map', {
                         url: '/map/:type',

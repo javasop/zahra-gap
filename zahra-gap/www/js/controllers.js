@@ -180,5 +180,7 @@ angular.module('myControllers', [])
 
         })
 
+        .controller('EventCtrl', function($scope, $rootScope, $stateParams, $location, events) {
 
+        })
 

@@ -1,225 +1,121 @@
 angular.module('starter')
         .service('stores', function($resource, $rootScope, $http, $ionicLoading, model, $stateParams, $ionicPopup, $location) {
 
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    
+    this.changeTo = 'Hungarian';
+    /* event source that pulls from google.com */
+    this.eventSource = {
+            url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+            className: 'gcal-event',           // an option!
+            currentTimezone: 'America/Chicago' // an option!
+    };
+    /* event source that contains custom events on the scope */
+    this.events = [
+      {title: 'All Day Event',start: new Date(y, m, 1)},
+      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
+      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
+      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
+      {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
+      {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+    ];
+    /* event source that calls a function on every view switch */
+    this.eventsF = function (start, end, callback) {
+      var s = new Date(start).getTime() / 1000;
+      var e = new Date(end).getTime() / 1000;
+      var m = new Date(start).getMonth();
+      var events = [{title: 'Feed Me ' + m,start: s + (50000),end: s + (100000),allDay: false, className: ['customFeed']}];
+      callback(events);
+    };
 
-            this.products = "hello";
+    this.calEventsExt = {
+       color: '#f00',
+       textColor: 'yellow',
+       events: [ 
+          {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+          {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+          {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+        ]
+    };
+    /* alert on eventClick */
+    $scope.alertOnEventClick = function( event, allDay, jsEvent, view ){
+        $scope.alertMessage = (event.title + ' was clicked ');
+    };
+    /* alert on Drop */
+     $scope.alertOnDrop = function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view){
+       $scope.alertMessage = ('Event Droped to make dayDelta ' + dayDelta);
+    };
+    /* alert on Resize */
+    $scope.alertOnResize = function(event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view ){
+       $scope.alertMessage = ('Event Resized to make dayDelta ' + minuteDelta);
+    };
+    /* add and removes an event source of choice */
+    this.addRemoveEventSource = function(sources,source) {
+      var canAdd = 0;
+      angular.forEach(sources,function(value, key){
+        if(sources[key] === source){
+          sources.splice(key,1);
+          canAdd = 1;
+        }
+      });
+      if(canAdd === 0){
+        sources.push(source);
+      }
+    };
+    /* add custom event*/
+    this.addEvent = function() {
+      $scope.events.push({
+        title: 'Open Sesame',
+        start: new Date(y, m, 28),
+        end: new Date(y, m, 29),
+        className: ['openSesame']
+      });
+    };
+    /* remove event */
+    $scope.remove = function(index) {
+      $scope.events.splice(index,1);
+    };
+    /* Change View */
+    $scope.changeView = function(view,calendar) {
+      calendar.fullCalendar('changeView',view);
+    };
+    /* Change View */
+    $scope.renderCalender = function(calendar) {
+      calendar.fullCalendar('render');
+    };
+    /* config object */
+    $scope.uiConfig = {
+      calendar:{
+        height: 450,
+        editable: true,
+        header:{
+          left: 'title',
+          center: '',
+          right: 'today prev,next'
+        },
+        eventClick: $scope.alertOnEventClick,
+        eventDrop: $scope.alertOnDrop,
+        eventResize: $scope.alertOnResize
+      }
+    };
 
-
-
-            this.go = function() {
-
-                if ($rootScope.currentCart.length > 0) {
-                    $rootScope.modal.hide();
-                    $location.path('/buy');
-                }
-                else {
-
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="alert">سلة المشتريات فارغة</p>',
-                        template: 'الرجاء اضافة منتج لاتمام عملية الشراء'
-                    });
-
-                }
-
-            }
-
-            function update() {
-                //loop through the items and update the total?
-                if ($rootScope.currentCart != undefined) {
-                    $rootScope.total = {discounted: false, value: 0};
-                    $rootScope.currentCart.forEach(function(el) {
-                        $rootScope.total.value = $rootScope.total.value + (parseInt(el.product_price)*el.quantity);
-                    })
-                }
-
-            }
-
-            function checkStore() {
-
-                var ser;
-                if ($stateParams.type == "main") {
-                    ser = "store"
-                }
-                else {
-
-                    ser = "lamsa"
-                }
-
-                return ser;
-
-            }
-
-            //store in cart all the values
-            $rootScope.cart = {
-                "store": [],
-                "lamsa": []
-
-            }
-
-            $rootScope.currency = "ريال"
-
-            $rootScope.$watchCollection("currentCart", function(n, d) {
-                update();
-            })
-            $rootScope.$watch("currentCart", function(n, d) {
-                update();
-            },true)
-
-            
-
-            this.get = function(id) {
-
-                var ser = checkStore();
-                model.get(ser).success(function(a) {
-                    $ionicLoading.hide();
-                    $rootScope.products = a;
-                    if (id) {
-                        var product_id = $stateParams.product_id;
-                        $rootScope.product = model.search("product_id", product_id, $rootScope.products);
-                        $rootScope.currentCart = $rootScope.cart[ser];
-                    }
-
-                })
-
-            };
-            this.addCart = function(item) {
-
-                //this will have both the item and the value
-                var ser = checkStore();
-                item["quantity"] = 1;
-                //check if the item is in the cart already ..
-                if (model.search("product_id", item.product_id, $rootScope.currentCart)) {
-
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="alert">تم اضافة المنتج مسبقا  </p>',
-                        template: 'المنتج موجود حاليا في سلة المشتريات'
-                    });
-
-
-                }
-
-                else {
-                    $rootScope.cart[ser].push(item);
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="success">تم اضافة المنتج</p>',
-                        template: 'المنتج موجود حاليا في سلة المشتريات'
-                    });
-
-                }
-
-                return $rootScope.cart[ser]
-
-
-
-            }
-            this.deleteCart = function(item) {
-
-                //this will have both the item and the value
-                var ser = checkStore();
-
-                //delete the item from current cart
-                var index = $rootScope.currentCart.indexOf(item);
-
-                $rootScope.currentCart.splice(0, 1);
-
-
-
-            }
-            this.checkCoupon = function(number) {
-
-                //call the service to check the coupon
-
-                //prepare the coupon param
-                var cop = {cc: number}
-                if ($rootScope.total.discounted) {
-                    //if the total is already discounted
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="alert">قيمة الخصم مضافة سابقا</p>'
-                    });
-
-                }
-                else {
-                    var temp = '... جاري التحقق من الكوبون';
-                    model.get("verify_coupon", cop, temp).success(function(a) {
-                        $ionicLoading.hide();
-                        if (a == "No code") {
-                            var alertPopup = $ionicPopup.alert({
-                                title: '<p class="alert">لم يتم العثور علئ الكوبون</p>',
-                                template: 'الرجاء التأكد من الرقم '
-                            });
-
-                        }
-                        else {
-
-                            var tm = "%" + parseInt(a.value) + " " + 'قيمة الخصم ';
-                            var alertPopup = $ionicPopup.alert({
-                                title: '<p class="success"> تم العثور علئ الكوبون</p>',
-                                template: tm
-                            });
-
-                            //subtract the percentage of the coupon from the total?
-                            $rootScope.total.value = $rootScope.total.value - (parseInt(a.value) / 100) * $rootScope.total.value;
-                            $rootScope.total.discounted = true;
-                        }
-
-                    });
-                }
-
-
-            }
-            this.submitOrder = function(ord) {
-
-                //order is the form info
-                //send the request in two parts, one is for the forms, the other with the products
-                var temp ='... الطلب قيد التنفيذ' 
-                
-                var arrod = [];
-                
-                for(el in ord){
-                    arrod.push(ord[el])
-                }
-                
-                console.log($rootScope.currentCart);
-
-     
-                model.get("order",{order:ord,product:$rootScope.currentCart},temp).success(function(a){
-                    
-                    console.log(a);
-                    
-                });
-
-
-            }
-
-            this.validate = function(obj) {
-
-                var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>'
-                var email = '<p class="alert">البريد الالكتروني غير صحيح</p>'
-
-                var valid = model.formEmpty(obj);
-                if (!valid) {
-                    if (obj["email"] == undefined) {
-
-                        var alertPopup = $ionicPopup.alert({
-                            title: empty + email
-                        });
-
-                    }
-                    else {
-
-                        var alertPopup = $ionicPopup.alert({
-                            title: empty
-                        });
-
-
-                    }
-                    return false;
-
-                }
-                
-                return true;
-
-            }
+    $scope.changeLang = function() {
+      if($scope.changeTo === 'Hungarian'){
+        $scope.uiConfig.calendar.dayNames = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+        $scope.uiConfig.calendar.dayNamesShort = ["Vas", "Hét", "Kedd", "Sze", "Csüt", "Pén", "Szo"];
+        $scope.changeTo= 'English';
+      } else {
+        $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        $scope.changeTo = 'Hungarian';
+      }
+    };
+    /* event sources array*/
+    $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
+    $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
 
 
         });
