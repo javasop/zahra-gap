@@ -215,13 +215,46 @@ angular.module('myControllers', [])
 
             events.get($stateParams.id);
 
+
+
+            //$scope.marker = [{latitude:$rootScope.event.location_latitude,longitude:$rootScope.event.location_longitude}]
+
+            //console.log($rootScope);
+
             $scope.map = {
                 center: {
-                    latitude: 45,
-                    longitude: -73
+                    latitude: 24.6757,
+                    longitude: 46.6701
                 },
-                zoom: 8
+                zoom: 8,
+                control: {},
+                events: {
+                    resize: function() {
+
+                    }
+                }
             };
+
+            $scope.searchLocationMarker = {
+                coords: {}
+            }
+
+            $rootScope.$watch('event', function(n, d) {
+
+                //when event is updated
+                if (n != undefined) {
+                    $scope.searchLocationMarker.coords = $scope.map.center = {
+                        latitude: $rootScope.event.location_latitude,
+                        longitude: $rootScope.event.location_longitude
+                    }
+
+                }
+
+            })
+
+
+
+
 //google.maps.event.trigger(map, 'resize')
             //map Modal
             $ionicModal.fromTemplateUrl('map.html', {
@@ -232,6 +265,9 @@ angular.module('myControllers', [])
             });
             $scope.openModal = function() {
                 $scope.mapModal.show();
+
+                $scope.map.control.refresh();
+
             };
             $scope.closeModal = function() {
                 $scope.mapModal.hide();
@@ -251,5 +287,52 @@ angular.module('myControllers', [])
             $scope.$on('modal.removed', function() {
                 // Execute action
             });
+
+        })
+        .controller('TicketCtrl', function($scope, $rootScope, $stateParams, $location, events) {
+
+            //get the events list
+            // look for the days where there's events, call update to add all events to the calendar and mark them?
+            [{"ticket_id": "28", "ticket_name": "Standard Ticket", "ticket_spaces": "10", "booked_spaces": "10", "remaining_spaces": "-10", "ticket_price": "500.00"}]
+
+            events.getTickets();
+
+            $scope.checked = [];
+            
+            $scope.current;
+            
+          
+
+            //check one box only
+            $scope.change = function(index) {              
+                $scope.checked.forEach(function(el) {
+                    //if($scope.checked.indexOf(true))
+                    i = $scope.checked.indexOf(el);
+                    
+                    if (i != $scope.current) {
+                        $scope.checked[i] = false;
+                    }
+
+                });
+                
+                //check the availabilit of the tickets and change the nav button accordingly
+                var remaining = parseInt($rootScope.tickets[index].remaining_spaces);
+                if(!remaining || remaining  > 0){
+                    $scope.nav_text = "حجز";
+                }
+                else{
+                    
+                    $scope.nav_text = "حجز انتظار";
+                    
+                }
+                
+            }
+
+
+
+
+
+            
+
 
         })

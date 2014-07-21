@@ -13,7 +13,7 @@ angular.module('myServices', ['ngResource'])
                         {"verify_coupon": "verify_coupon"},
                         {"order": "place_new_order"},
                         {"events": "events_list_new_json"},
-                        {"tickets": "tickets_list_json($event_id)"},
+                        {"tickets": "tickets_list_json"},
                         {"ask": "ask_question"},
                         {"questions": "get_all_questions"},
                         {"articles": "get_all_articles"},

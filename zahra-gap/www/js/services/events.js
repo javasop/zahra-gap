@@ -4,86 +4,6 @@ angular.module('starter')
 
             this.products = "hello";
 
-
-
-            this.go = function() {
-
-                if ($rootScope.currentCart.length > 0) {
-                    $rootScope.modal.hide();
-                    $location.path('/buy');
-                }
-                else {
-
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="alert">سلة المشتريات فارغة</p>',
-                        template: 'الرجاء اضافة منتج لاتمام عملية الشراء'
-                    });
-
-                }
-
-            }
-
-            function update() {
-                //loop through the items and update the total?
-                if ($rootScope.currentCart != undefined) {
-                    $rootScope.total = {discounted: false, value: 0};
-                    $rootScope.currentCart.forEach(function(el) {
-                        $rootScope.total.value = $rootScope.total.value + (parseInt(el.product_price)*el.quantity);
-                    })
-                }
-
-            }
-
-            function checkStore() {
-
-                var ser;
-                if ($stateParams.type == "main") {
-                    ser = "store"
-                }
-                else {
-
-                    ser = "lamsa"
-                }
-
-                return ser;
-
-            }
-
-            //store in cart all the values
-            $rootScope.cart = {
-                "store": [],
-                "lamsa": []
-
-            }
-
-            $rootScope.currency = "ريال"
-
-            $rootScope.$watchCollection("currentCart", function(n, d) {
-                update();
-            })
-            $rootScope.$watch("currentCart", function(n, d) {
-                update();
-            },true)
-
-            
-
-            this.get = function(id) {
-
-                model.get("events").success(function(a) {
-                    $ionicLoading.hide();
-                    $rootScope.events = a;
-                    console.log(a);
-                    $rootScope.marks = [];
-                    formatDates($rootScope.marks)
-                    if (id) {
-                        $rootScope.event = model.search("event_id", id, $rootScope.events);
-                        console.log($rootScope.event);
-                    }
-
-                })
-
-            };
-            
             function formatDates (obj){
                 var d;
 
@@ -105,6 +25,53 @@ angular.module('starter')
                 
                 
             }
+
+            this.go = function() {
+
+                if ($rootScope.currentCart.length > 0) {
+                    $rootScope.modal.hide();
+                    $location.path('/buy');
+                }
+                else {
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: '<p class="alert">سلة المشتريات فارغة</p>',
+                        template: 'الرجاء اضافة منتج لاتمام عملية الشراء'
+                    });
+
+                }
+
+            }
+
+            
+
+            this.get = function(id) {
+
+                model.get("events").success(function(a) {
+                    $ionicLoading.hide();
+                    $rootScope.events = a;
+                    console.log(a);
+                    $rootScope.marks = [];
+                    formatDates($rootScope.marks)
+                    if (id) {
+                        $rootScope.event = model.search("event_id", id, $rootScope.events);
+                        console.log($rootScope.event);
+                    }
+
+                })
+
+            };
+            
+            this.getTickets = function(){
+                
+                //get tickets for the current event              
+                model.get("tickets",{event_id:$rootScope.event.event_id}).success(function(a){
+                   $ionicLoading.hide(); 
+                   $rootScope.tickets = a;
+                })
+                
+            }
+
             this.addCart = function(item) {
 
                 //this will have both the item and the value
