@@ -123,8 +123,8 @@ angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers'
                     })
                     .state('contact', {
                         url: '/contact',
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                        templateUrl: 'views/contact.html',
+                        controller: 'ContactCtrl'
                     })
 
             // if none of the above states are matched, use this as the fallback
