@@ -34,9 +34,9 @@ angular.module('myControllers', [])
 
             var intro = [
                 {"about": {"logo": "about_logo", "text": "about_text", buttons: [{"image": "about_button_1", "to": "external/video"}]}},
-                {"amal": {"logo": "amal_logo", "text": "amal_text", buttons: [{"image": "amal_button_1", "to": "books/amal"}, {"image": "amal_button_2", "to": "list/stories"}, {"image": "amal_button_3", "to": "questions"}]}},
+                {"amal": {"logo": "amal_logo", "text": "amal_text", buttons: [{"image": "amal_button_1", "to": "books/brochures"}, {"image": "amal_button_2", "to": "list/stories"}, {"image": "amal_button_3", "to": "list/questions"}]}},
                 {"donations": {"logo": "donations_logo", "text": "donations_text", buttons: [{"image": "donations_button_1", "to": "banks"}, {"image": "donations_button_2", "to": "external/text"}]}},
-                {"education": {"logo": "education_logo", "text": "education_text", buttons: [{"image": "education_button_1", "to": "books/education"}, {"image": "education_button_2", "to": "list/articles"}]}},
+                {"education": {"logo": "education_logo", "text": "education_text", buttons: [{"image": "education_button_1", "to": "books/booklets"}, {"image": "education_button_2", "to": "list/articles"}]}},
                 {"hospitals": {"logo": "hospitals_logo", "text": "hospitals_text", buttons: [{"image": "hospitals_button_1", "to": "list/hospitals"}]}},
                 {"lamsa": {"logo": "lamsa_logo", "text": "lamsa_text", buttons: [{"image": "lamsa_button_1", "to": "store/lamsa"}]}},
                 {"members": {"logo": "members_logo", "text": "members_text_ipad", buttons: [{"image": "members_button_1", "to": "form/member"}]}}
@@ -265,7 +265,6 @@ angular.module('myControllers', [])
             });
             $scope.openModal = function() {
                 $scope.mapModal.show();
-
                 $scope.map.control.refresh();
 
             };
@@ -293,46 +292,109 @@ angular.module('myControllers', [])
 
             //get the events list
             // look for the days where there's events, call update to add all events to the calendar and mark them?
-            [{"ticket_id": "28", "ticket_name": "Standard Ticket", "ticket_spaces": "10", "booked_spaces": "10", "remaining_spaces": "-10", "ticket_price": "500.00"}]
+//            [{"ticket_id": "28", "ticket_name": "Standard Ticket", "ticket_spaces": "10", "booked_spaces": "10", "remaining_spaces": "-10", "ticket_price": "500.00"}]
 
             events.getTickets();
 
             $scope.checked = [];
-            
+
             $scope.current;
-            
-          
+
+
 
             //check one box only
-            $scope.change = function(index) {              
+            $scope.change = function(index) {
                 $scope.checked.forEach(function(el) {
                     //if($scope.checked.indexOf(true))
                     i = $scope.checked.indexOf(el);
-                    
+
                     if (i != $scope.current) {
                         $scope.checked[i] = false;
                     }
 
                 });
-                
+
                 //check the availabilit of the tickets and change the nav button accordingly
                 var remaining = parseInt($rootScope.tickets[index].remaining_spaces);
-                if(!remaining || remaining  > 0){
+                if (!remaining || remaining > 0) {
                     $scope.nav_text = "حجز";
                 }
-                else{
-                    
+                else {
+
                     $scope.nav_text = "حجز انتظار";
-                    
+
                 }
-                
+
             }
 
 
 
+        })
+        .controller('BookingCtrl', function($scope, $rootScope, $stateParams, $location, events, $ionicPopup) {
 
 
-            
 
+
+        })
+        .controller('ListCtrl', function($scope, $rootScope, $stateParams, $location, lists, $ionicPopup) {
+            //request the list of the stories according to typ
+            lists.get();
+        })
+        .controller('ListDetailCtrl', function($scope, $rootScope, $stateParams, $location, lists, $ionicPopup) {
+
+            //request the list of the stories
+            lists.getDetail($stateParams.id)
+
+        })
+        .controller('HospitalCtrl', function($scope, $rootScope, $stateParams, $location, lists, $ionicPopup) {
+            //display the map
+            lists.getDetail($stateParams.id)
+
+
+            $scope.map = {
+                center: {
+                    latitude: 24.6757,
+                    longitude: 46.6701
+                },
+                zoom: 8,
+                control: {},
+                events: {
+                }
+            };
+
+            $scope.coords = {};
+
+
+            $scope.$watch('list', function(n, d) {
+
+                //when event is updated
+                if (n != undefined) {
+                    $scope.coords = {
+                        latitude: $rootScope.list._pronamic_google_maps_latitude,
+                        longitude: $rootScope.list._pronamic_google_maps_longitude
+                    }
+                    $scope.map.control.refresh();
+
+
+
+
+                }
+
+
+            })
+
+
+
+
+
+        })
+        .controller('BookCtrl', function($scope, $rootScope, $stateParams, $location, books, $ionicPopup) {
+
+            books.get();
+
+        })
+        .controller('BankCtrl', function($scope, $rootScope, $stateParams, $location, $ionicPopup) {
+
+            //prepare a local json with all the banks ...
 
         })

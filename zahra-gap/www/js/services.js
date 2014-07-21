@@ -1,6 +1,6 @@
 angular.module('myServices', ['ngResource'])
 
-        .service('model', function($resource, $rootScope, $http, $ionicLoading,$ionicPopup) {
+        .service('model', function($resource, $rootScope, $http, $ionicLoading, $ionicPopup) {
 
 
 
@@ -90,17 +90,50 @@ angular.module('myServices', ['ngResource'])
 
                         return result;
                     }
-                    
-                    
+
+
             this.formEmpty = function(obj) {
 
                 for (el in obj) {
-                    if (obj[el] == null) {                      
+                    if (obj[el] == null) {
                         return false;
                     }
 
                 }
                 return true;
+
+
+            }
+            
+            //use inbrowser plugin to open an external link
+            
+            this.openExternal = function(link) {
+
+                $rootScope.list = model.search("id", id, $rootScope.lists);
+                
+            }
+            
+            //this is a general post method
+            this.submitOrder = function(ord) {
+
+                //order is the form info
+                //send the request in two parts, one is for the forms, the other with the products
+                var temp = '... الطلب قيد التنفيذ'
+
+                var arrod = [];
+
+                for (el in ord) {
+                    arrod.push(ord[el])
+                }
+
+                console.log($rootScope.currentCart);
+
+
+                model.get("order", {order: ord, product: $rootScope.currentCart}, temp).success(function(a) {
+
+                    console.log(a);
+
+                });
 
 
             }

@@ -39,7 +39,6 @@ angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers'
                         controller: 'IntroCtrl'
                     })
 
-                    // setup an abstract state for the tabs directive
                     .state('extrenal', {
                         url: "/external/:type",
                         templateUrl: 'views/section-intro.html',
@@ -47,27 +46,35 @@ angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers'
                     })
 
                     // Each tab has its own nav history stack:
-
                     .state('books', {
                         url: '/books/:type',
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                        templateUrl: 'views/books.html',
+                        controller: 'BookCtrl'
                     })
-
                     .state('list', {
                         url: '/list/:type',
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                        templateUrl: 'views/lists/list.html',
+                        controller: 'ListCtrl'
                     })
-                    .state('questions', {
-                        url: '/list/:type',
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                    .state('stories', {
+                        url: '/stories/:id',
+                        templateUrl: 'views/lists/listDetail.html',
+                        controller: 'ListDetailCtrl'
+                    })
+                    .state('articles', {
+                        url: '/articles/:id',
+                        templateUrl: 'views/lists/listDetail.html',
+                        controller: 'ListDetailCtrl'
+                    })
+                    .state('hospitals', {
+                        url: '/hospitals/:id',
+                        templateUrl: 'views/hospitals.html',
+                        controller: 'HospitalCtrl'
                     })
                     .state('banks', {
-                        url: '/list/:type',
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                        url: '/banks',
+                        templateUrl: 'views/banks.html',
+                        controller: 'BankCtrl'
                     })
                     .state('store', {
                         url: '/store/:type',

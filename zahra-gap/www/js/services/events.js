@@ -71,92 +71,9 @@ angular.module('starter')
                 })
                 
             }
+            
+            
 
-            this.addCart = function(item) {
-
-                //this will have both the item and the value
-                var ser = checkStore();
-                item["quantity"] = 1;
-                //check if the item is in the cart already ..
-                if (model.search("product_id", item.product_id, $rootScope.currentCart)) {
-
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="alert">تم اضافة المنتج مسبقا  </p>',
-                        template: 'المنتج موجود حاليا في سلة المشتريات'
-                    });
-
-
-                }
-
-                else {
-                    $rootScope.cart[ser].push(item);
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="success">تم اضافة المنتج</p>',
-                        template: 'المنتج موجود حاليا في سلة المشتريات'
-                    });
-
-                }
-
-                return $rootScope.cart[ser]
-
-
-
-            }
-            this.deleteCart = function(item) {
-
-                //this will have both the item and the value
-                var ser = checkStore();
-
-                //delete the item from current cart
-                var index = $rootScope.currentCart.indexOf(item);
-
-                $rootScope.currentCart.splice(0, 1);
-
-
-
-            }
-            this.checkCoupon = function(number) {
-
-                //call the service to check the coupon
-
-                //prepare the coupon param
-                var cop = {cc: number}
-                if ($rootScope.total.discounted) {
-                    //if the total is already discounted
-                    var alertPopup = $ionicPopup.alert({
-                        title: '<p class="alert">قيمة الخصم مضافة سابقا</p>'
-                    });
-
-                }
-                else {
-                    var temp = '... جاري التحقق من الكوبون';
-                    model.get("verify_coupon", cop, temp).success(function(a) {
-                        $ionicLoading.hide();
-                        if (a == "No code") {
-                            var alertPopup = $ionicPopup.alert({
-                                title: '<p class="alert">لم يتم العثور علئ الكوبون</p>',
-                                template: 'الرجاء التأكد من الرقم '
-                            });
-
-                        }
-                        else {
-
-                            var tm = "%" + parseInt(a.value) + " " + 'قيمة الخصم ';
-                            var alertPopup = $ionicPopup.alert({
-                                title: '<p class="success"> تم العثور علئ الكوبون</p>',
-                                template: tm
-                            });
-
-                            //subtract the percentage of the coupon from the total?
-                            $rootScope.total.value = $rootScope.total.value - (parseInt(a.value) / 100) * $rootScope.total.value;
-                            $rootScope.total.discounted = true;
-                        }
-
-                    });
-                }
-
-
-            }
             this.submitOrder = function(ord) {
 
                 //order is the form info
