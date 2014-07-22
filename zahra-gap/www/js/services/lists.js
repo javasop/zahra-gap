@@ -5,6 +5,7 @@ angular.module('starter')
             var mapObj = {
                 "hospital_id": "id",
                 "article_id": "id",
+                "ID":"id",
                 "hospital_name": "name",
                 "post_title": "name"
             }
@@ -19,6 +20,7 @@ angular.module('starter')
                 $rootScope.listType = type;
                 model.get(type).success(function(a) {
                     $ionicLoading.hide();
+                    console.log(a);
                     $rootScope.lists = a;
                     map(a);
 

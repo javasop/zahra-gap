@@ -8,6 +8,13 @@ body{
    url(../img/background/background@2x.png)!important;
     
 }
+a, u {
+    text-decoration: none;
+}
+.bar .title{
+    
+    color:white;
+}
 .angular-google-map-container { 
     height: 600px;
 }
@@ -61,6 +68,12 @@ overflow:inherit;
     padding:10px;
     
 }
+
+.bar-header{
+    border:none;
+    
+}
+
 .deckgrid .column {
     float: left;
 }
