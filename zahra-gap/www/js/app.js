@@ -39,6 +39,12 @@ angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers'
                         controller: 'IntroCtrl'
                     })
 
+                    .state('members', {
+                        url: "/members",
+                        templateUrl: 'views/members.html',
+                        controller: 'MemberCtrl'
+                    })
+
                     .state('extrenal', {
                         url: "/external/:type",
                         templateUrl: 'views/section-intro.html',

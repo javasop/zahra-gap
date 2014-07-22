@@ -48,8 +48,8 @@ angular.module('myServices', ['ngResource'])
             }
 
 
-            this.host = "http://galamr.com/services/index.php/welcome/",
-                    this.services =
+            this.host = "http://galamr.com/services/index.php/welcome/";
+            this.services =
                     [
                         {"store": "products_list_json"},
                         {"lamsa": "products_list_lz_json"},
@@ -65,31 +65,31 @@ angular.module('myServices', ['ngResource'])
                         {"brochures": "get_all_amal_brochures"},
                         {"hospitals": "hospitals_list_json"},
                         {"members": "register_a_member"}
-                    ],
-                    this.get = function(service, par, temp) {
+                    ];
+            this.get = function(service, par, temp) {
 
-                        var tem
-                        (temp == undefined) ? tem = '...    جاري التحميل' : tem = temp;
-                        //params optional
+                var tem
+                (temp == undefined) ? tem = '...    جاري التحميل' : tem = temp;
+                //params optional
 
-                        $ionicLoading.show({
-                            template: tem
-                        });
-                        //the state params has the id?
-                        var ur = getUrl(service);
-                        return $http.get(ur, {params: par});
-                    },
-                    this.search = function(criteria, to, object) {
-                        var result;
-                        object.forEach(function(el) {
-                            if (el[criteria] == to) {
-                                result = el;
-                            }
-
-                        });
-
-                        return result;
+                $ionicLoading.show({
+                    template: tem
+                });
+                //the state params has the id?
+                var ur = getUrl(service);
+                return $http.get(ur, {params: par});
+            };
+            this.search = function(criteria, to, object) {
+                var result;
+                object.forEach(function(el) {
+                    if (el[criteria] == to) {
+                        result = el;
                     }
+
+                });
+
+                return result;
+            }
 
 
             this.formEmpty = function(obj) {
@@ -104,36 +104,28 @@ angular.module('myServices', ['ngResource'])
 
 
             }
-            
+
             //use inbrowser plugin to open an external link
-            
+
             this.openExternal = function(link) {
 
                 $rootScope.list = model.search("id", id, $rootScope.lists);
-                
+
             }
-            
+
             //this is a general post method
-            this.submitOrder = function(ord) {
+            this.post = function(service,data,temp) {
+                
+                var tem;
+                (temp == undefined) ? tem ='... الطلب قيد التنفيذ'  : tem = temp;
+                //params optional
 
-                //order is the form info
-                //send the request in two parts, one is for the forms, the other with the products
-                var temp = '... الطلب قيد التنفيذ'
-
-                var arrod = [];
-
-                for (el in ord) {
-                    arrod.push(ord[el])
-                }
-
-                console.log($rootScope.currentCart);
-
-
-                model.get("order", {order: ord, product: $rootScope.currentCart}, temp).success(function(a) {
-
-                    console.log(a);
-
+                $ionicLoading.show({
+                    template: tem
                 });
+                //the state params has the id?
+                var ur = getUrl(service);
+                return $http.post(ur, data);
 
 
             }

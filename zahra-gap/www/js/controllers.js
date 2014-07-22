@@ -1,6 +1,6 @@
 angular.module('myControllers', [])
 
-        .controller('MainCtrl', function($rootScope, model, $http, $ionicLoading) {
+        .controller('MainCtrl', function($rootScope,$scope, model, $http, $ionicLoading) {
 
             // Depending on the device, a few examples are:
 //   - "Android"
@@ -11,6 +11,8 @@ angular.module('myControllers', [])
 //   - "Tizen"
 // checking the device platform
 //var devicePlatform = device.platform;
+
+$scope.menu = ["education","gap1","hospitals","store1",'events','donations','amal','gap2','lamsa','about','members','contact','app']
 
 
 
@@ -47,6 +49,12 @@ angular.module('myControllers', [])
             $scope.type = type;
             search(type)
             console.log($scope.intro);
+
+        })
+        .controller('MemberCtrl', function($scope, model, $stateParams) {
+            
+            $scope.types =["type_1","type_2","type_3","type_4","type_5","type_6"];
+
 
         })
         /**
@@ -439,10 +447,12 @@ angular.module('myControllers', [])
         .controller('ContactCtrl', function($scope, $rootScope, $stateParams, $location, books, $ionicPopup) {
 
 
-          //show the different contact info
-          $scope.show = function(){
-              
-              
-          }
+            //show the different contact info
+            $scope.show = function() {
+
+            }
+
+            $scope.folder = "img/sections/contact/"
+            $scope.social = ["button_tweet", 'button_tube', 'button_fb', 'button_inst', 'button_home']
 
         })
