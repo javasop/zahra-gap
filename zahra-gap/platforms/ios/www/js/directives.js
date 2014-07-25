@@ -1,4 +1,4 @@
-angular.module('starter.directives',[])
+angular.module('myDirectives',[])
 .directive('onValidSubmit', ['$parse', '$timeout', function($parse, $timeout) {
 
     return {
@@ -40,8 +40,9 @@ angular.module('starter.directives',[])
                   if (form.$submitted != true) return;
                   var inp = angular.element(input);
                   if (inp.hasClass('ng-invalid')) {
+                    inp.addClass('red');
                     element.removeClass('has-success');
-                    element.addClass('has-error');
+                    element.addClass('alert');
                   } else {
                     element.removeClass('has-error').addClass('has-success');
                   }

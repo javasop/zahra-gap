@@ -5,10 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers', 'myServices', 'ngRoute', 'akoenig.deckgrid', 'angular-carousel', 'datePicker', 'google-maps','zahra'])
 
+/**
         .run(function($ionicPlatform) {
             $ionicPlatform.ready(function() {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
+console.log("platform ready!");
                 if (window.cordova && window.cordova.plugins.Keyboard) {
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 }
@@ -17,6 +19,7 @@ angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers'
                 }
             });
         })
+**/
         .config(function($stateProvider, $urlRouterProvider) {
 
 

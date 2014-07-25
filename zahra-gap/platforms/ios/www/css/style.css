@@ -8,12 +8,22 @@ body{
    url(../img/background/background@2x.png)!important;
     
 }
+a, u {
+    text-decoration: none;
+}
+.bar .title{
+    
+    color:white;
+}
+.angular-google-map-container { 
+    height: 600px;
+}
 .slider-pager .slider-pager-page{
 color:white;
 }
 .slider-pager{
 position:static;
-max-width:90%
+margin-left:3%;
 }
 
 .slider{
@@ -46,11 +56,24 @@ overflow:inherit;
     text-align: center;
     
 }
+.red{
+    
+   color:red!important;
+}
+.green{
+    color:green!important;
+}
 .item-content{
     
     padding:10px;
     
 }
+
+.bar-header{
+    border:none;
+    
+}
+
 .deckgrid .column {
     float: left;
 }

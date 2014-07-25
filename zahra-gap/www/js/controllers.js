@@ -1,6 +1,6 @@
 angular.module('myControllers', [])
 
-        .controller('MainCtrl', function($rootScope,$scope, model, $http, $ionicLoading) {
+        .controller('MainCtrl', function($rootScope,$scope, model, $http, $ionicLoading,$ionicPlatform) {
 
             // Depending on the device, a few examples are:
 //   - "Android"
@@ -13,6 +13,24 @@ angular.module('myControllers', [])
 //var devicePlatform = device.platform;
 
 $scope.menu = ["education","gap1","hospitals","store1",'events','donations','amal','gap2','lamsa','about','members','contact','app']
+
+$rootScope.$on('$stateChangeSuccess',function(){
+
+
+});
+
+$ionicLoading.show({template:"loading ..."});
+
+$ionicPlatform.ready(function(){
+
+$rootScope.ipad  = ionic.Platform.isIPad();
+
+$ionicLoading.hide();
+
+});
+
+//$scope.dev  = ionic.Platform.device();
+
 
 
 

@@ -4,12 +4,9 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <name>HelloCordova</name>
+    <name>Zahra</name>
     <description>
-        An Ionic Framework and Cordova project.
+       Zahra mobile app 
     </description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">
       Ionic Framework Team
@@ -20,7 +17,4 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackupWebStorage" value="none" />
-    <feature name="StatusBar">
-        <param name="ios-package" onload="true" value="CDVStatusBar" />
-    </feature>
 </widget>
