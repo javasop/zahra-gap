@@ -42,6 +42,7 @@
 		1EEC35534D9F456DA6CE9159 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB297C41728479AAC5660C6 /* CDVDevice.m */; };
 		9BCFB7AAA378412181B5E82A /* Sms.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A23E5B45EC040C392231E8B /* Sms.m */; };
 		B61622987E3C4F0298A74F0C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C6F221ECDA45FD853BE7FE /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		00763EAA2B054095B774AFAF /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F6874A12AD4766A8985BC8 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		7A23E5B45EC040C392231E8B /* Sms.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Sms.m"; path = "org.apache.cordova.plugin.sms/Sms.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		F0DED337B07E46FC83992B32 /* Sms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sms.h"; path = "org.apache.cordova.plugin.sms/Sms.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		28C6F221ECDA45FD853BE7FE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		15F6874A12AD4766A8985BC8 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BF55D67D329B4B30AEFFE76B /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,8 @@
 				9A02B918008E449B974FD6E8 /* CDVDevice.h */,
 				7A23E5B45EC040C392231E8B /* Sms.m */,
 				F0DED337B07E46FC83992B32 /* Sms.h */,
+				15F6874A12AD4766A8985BC8 /* CDVInAppBrowser.m */,
+				BF55D67D329B4B30AEFFE76B /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "Zahra/Plugins";
@@ -438,6 +443,7 @@
 				AB0A9EB70EED4857BA2D0F88 /* CDVLogger.m in Sources */,
 				1EEC35534D9F456DA6CE9159 /* CDVDevice.m in Sources */,
 				9BCFB7AAA378412181B5E82A /* Sms.m in Sources */,
+				00763EAA2B054095B774AFAF /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

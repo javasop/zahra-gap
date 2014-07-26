@@ -419,7 +419,7 @@ $ionicLoading.hide();
             books.get();
 //open the app
 	$scope.open = function(link){
-	var rf = window.open(link, '_self', 'location=yes');
+	var rf = window.open(link, '_blank');
 
 	}
         })
