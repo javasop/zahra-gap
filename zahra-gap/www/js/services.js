@@ -104,15 +104,6 @@ angular.module('myServices', ['ngResource'])
 
 
             }
-
-            //use inbrowser plugin to open an external link
-
-            this.openExternal = function(link) {
-
-                $rootScope.list = model.search("id", id, $rootScope.lists);
-
-            }
-
             //this is a general post method
             this.post = function(service,data,temp) {
                 

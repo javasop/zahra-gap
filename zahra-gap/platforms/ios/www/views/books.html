@@ -1,10 +1,10 @@
-<ion-view style='overflow: visible;margin-top:50px'>
+<ion-view style='overflow: visible'>
         <ion-content>
             <ion-list >
                 <ion-item  class="item-icon-left item-icon-right"  ng-repeat="item in books" 
                           item="item">
                                    
-                    <img height="300px" width="100%" src="{{item.cover}}">
+                   <a ng-click="open(item.pdf_file)"><img height="300px" width="100%" src="{{item.cover}}"></a>
                   
                 </ion-item>
             </ion-list>

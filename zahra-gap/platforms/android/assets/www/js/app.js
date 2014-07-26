@@ -50,8 +50,7 @@ console.log("platform ready!");
 
                     .state('extrenal', {
                         url: "/external/:type",
-                        templateUrl: 'views/section-intro.html',
-                        controller: 'IntroCtrl'
+                        controller: 'ExternalCtrl'
                     })
 
                     // Each tab has its own nav history stack:

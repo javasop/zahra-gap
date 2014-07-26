@@ -417,7 +417,11 @@ $ionicLoading.hide();
         .controller('BookCtrl', function($scope, $rootScope, $stateParams, $location, books, $ionicPopup) {
 
             books.get();
+//open the app
+	$scope.open = function(link){
+	var rf = window.open(link, '_self', 'location=yes');
 
+	}
         })
         .controller('BankCtrl', function($scope, $rootScope, $stateParams, $location, $ionicPopup) {
 
@@ -474,3 +478,21 @@ $ionicLoading.hide();
             $scope.social = ["button_tweet", 'button_tube', 'button_fb', 'button_inst', 'button_home']
 
         })
+       
+  .controller('ExternalCtrl', function($scope, $rootScope, $stateParams, $location, $ionicPopup) {
+
+//check the param and open the file accordingly ...
+var links = {
+"video":"https://www.youtube.com/watch?v=-p3TFqIFpP4",
+"text":"sms:3490322111?body=test"
+}
+
+var type = links[$stateParams.type];
+console.log(type);
+if(type){
+
+	var rf = window.open(type, '_self', 'location=yes');
+}
+
+        })
+       
