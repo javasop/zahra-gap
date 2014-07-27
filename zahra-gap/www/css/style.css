@@ -1,4 +1,13 @@
 /* Empty. Add your own CSS if you like */
+
+/** main menu font type  **/
+@font-face{
+font-family:stc;
+src:url("stc.otf") format("opentype");
+}
+p{
+font-family:stc;
+}
 body{
     
  background: 
@@ -93,13 +102,13 @@ overflow:inherit;
 .photos{
 line-height:0;
 -webkit-column-count:3;
--webkit-column-gap:0px;
+-webkit-column-gap:5px;
 -moz-column-count:3;
--moz-column-gap:0px;
+-moz-column-gap:5px;
 column-count:3;
-column-gap:0px;
+column-gap:5px;
 }
 .photos .item{
 width:100%!important;
-height:auto!important;
+margin-bottom:10px;
 }
