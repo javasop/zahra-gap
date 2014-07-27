@@ -90,3 +90,16 @@ overflow:inherit;
         width: 100%;
     }
 }
+.photos{
+line-height:0;
+-webkit-column-count:3;
+-webkit-column-gap:0px;
+-moz-column-count:3;
+-moz-column-gap:0px;
+column-count:3;
+column-gap:0px;
+}
+.photos .item{
+width:100%!important;
+height:auto!important;
+}
