@@ -16,8 +16,8 @@
 </div>-->
 <div class="photos col col-80 col-offset-10">
             <div   ng-repeat="p in products">
-                <img class="photos item"   ng-click='go(p.product_id)'  height="300px" width="100%"  ng-src="{{p.featured_image}}">
-                <p style="color:white;text-align:center">{{p.product_name}}</p>
+                <img class="photos item"   ng-click='go(p.ID)'  height="300px" width="100%"  ng-src="{{p.featured}}">
+                <p style="color:white;text-align:center">{{p.title}}</p>
             </div>
 </div>
     </ion-content>

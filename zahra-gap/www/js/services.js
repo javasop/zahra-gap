@@ -4,24 +4,23 @@ angular.module('myServices', ['ngResource'])
 
 
 
-            $rootScope.host = "http://galamr.com/services/index.php/welcome/";
+	$rootScope.host = "http://galamr.com/zahrahControl/wp-json/zahra/";
 
             $rootScope.services =
                     [
-                        {"store": "products_list_json"},
-                        {"lamsa": "products_list_lz_json"},
-                        {"verify_coupon": "verify_coupon"},
-                        {"order": "place_new_order"},
-                        {"events": "events_list_new_json"},
-                        {"tickets": "tickets_list_json"},
-                        {"ask": "ask_question"},
-                        {"questions": "get_all_questions"},
-                        {"articles": "get_all_articles"},
-                        {"stories": "get_all_stories"},
-                        {"booklets": "get_all_booklets"},
-                        {"brochures": "get_all_amal_brochures"},
-                        {"hospitals": "hospitals_list_json"},
-                        {"members": "register_a_member"}
+                        {"store": "products?tax[wpsc_product_category]=main"},
+                        {"lamsa": "products?tax[wpsc_product_category]=lamsa"},
+                        {"verify_coupon": "products/coupons"},
+                        {"order": "products"},
+                        {"events": "events"},
+                        {"ask": "questions"},
+                        {"questions": "questions"},
+                        {"articles": "posts"},
+                        {"stories": "stories"},
+                        {"booklets": "booklets"},
+                        {"brochures": "brochures"},
+                        {"hospitals": "hospitals"},
+                        {"members": "members"}
                     ]
 
             $rootScope.log = function(ms) {
@@ -35,6 +34,7 @@ angular.module('myServices', ['ngResource'])
 
 
             function getUrl(service) {
+
                 var ser = ""
                 $rootScope.services.forEach(function(s) {
                     if (s[service] != undefined)
@@ -49,23 +49,6 @@ angular.module('myServices', ['ngResource'])
 
 
             this.host = "http://galamr.com/services/index.php/welcome/";
-            this.services =
-                    [
-                        {"store": "products_list_json"},
-                        {"lamsa": "products_list_lz_json"},
-                        {"verify_coupon": "verify_coupon"},
-                        {"order": "place_new_order"},
-                        {"events": "events_list_new_json"},
-                        {"tickets": "tickets_list_json($event_id)"},
-                        {"ask": "ask_question"},
-                        {"questions": "get_all_questions"},
-                        {"articles": "get_all_articles"},
-                        {"stories": "get_all_stories"},
-                        {"booklets": "get_all_booklets"},
-                        {"brochures": "get_all_amal_brochures"},
-                        {"hospitals": "hospitals_list_json"},
-                        {"members": "register_a_member"}
-                    ];
             this.get = function(service, par, temp) {
 
                 var tem
