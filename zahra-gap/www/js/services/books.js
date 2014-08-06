@@ -7,15 +7,16 @@ angular.module('starter')
                 
                 //get the type from here ..
                 var type = $stateParams.type;
+		var up = type == bookType;
                 $rootScope.bookType = type;
+		if(!$rootScope.books || up){
                 model.get(type).success(function(a) {
                     $ionicLoading.hide();
                     $rootScope.books = a;
                     console.log(a);
 //                    map(a);
-
-
                 })
+		}
 
             };
 

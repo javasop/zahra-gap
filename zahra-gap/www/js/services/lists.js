@@ -17,15 +17,23 @@ angular.module('starter')
 
                 //get the type from here ..
                 var type = $stateParams.type;
+		var up;
+		if(type != $rootScope.listType){
+		up = true;
+		}
+		else{
+		up = false;
+		}
                 $rootScope.listType = type;
+		//update when there's no list or it's a different list
+		if(!$rootScope.lists || up){
                 model.get(type).success(function(a) {
                     $ionicLoading.hide();
                     console.log(a);
                     $rootScope.lists = a;
                     map(a);
-
-
                 })
+		}
 
             };
 

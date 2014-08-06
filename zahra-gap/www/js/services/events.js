@@ -47,7 +47,7 @@ angular.module('starter')
 
 
             this.get = function(id) {
-
+		if(!$rootScope.events){
                 model.get("events").success(function(a) {
                     $ionicLoading.hide();
                     $rootScope.events = a;
@@ -59,6 +59,7 @@ angular.module('starter')
                     }
 
                 })
+		}
 
             };
 
