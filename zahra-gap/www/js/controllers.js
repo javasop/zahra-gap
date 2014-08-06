@@ -108,9 +108,10 @@ $ionicLoading.hide();
             $scope.button_tweet = img_folder + "button_tweet.png";
 
             //if($rootScope.products == undefined) request it from server
-            stores.get($stateParams.product_id);
-
+            stores.getStoreDetail($stateParams.product_id);
+            
             $rootScope.go = stores.go;
+            
 
             $scope.addCart = function() {
                 $rootScope.currentCart = stores.addCart($rootScope.product);

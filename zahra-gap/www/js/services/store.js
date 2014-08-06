@@ -28,7 +28,8 @@ angular.module('starter')
                 if ($rootScope.currentCart != undefined) {
                     $rootScope.total = {discounted: false, value: 0};
                     $rootScope.currentCart.forEach(function(el) {
-                        $rootScope.total.value = $rootScope.total.value + (parseInt(el.product_price)*el.quantity);
+                        var price = parseInt(el.custom_meta._wpsc_price);
+                        $rootScope.total.value = $rootScope.total.value + (price * el.quantity);
                     })
                 }
 
@@ -63,25 +64,38 @@ angular.module('starter')
             })
             $rootScope.$watch("currentCart", function(n, d) {
                 update();
-            },true)
+            }, true)
 
-            
+
 
             this.get = function(id) {
 
                 var ser = checkStore();
-                model.get(ser).success(function(a) {
-                    $ionicLoading.hide();
-                    $rootScope.products = a;
-                    if (id) {
-                        var product_id = $stateParams.product_id;
-                        $rootScope.product = model.search("product_id", product_id, $rootScope.products);
-                        $rootScope.currentCart = $rootScope.cart[ser];
-                    }
 
-                })
+                if (!$rootScope.products) {
+                    model.get(ser).success(function(a) {
+                        $ionicLoading.hide();
+                        $rootScope.products = a;
+                        $rootScope.currentCart = $rootScope.cart[ser];
+                        if (id) {
+                            this.getStoreDetail(id);
+                        }
+                    })
+                }
 
             };
+            
+            window.getStoreDetail = this.getStoreDetail = function(id) {
+
+                if ($rootScope.products) {
+                    $rootScope.product = model.search("ID", id, $rootScope.products);
+                }
+                else {
+                    this.get(id);
+                }
+
+
+            }
             this.addCart = function(item) {
 
                 //this will have both the item and the value
@@ -171,21 +185,21 @@ angular.module('starter')
 
                 //order is the form info
                 //send the request in two parts, one is for the forms, the other with the products
-                var temp ='... الطلب قيد التنفيذ' 
-                
+                var temp = '... الطلب قيد التنفيذ'
+
                 var arrod = [];
-                
-                for(el in ord){
+
+                for (el in ord) {
                     arrod.push(ord[el])
                 }
-                
+
                 console.log($rootScope.currentCart);
 
-     
-                model.get("order",{order:ord,product:$rootScope.currentCart},temp).success(function(a){
-                    
+
+                model.get("order", {order: ord, product: $rootScope.currentCart}, temp).success(function(a) {
+
                     console.log(a);
-                    
+
                 });
 
 
@@ -216,7 +230,7 @@ angular.module('starter')
                     return false;
 
                 }
-                
+
                 return true;
 
             }

@@ -49,8 +49,8 @@ angular.module('myServices', ['ngResource'])
 
 
             this.host = "http://galamr.com/services/index.php/welcome/";
+            
             this.get = function(service, par, temp) {
-
                 var tem
                 (temp == undefined) ? tem = '...    جاري التحميل' : tem = temp;
                 //params optional
