@@ -1,5 +1,5 @@
-<ion-view style='background-color:transparent;overflow: visible;margin-top:50px'>
-    <ion-content scroll='true' >
+<ion-view style='background-color:transparent;overflow: visible'>
+    <ion-content >
         
 <!--       <div deckgrid class="deckgrid repeat-item" source="products">
             <div  class="a-card">
@@ -14,8 +14,8 @@
         <img width="100%" ng-src="{{ brick.featured_image }}" alt="A masonry brick">
     </div>
 </div>-->
-<div class="photos col col-80 col-offset-25">
-            <div   ng-repeat="p in products">
+<div class="photos col">
+            <div ng-repeat="p in products">
                 <a ng-click="go(p.ID)">
                     <img class="photos item"   height="250px" width="100%"  ng-src="{{p.featured}}">
                 </a>

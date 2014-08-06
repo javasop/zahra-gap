@@ -14,12 +14,14 @@
         <img width="100%" ng-src="{{ brick.featured_image }}" alt="A masonry brick">
     </div>
 </div>-->
-
-            <div style="float: left"  class="col col-25" ng-repeat="p in products">
-                <a ng-click='go(p.product_id)'><img   height='200px' width="100%"  ng-src="{{p.featured_image}}"></a>
-                <p style="font-size:16px;color:white;text-align:center">{{p.product_name}}</p>
+<div class="photos col">
+            <div ng-repeat="p in products">
+                <a ng-click="go(p.ID)">
+                    <img class="photos item"   height="250px" width="100%"  ng-src="{{p.featured}}">
+                </a>
+                <p style="color:white;text-align:center">{{p.title}}</p>
             </div>
-
+</div>
     </ion-content>
 </ion-view>
 

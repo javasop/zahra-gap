@@ -1,4 +1,13 @@
 /* Empty. Add your own CSS if you like */
+
+/** main menu font type  **/
+@font-face{
+font-family:stc;
+src:url("stc.otf") format("opentype");
+}
+p{
+font-family:stc;
+}
 body{
     
  background: 
@@ -89,4 +98,14 @@ overflow:inherit;
     .deckgrid .column-1-1 {
         width: 100%;
     }
+}
+.photos{
+line-height:0;
+-webkit-column-count:2;
+-moz-column-count:2;
+column-count:2;
+}
+.photos .item{
+width:100%!important;
+margin-bottom:10px;
 }

@@ -4,6 +4,7 @@ angular.module('starter')
 
             this.products = "hello";
 
+            this.store = "";
 
 
             this.go = function() {
@@ -59,8 +60,8 @@ angular.module('starter')
 
             $rootScope.currency = "ريال"
 
-            $rootScope.$watchCollection("currentCart", function(n, d) {
-                update();
+            $rootScope.$watch("store", function(n, d) {
+		up = true;                
             })
             $rootScope.$watch("currentCart", function(n, d) {
                 update();
@@ -71,9 +72,17 @@ angular.module('starter')
             this.get = function(id) {
 
                 var ser = checkStore();
-
-                if (!$rootScope.products) {
-                    model.get(ser).success(function(a) {
+		var up;
+		if(ser != this.store){
+		 up = true;
+		}
+		else{
+		up = false;
+		}
+		this.store = ser;
+		
+		if(!$rootScope.products || up){
+                model.get(ser).success(function(a) {
                         $ionicLoading.hide();
                         $rootScope.products = a;
                         $rootScope.currentCart = $rootScope.cart[ser];
@@ -81,7 +90,7 @@ angular.module('starter')
                             this.getStoreDetail(id);
                         }
                     })
-                }
+		}
 
             };
             
@@ -93,7 +102,6 @@ angular.module('starter')
                 else {
                     this.get(id);
                 }
-
 
             }
             this.addCart = function(item) {

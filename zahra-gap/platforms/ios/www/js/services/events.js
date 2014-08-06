@@ -4,26 +4,27 @@ angular.module('starter')
 
             this.products = "hello";
 
-            function formatDates (obj){
+            function formatDates(obj) {
+
                 var d;
 
-                $rootScope.events.forEach(function(el){
-                    
-                    var mark = {date:null,name:null,id:null};
+                $rootScope.events.forEach(function(el) {
+
+                    var mark = {date: null, name: null, id: null};
                     d = new Date(el.event_start_date);
-                    
+
 
                     //it's not know why it's showing the previous day, I am assuming it's parsing
-                    d.setDate(d.getDate()+1)
+                    d.setDate(d.getDate() + 1)
                     mark.date = d;
                     mark.name = el.event_name;
                     mark.id = el.event_id;
                     obj.push(mark);
-                    
-  
+
+
                 })
-                
-                
+
+
             }
 
             this.go = function() {
@@ -43,7 +44,7 @@ angular.module('starter')
 
             }
 
-            
+
 
             this.get = function(id) {
 
@@ -54,45 +55,56 @@ angular.module('starter')
                     $rootScope.marks = [];
                     formatDates($rootScope.marks)
                     if (id) {
-                        $rootScope.event = model.search("event_id", id, $rootScope.events);
-                        console.log($rootScope.event);
+                        getEventDetail(id);
                     }
 
                 })
 
             };
-            
-            this.getTickets = function(){
-                
-                //get tickets for the current event              
-                model.get("tickets",{event_id:$rootScope.event.event_id}).success(function(a){
-                   $ionicLoading.hide(); 
-                   $rootScope.tickets = a;
-                })
-                
+
+            window.getEventDetail = this.getEventDetail = function(id) {
+
+                if ($rootScope.events) {
+                    $rootScope.event = model.search("ID", id, $rootScope.events);
+                }
+                else {
+                    this.get(id);
+                }
+
+
             }
-            
-            
+
+            this.getTickets = function() {
+
+                //get tickets for the current event              
+                model.get("tickets", {event_id: $rootScope.event.event_id}).success(function(a) {
+                    $ionicLoading.hide();
+                    $rootScope.tickets = a;
+                })
+
+            }
+
+
 
             this.submitOrder = function(ord) {
 
                 //order is the form info
                 //send the request in two parts, one is for the forms, the other with the products
-                var temp ='... الطلب قيد التنفيذ' 
-                
+                var temp = '... الطلب قيد التنفيذ'
+
                 var arrod = [];
-                
-                for(el in ord){
+
+                for (el in ord) {
                     arrod.push(ord[el])
                 }
-                
+
                 console.log($rootScope.currentCart);
 
-     
-                model.get("order",{order:ord,product:$rootScope.currentCart},temp).success(function(a){
-                    
+
+                model.get("order", {order: ord, product: $rootScope.currentCart}, temp).success(function(a) {
+
                     console.log(a);
-                    
+
                 });
 
 
@@ -123,7 +135,7 @@ angular.module('starter')
                     return false;
 
                 }
-                
+
                 return true;
 
             }

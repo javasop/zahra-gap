@@ -16,9 +16,9 @@
             <ion-item  href="#/{{listType}}/{{item.id}}"   class="item-icon-left item-icon-right"  ng-repeat="item in lists" 
                        item="item">
 
-                <h2 style="text-align: right;color:rgb(123, 41, 95)">{{item.name}}</h2>
+                <h2 style="text-align: right;color:rgb(123, 41, 95)">{{item.title}}</h2>
                 <p ng-if="item.discount" style="text-align:right" >%{{item.discount}}: قيمة الخصم </p>
-                <p style="text-align: right">{{item.post_excerpt}}</p>
+                <p style="text-align: right">{{item.excerpt}}</p>
             </ion-item>
         </ion-list>
     </ion-content>
