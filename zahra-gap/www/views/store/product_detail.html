@@ -1,4 +1,5 @@
-<ion-view style='background-color:transparent;overflow: visible'>
+<ion-view title="{{product.title}}" style='background-color:transparent;overflow: visible'>
+
     <ion-nav-buttons side="right">
         <button class="button button-positive" ng-click="openModal()">
             سلة المشتريات
@@ -64,12 +65,12 @@
                                item="item">
               
             <p style="float:right">
-            {{item.product_name}}
+            {{item.title}}
 </p>
 
 <p style="float:left;margin-right:5px">{{currency}}</p>
             <p style="float:left">
-            {{item.product_price}}
+            {{item.custom_meta._wpsc_price}}
 </p>
 
                         <ion-delete-button class="ion-minus-circled" 

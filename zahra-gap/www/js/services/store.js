@@ -110,8 +110,7 @@ angular.module('starter')
                 var ser = checkStore();
                 item["quantity"] = 1;
                 //check if the item is in the cart already ..
-                if (model.search("product_id", item.product_id, $rootScope.currentCart)) {
-
+                if (model.search("ID", item.ID, $rootScope.currentCart)) {
                     var alertPopup = $ionicPopup.alert({
                         title: '<p class="alert">تم اضافة المنتج مسبقا  </p>',
                         template: 'المنتج موجود حاليا في سلة المشتريات'

@@ -4,17 +4,15 @@ angular.module('starter')
 
 
             this.get = function() {
-                
                 //get the type from here ..
                 var type = $stateParams.type;
-		var up = type == bookType;
+		var up = type != $rootScope.bookType;
                 $rootScope.bookType = type;
 		if(!$rootScope.books || up){
                 model.get(type).success(function(a) {
                     $ionicLoading.hide();
                     $rootScope.books = a;
                     console.log(a);
-//                    map(a);
                 })
 		}
 
@@ -27,37 +25,6 @@ angular.module('starter')
                 
             }
 
-            //mapping the object so that all lists will share a common attribute
-            function map(obj) {
-
-
-                obj.forEach(function(el) {
-                    for (key in el) {
-                        var k = mapObj[key]
-                        if (k) {
-
-                            el[k] = el[key];
-
-                        }
-                    }
-
-                })
-
-                console.log($rootScope.lists);
-
-            }
-
-
+            
 
         });
-
-
-
-
-
-
-
-
-
-
-

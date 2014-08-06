@@ -1,7 +1,9 @@
 <ion-view style='background-color:transparent;overflow: visible'>
 
+
+    <ion-content style="margin-top:25px">
     <!-- add the question input if the type is question -->
-    <div ng-if="listType == 'questions'">
+    <div style="margin-bottom:10px" ng-if="listType == 'questions'">
         <button ng-click="postQ()"  class="button button-royal col col-25" style="float:left;height:47px;margin-left: 3%" src="img/button_ask.png">
            اسأل
         </button>
@@ -11,7 +13,6 @@
     </div>
 
 
-    <ion-content style="margin-top:25px">
         <ion-list>
             <ion-item  href="#/{{listType}}/{{item.id}}"   class="item-icon-left item-icon-right"  ng-repeat="item in lists" 
                        item="item">
