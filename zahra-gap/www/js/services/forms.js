@@ -6,10 +6,10 @@ angular.module('starter')
             this.get = function() {
                 //get the type from here ..
                 var type = $stateParams.type;
-		var up = type != $rootScope.bookType;
+		var up = type != $rootScope.formType;
                 $rootScope.formType = type;
 		if(!$rootScope.forms || up){
-                model.get(type).success(function(a) {
+                model.get("forms",{type:$rootScope.formType}).success(function(a) {
                     $ionicLoading.hide();
                     $rootScope.forms = a;
                     console.log(a);

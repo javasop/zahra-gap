@@ -73,7 +73,6 @@ $ionicLoading.hide();
 
 		var type = $stateParams.type;
 		forms.get();
-		$scope.form = $scope.forms[type];
 
         })
 
