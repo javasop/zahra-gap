@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers', 'myServices', 'ngRoute', 'akoenig.deckgrid', 'angular-carousel', 'datePicker', 'google-maps','zahra'])
+angular.module('starter', ['ionic', 'myFilters', 'myDirectives', 'myControllers', 'myServices', 'ngRoute', 'akoenig.deckgrid', 'angular-carousel', 'datePicker', 'google-maps'])
 
 /**
         .run(function($ionicPlatform) {
@@ -41,7 +41,12 @@ console.log("platform ready!");
                         templateUrl: 'views/section-intro.html',
                         controller: 'IntroCtrl'
                     })
-
+                    .state('form', {
+			url: '/form/:type',
+                        templateUrl: 'views/forms.html',
+                        controller: 'FormCtrl'
+                    })
+ 
                     .state('members', {
                         url: "/members",
                         templateUrl: 'views/members.html',
@@ -104,12 +109,7 @@ console.log("platform ready!");
                         templateUrl: 'views/store/buy.html',
                         controller: 'BuyCtrl'
                     })
-                    .state('checkout', {
-                        url: '/checkout',
-                        templateUrl: 'views/store/checkout.html',
-                        controller: 'CheckoutCtrl'
-                    })
-                    .state('events', {
+                   .state('events', {
                         url: '/events',
                         templateUrl: 'views/events/calendar.html',
                         controller: 'EventCtrl'

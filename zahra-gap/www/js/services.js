@@ -11,16 +11,15 @@ angular.module('myServices', ['ngResource'])
                         {"store": "products?tax[wpsc_product_category]=main"},
                         {"lamsa": "products?tax[wpsc_product_category]=lamsa"},
                         {"verify_coupon": "products/coupons"},
-                        {"order": "products"},
                         {"events": "events"},
-                        {"ask": "questions"},
                         {"questions": "questions"},
                         {"articles": "posts"},
                         {"stories": "stories"},
                         {"booklets": "booklets"},
                         {"brochures": "brochures"},
                         {"hospitals": "hospitals"},
-                        {"members": "members"}
+                        {"members": "members"},
+			{"forms":"forms"}
                     ]
 
             $rootScope.log = function(ms) {
@@ -29,7 +28,6 @@ angular.module('myServices', ['ngResource'])
                 console.log(ms);
 
             }
-
 
 
 

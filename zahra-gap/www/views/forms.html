@@ -1,0 +1,15 @@
+<ion-view style='background-color:transparent;overflow: visible;margin-top:50px'>
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+        <ion-content>
+	<form>
+
+                        <label ng-repeat='f in forms' class='item item-input'>
+                        <input style="text-align:right" type="text" ng-model="f.value" required="required" name="f.key">
+                        <span style="text-align:right" class="input-label">{{f.key}}</span>
+                        </label>
+	
+	</form>
+
+        </ion-content>
+</ion-view>

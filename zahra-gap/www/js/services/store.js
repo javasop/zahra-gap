@@ -1,6 +1,7 @@
 angular.module('starter')
         .service('stores', function($resource, $rootScope, $http, $ionicLoading, model, $stateParams, $ionicPopup, $location) {
 
+	
 
             this.products = "hello";
 
@@ -241,6 +242,7 @@ angular.module('starter')
                 return true;
 
             }
+
 
 
         });

@@ -69,8 +69,17 @@ $ionicLoading.hide();
             console.log($scope.intro);
 
         })
+        .controller('FormCtrl', function($scope, $rootScope, $stateParams, $location, forms, $ionicPopup) {
+
+		var type = $stateParams.type;
+		forms.get();
+		$scope.form = $scope.forms[type];
+
+        })
+
+
         .controller('MemberCtrl', function($scope, model, $stateParams) {
-            
+           //all the member types ... 
             $scope.types =["type_1","type_2","type_3","type_4","type_5","type_6"];
 
 
@@ -168,41 +177,6 @@ $ionicLoading.hide();
             }
 
         })
-        .controller('CheckoutCtrl', function($scope, $rootScope, $stateParams, $location, stores, $ionicPopup) {
-
-            //still using currentCart for the store
-            $scope.forms =
-                    {
-                        "first_name": null,
-                        "last_name": null,
-                        "address": null,
-                        "city": null,
-                        "region": null,
-                        "district": null,
-                        "email": null,
-                        "phone": null
-                    }
-
-
-
-            $scope.submit = function() {
-
-                if (stores.validate($scope.forms)) {
-
-                    //now you can submit the order ...
-                    stores.submitOrder($scope.forms);
-
-                }
-                ;
-
-
-
-            }
-
-
-
-        })
-
         .controller('EventCtrl', function($scope, $rootScope, $stateParams, $location, events) {
 
             //get the events list
