@@ -4,8 +4,10 @@
         <ion-content>
 	<form>
 		<div class="col" style="margin-bottom:40px;color:white"  ng-repeat='f in forms' >
-				<input style="float:left;text-align:right;border-radius:10px" class="col col-66" style="text-align:right" type="text" ng-model="f.value"  required="required" name="f.element_name" placeholder="{{f.placeholder}}">
-				<span style="float:right;text-align:right" class="col col-33">{{f.ar}}  </span>
+				<span style="float:right" class="col col-33">{{f.ar}}  </span>
+
+				<input style="float:right;text-align:right;border-radius:10px" class="col col-66" style="text-align:right" type="text" ng-model="f.value"  required="required" name="f.element_name" placeholder="{{f.placeholder}}">
+
 		</div>
 		<div style="clear:both"></div>
 	
