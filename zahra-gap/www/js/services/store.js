@@ -189,38 +189,49 @@ angular.module('starter')
 
 
             }
-            this.submitOrder = function(ord) {
+            this.submitOrder = function() {
 
                 //order is the form info
                 //send the request in two parts, one is for the forms, the other with the products
+		//iterate throught all the forms and extract only the value
+		var tmp = {};
+		for (f in $rootScope.forms){
+			tmp[$rootScope.forms[f].element_name] = f.value;
+
+		}
+
+		if(this.validate(tmp)){
+
                 var temp = '... الطلب قيد التنفيذ'
 
                 var arrod = [];
 
-                for (el in ord) {
-                    arrod.push(ord[el])
-                }
+               arrod.push($rootScope.forms)
 
-                console.log($rootScope.currentCart);
+               arrod.push($rootScope.currentCart);
 
+	       console.log($rootScope.currentCart)
 
-                model.get("order", {order: ord, product: $rootScope.currentCart}, temp).success(function(a) {
+                model.post("store", arrod, temp).success(function(a) {
 
                     console.log(a);
 
                 });
-
+		
+		}
+		
 
             }
 
-            this.validate = function(obj) {
+            this.validate = function(form) {
+
 
                 var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>'
                 var email = '<p class="alert">البريد الالكتروني غير صحيح</p>'
-
-                var valid = model.formEmpty(obj);
+		
+                var valid = model.formEmpty(form);
                 if (!valid) {
-                    if (obj["email"] == undefined) {
+                    if (form["email"] == undefined) {
 
                         var alertPopup = $ionicPopup.alert({
                             title: empty + email

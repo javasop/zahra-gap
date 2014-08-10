@@ -73,7 +73,6 @@ $ionicLoading.hide();
 
 		var type = $stateParams.type;
 		forms.get();
-
         })
 
 
@@ -176,6 +175,18 @@ $ionicLoading.hide();
             }
 
         })
+	 .controller('CheckoutCtrl', function($scope, $rootScope, $stateParams, $location, stores,forms) {
+
+	    forms.get("store");
+
+            $scope.submit = function() {
+                //send request
+	       stores.submitOrder();	
+
+            }
+
+        })
+        
         .controller('EventCtrl', function($scope, $rootScope, $stateParams, $location, events) {
 
             //get the events list

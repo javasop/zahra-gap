@@ -3,18 +3,13 @@ angular.module('starter')
 
 
             //TODO: this could be used to get the forms ...
-            this.get = function() {
+            this.get = function(type) {
                 //get the type from here ..
-                var type = $stateParams.type;
-		var up = type != $rootScope.formType;
-                $rootScope.formType = type;
-		if(!$rootScope.forms || up){
-                model.get("forms",{type:$rootScope.formType}).success(function(a) {
+                model.get("forms",{type:type}).success(function(a) {
                     $ionicLoading.hide();
                     $rootScope.forms = a;
                     console.log(a);
                 })
-		}
 
             };
 	    this.post = function(data){

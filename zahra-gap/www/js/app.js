@@ -109,6 +109,12 @@ console.log("platform ready!");
                         templateUrl: 'views/store/buy.html',
                         controller: 'BuyCtrl'
                     })
+		     .state('checkout', {
+                        url: '/checkout',
+                        templateUrl: 'views/store/checkout.html',
+                        controller: 'CheckoutCtrl'
+                    })
+		    
                    .state('events', {
                         url: '/events',
                         templateUrl: 'views/events/calendar.html',

@@ -3,7 +3,6 @@ angular.module('myServices', ['ngResource'])
         .service('model', function($resource, $rootScope, $http, $ionicLoading, $ionicPopup) {
 
 
-
 	$rootScope.host = "http://galamr.com/zahrahControl/wp-json/zahra/";
 
             $rootScope.services =
