@@ -115,8 +115,13 @@ $ionicLoading.hide();
             $scope.button_tweet = img_folder + "button_tweet.png";
 
             //if($rootScope.products == undefined) request it from server
+
+	    $scope.coverflow = {};
+
+
             stores.getStoreDetail($stateParams.product_id);
-            
+           
+
             $rootScope.go = stores.go;
             
 
