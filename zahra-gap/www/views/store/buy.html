@@ -10,16 +10,16 @@
             <ion-list show-delete="data.showDelete" canSwipeItems="true">
                 <ion-item class="item-icon-left item-icon-right"  ng-repeat="item in currentCart" 
                           item="item">
-                    <select  style="margin-left: 2px"  ng-model="item.quantity" ng-options="n for n in [] | range:1:{{item.product_stock}}"></select>
+                    <select  style="margin-left: 2px"  ng-model="item.quantity" ng-options="n for n in [] | range:1:{{item.stock}}"></select>
 
-                    <img width="50" height="50" style="float:right" src="{{item.featured_image}}">
+                    <img width="50" height="50" style="float:right" src="{{item.featured}}">
                     <p style="float:right">
-                        {{item.product_name}}
+                        {{item.title}}
                     </p>
 
                     <p style="float:left;margin-right:5px">{{currency}}</p>
                     <p style="float:left">
-                        {{item.product_price}}
+                        {{item.price}}
                     </p>
                     <ion-delete-button class="ion-minus-circled" 
                                        ng-click="onItemDelete(item)">

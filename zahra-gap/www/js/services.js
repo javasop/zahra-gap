@@ -9,7 +9,7 @@ angular.module('myServices', ['ngResource'])
                     [
                         {"store": "products?tax[wpsc_product_category]=main"},
                         {"lamsa": "products?tax[wpsc_product_category]=lamsa"},
-			{"order":"order"},
+			{"order":"products"},
                         {"verify_coupon": "products/coupons"},
                         {"events": "events"},
                         {"questions": "questions"},
@@ -97,7 +97,7 @@ angular.module('myServices', ['ngResource'])
                 });
                 //the state params has the id?
                 var ur = getUrl(service);
-                return $http.post(ur, {'data':data});
+                return $http.post(ur, data);
 
 
             }
