@@ -194,20 +194,22 @@ angular.module('starter')
                 //order is the form info
                 //send the request in two parts, one is for the forms, the other with the products
 		//iterate throught all the forms and extract only the value
-		var tmp = {};
+		var data = {};
 		for (f in $rootScope.forms){
-			tmp[$rootScope.forms[f].element_name] = $rootScope.forms[f].value;
+			data[$rootScope.forms[f].element_name] = $rootScope.forms[f].value;
 
 		}
-		console.log(tmp);
 
-		if(this.validate(tmp)){
+		if(this.validate(data)){
 
                 var temp = '... الطلب قيد التنفيذ'
 
-	       tmp['products'] = $rootScope.currentCart;
+	       data['products'] = $rootScope.currentCart;
+               
+               console.log(data);
 
-                model.post("order",tmp, temp).success(function(a) {
+
+                model.post("order",data, temp).success(function(a) {
 
                     console.log(a);
 
