@@ -72,7 +72,13 @@ $ionicLoading.hide();
         .controller('FormCtrl', function($scope, $rootScope, $stateParams, $location, forms, $ionicPopup) {
 
 		var type = $stateParams.type;
-		forms.get();
+		forms.get(type);
+                
+                //submit the form
+                $scope.submit = function(){
+                    
+                    
+                }
         })
 
 
@@ -170,7 +176,9 @@ $ionicLoading.hide();
         .controller('BuyCtrl', function($scope, $rootScope, $stateParams, $location, stores) {
 
             $scope.co = {cc: ""};
-
+    
+            //data has to be prepared
+            $rootScope.data = {'products':$rootScope.currentCart};
 
 
             $scope.checkCoupon = function() {
@@ -314,13 +322,17 @@ $ionicLoading.hide();
             $scope.checked = [];
 
             $scope.current;
-
-
+            
+            $rootScope.data = {"event_id":$rootScope.event.ID,"ticket_spaces":1};
 
             //check one box only
             $scope.change = function(index) {
 
 		$rootScope.selectedTicket = index;
+                
+                $rootScope.data['ticket_id'] = $rootScope.event.tickets[index].ticket_id;
+                console.log($rootScope.data['ticket_id']);
+                
                 $scope.checked.forEach(function(el) {
                     //if($scope.checked.indexOf(true))
                     i = $scope.checked.indexOf(el);

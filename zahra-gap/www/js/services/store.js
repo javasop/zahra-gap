@@ -37,7 +37,7 @@ angular.module('starter')
 
             }
 
-            function checkStore() {
+           window.checkStore = this.checkStore = function() {
 
                 var ser;
                 if ($stateParams.type == "main") {
@@ -189,67 +189,7 @@ angular.module('starter')
 
 
             }
-            this.submitOrder = function() {
 
-                //order is the form info
-                //send the request in two parts, one is for the forms, the other with the products
-		//iterate throught all the forms and extract only the value
-		var data = {};
-		for (f in $rootScope.forms){
-			data[$rootScope.forms[f].element_name] = $rootScope.forms[f].value;
-
-		}
-
-		if(this.validate(data)){
-
-                var temp = '... الطلب قيد التنفيذ'
-
-	       data['products'] = $rootScope.currentCart;
-               
-               console.log(data);
-
-
-                model.post("order",data, temp).success(function(a) {
-
-                    console.log(a);
-
-                });
-		
-		}
-		
-
-            }
-
-            this.validate = function(form) {
-
-
-                var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>'
-                var email = '<p class="alert">البريد الالكتروني غير صحيح</p>'
-		
-                var valid = model.formEmpty(form);
-                if (!valid) {
-                    if (form["email"] == undefined) {
-
-                        var alertPopup = $ionicPopup.alert({
-                            title: empty + email
-                        });
-
-                    }
-                    else {
-
-                        var alertPopup = $ionicPopup.alert({
-                            title: empty
-                        });
-
-
-                    }
-                    return false;
-
-                }
-
-                return true;
-
-            }
 
 
 
