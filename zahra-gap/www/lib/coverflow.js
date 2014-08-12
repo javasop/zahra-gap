@@ -11,8 +11,7 @@ angular.module('angular-coverflow').directive('coverflow', function(){
     link: function(scope, element, attributes) {
       
       // Initialize
-      scope.$watch('images',function(n,d){
-      if(n){
+      scope.$watch("images",function(n,d){
       scope.coverflow = new Coverflow({
         width:   568,
         height:  320,
@@ -25,7 +24,6 @@ angular.module('angular-coverflow').directive('coverflow', function(){
       element.bind('touchstart',  scope.coverflow.touchStart.bind(scope.coverflow));
       element.bind('touchmove',   scope.coverflow.touchMove.bind(scope.coverflow));
       element.bind('touchend',    scope.coverflow.touchEnd.bind(scope.coverflow));
-      }
       });
     } 
   };
@@ -62,8 +60,7 @@ var Cover = function(params){
 
 Cover.prototype.init = function(){
   this.flow.element.append(this.template());
-  //this.element = this.flow.element.find(".coverflow-cover-id-" + this.coverId);
-  this.element = $(".coverflow-cover-id-0");
+  this.element = this.flow.element.find(".coverflow-cover-id-" + this.coverId);
   this.updateCover(this.image);
   return this;
 };
@@ -174,8 +171,8 @@ Coverflow.prototype.init = function(){
   
   // Create
   for(var i = 0; i < this.totalCovers; i++){
-    var coverflow_img = this.images;
-    this.covers[i] = new Cover({ id: i, image:coverflow_img[i] , size: 200, flow: this }).init();
+    var cover = this.images[0];
+    this.covers[i] = new Cover({ id: i, image:cover , size: 200, flow: this }).init();
   }
   
   // Images
@@ -185,7 +182,9 @@ Coverflow.prototype.init = function(){
     this.positionLimitRight = -((this.totalImages-1) - (this.centerIndex-1)) * this.covers[0].frame;
     
     for(var i = 0; i < this.totalCovers; i++){
+      if(this.images[i] != undefined){
       this.covers[i].updateCover(this.images[i]);
+      }
     }
     
     // Preload
