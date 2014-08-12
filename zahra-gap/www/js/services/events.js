@@ -11,14 +11,14 @@ angular.module('starter')
                 $rootScope.events.forEach(function(el) {
 
                     var mark = {date: null, name: null, id: null};
-                    d = new Date(el.event_start_date);
+                    d = new Date(el.custom_meta._event_start_date);
 
 
                     //it's not know why it's showing the previous day, I am assuming it's parsing
                     d.setDate(d.getDate() + 1)
                     mark.date = d;
-                    mark.name = el.event_name;
-                    mark.id = el.event_id;
+                    mark.name = el.title;
+                    mark.id = el.ID;
                     obj.push(mark);
 
 
@@ -55,7 +55,7 @@ angular.module('starter')
                     $rootScope.marks = [];
                     formatDates($rootScope.marks)
                     if (id) {
-                        getEventDetail(id);
+                       this.getEventDetail(id);
                     }
 
                 })
@@ -65,8 +65,10 @@ angular.module('starter')
 
             window.getEventDetail = this.getEventDetail = function(id) {
 
+		 console.log($rootScope.events);
                 if ($rootScope.events) {
                     $rootScope.event = model.search("ID", id, $rootScope.events);
+		    console.log($rootScope.event);
                 }
                 else {
                     this.get(id);
@@ -87,38 +89,50 @@ angular.module('starter')
 
 
 
-            this.submitOrder = function(ord) {
+ 	     this.book = function() {
 
                 //order is the form info
                 //send the request in two parts, one is for the forms, the other with the products
+		//iterate throught all the forms and extract only the value
+		var data = {};
+		for (f in $rootScope.forms){
+			data[$rootScope.forms[f].element_name] = $rootScope.forms[f].value;
+
+		}
+
+		if(this.validate(data)){
+
                 var temp = '... الطلب قيد التنفيذ'
 
-                var arrod = [];
-
-                for (el in ord) {
-                    arrod.push(ord[el])
-                }
-
-                console.log($rootScope.currentCart);
+               
+		data['ticket_id'] = $rootScope.event.tickets[$rootScope.selectedTicket].ticket_id;
+		data['event'] = $rootScope.event; 	
 
 
-                model.get("order", {order: ord, product: $rootScope.currentCart}, temp).success(function(a) {
+		console.log(data);	
+
+		/**
+                model.post("events",data, temp).success(function(a) {
 
                     console.log(a);
 
                 });
-
+		**/
+		
+		}
+		
 
             }
 
-            this.validate = function(obj) {
+            this.validate = function(form) {
+
 
                 var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>'
                 var email = '<p class="alert">البريد الالكتروني غير صحيح</p>'
-
-                var valid = model.formEmpty(obj);
+		
+                var valid = model.formEmpty(form);
                 if (!valid) {
-                    if (obj["email"] == undefined) {
+                    if (form["email"] == undefined) {
 
                         var alertPopup = $ionicPopup.alert({
                             title: empty + email
@@ -140,6 +154,7 @@ angular.module('starter')
                 return true;
 
             }
+
 
 
         });

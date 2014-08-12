@@ -12,13 +12,13 @@
         <ul rn-carousel rn-carousel-control class="image">
             <li > 
                 <div class="item item-image">
-                    <img height='300px' src="{{event.featured_image}}">
+                    <img height='300px' src="{{event.featured}}">
                 </div>
             </li>
         </ul>
 
         <ul style="text-align:center">
-            <li style="background-color: transparent;border:none;font-size:24px" ng-repeat='t in tickets' class="item item-checkbox">
+            <li style="background-color: transparent;border:none;font-size:24px" ng-repeat='t in event.tickets' class="item item-checkbox">
 
                 <span  style="color:white">{{t.ticket_name}}</span>
                 <input ng-model="checked[$index]" ng-click="change($index)" ng-change="current = $index" type="checkbox" >

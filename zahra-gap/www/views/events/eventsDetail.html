@@ -8,7 +8,7 @@
 
         <!-- caresoul -->
         <ul rn-carousel rn-carousel-control class="image">
-            <li ng-repeat="img in event.event_images track by $index"> 
+            <li ng-repeat="img in event.media track by $index"> 
                 <div class="item item-image">
                     <img height='300px' src="{{img}}">
                 </div>
@@ -18,14 +18,14 @@
         <div  style="background-color: transparent;margin-bottom: 20px">
             <div>
                 <img class="col col-25" width="90" height="70"   style="float:right"  src="{{place}}">
-                <p style='color:white;float:right;text-align:right' class="col">{{event.location_name}}</p>
+                <p style='color:white;float:right;text-align:right' class="col">{{event.location[0].location_name}}</p>
 
             </div>
             <div style="clear:both"></div>
             <div  >
                 <img class="col col-25" width="90" height="70" style="float:right"  src={{time}}>
 
-                <p style='color:white;float:right;text-align:right' class="col">{{event.event_start_time}}</p>
+                <p style='color:white;float:right;text-align:right' class="col">{{event.custom_meta._event_start_time}}</p>
 
             </div>
 
@@ -37,7 +37,7 @@
             <img ng-click="openModal()"  style="float:left" class="col col-33"  width="90" height="70"  src="{{zoom_text}}">
 
             <a><img style="float:right" class="col col-33"  width="90" height="70"  src="{{desc}}"></a>
-                <p style='color:white;float:right;text-align:right' class="col">{{event.event_description}}</p>
+                <p style='color:white;float:right;text-align:right' class="col">{{event.title}}</p>
 
         </div>
 

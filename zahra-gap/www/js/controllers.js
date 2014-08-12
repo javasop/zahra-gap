@@ -205,7 +205,6 @@ $ionicLoading.hide();
                 $scope.sel = [];
                 //find the event on marks list
                 $rootScope.marks.forEach(function(el) {
-
                     if (day.getDate() == el.date.getDate()) {
                         $scope.sel.push(el);
                     }
@@ -229,7 +228,7 @@ $ionicLoading.hide();
             $scope.zoom_text = img_folder + "zoom_text.png";
 
 
-            events.get($stateParams.id);
+            events.getEventDetail($stateParams.id);
 
 
 
@@ -260,8 +259,8 @@ $ionicLoading.hide();
                 //when event is updated
                 if (n != undefined) {
                     $scope.searchLocationMarker.coords = $scope.map.center = {
-                        latitude: $rootScope.event.location_latitude,
-                        longitude: $rootScope.event.location_longitude
+                        latitude: $rootScope.event.location[0].location_latitude,
+                        longitude: $rootScope.event.location[0].location_longitude
                     }
 
                 }
@@ -310,7 +309,7 @@ $ionicLoading.hide();
             // look for the days where there's events, call update to add all events to the calendar and mark them?
 //            [{"ticket_id": "28", "ticket_name": "Standard Ticket", "ticket_spaces": "10", "booked_spaces": "10", "remaining_spaces": "-10", "ticket_price": "500.00"}]
 
-            events.getTickets();
+            //events.getTickets();
 
             $scope.checked = [];
 
@@ -320,6 +319,8 @@ $ionicLoading.hide();
 
             //check one box only
             $scope.change = function(index) {
+
+		$rootScope.selectedTicket = index;
                 $scope.checked.forEach(function(el) {
                     //if($scope.checked.indexOf(true))
                     i = $scope.checked.indexOf(el);
@@ -327,11 +328,12 @@ $ionicLoading.hide();
                     if (i != $scope.current) {
                         $scope.checked[i] = false;
                     }
+		    
 
                 });
 
                 //check the availabilit of the tickets and change the nav button accordingly
-                var remaining = parseInt($rootScope.tickets[index].remaining_spaces);
+                var remaining = parseInt($rootScope.event.tickets[index].ticket_spaces);
                 if (!remaining || remaining > 0) {
                     $scope.nav_text = "حجز";
                 }
@@ -346,7 +348,16 @@ $ionicLoading.hide();
 
 
         })
-        .controller('BookingCtrl', function($scope, $rootScope, $stateParams, $location, events, $ionicPopup) {
+        .controller('BookingCtrl', function($scope, $rootScope, $stateParams, $location, events, $ionicPopup,forms) {
+
+
+	    //got all the forms ...
+	    forms.get("events");
+
+	    $scope.submit = function(){
+
+	       events.book();	
+	    }
 
 
 
