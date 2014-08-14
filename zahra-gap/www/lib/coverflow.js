@@ -12,6 +12,13 @@ angular.module('angular-coverflow').directive('coverflow', function(){
       
       // Initialize
       scope.$watch("images",function(n,d){
+      //add an image to the beginnig and  end to improve display
+      if(n){
+
+      if(scope.images[0] != "no"){
+      scope.images.unshift("no");
+      scope.images.push("no");
+      }
       scope.coverflow = new Coverflow({
         width:   568,
         height:  320,
@@ -24,6 +31,7 @@ angular.module('angular-coverflow').directive('coverflow', function(){
       element.bind('touchstart',  scope.coverflow.touchStart.bind(scope.coverflow));
       element.bind('touchmove',   scope.coverflow.touchMove.bind(scope.coverflow));
       element.bind('touchend',    scope.coverflow.touchEnd.bind(scope.coverflow));
+      }
       });
     } 
   };

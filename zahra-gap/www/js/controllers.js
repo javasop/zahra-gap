@@ -409,8 +409,8 @@ $ionicLoading.hide();
                 //when event is updated
                 if (n != undefined) {
                     $scope.coords = {
-                        latitude: $rootScope.list._pronamic_google_maps_latitude,
-                        longitude: $rootScope.list._pronamic_google_maps_longitude
+                        latitude: $rootScope.list.custom_meta._pronamic_google_maps_latitude[0],
+                        longitude: $rootScope.list.custom_meta._pronamic_google_maps_longitude[0]
                     }
                     $scope.map.control.refresh();
 
