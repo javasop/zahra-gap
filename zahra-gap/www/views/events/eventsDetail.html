@@ -7,13 +7,16 @@
     <ion-content class="col col-90" style="margin-left:5%"  scroll='true' scrollbar-y="false">
 
         <!-- caresoul -->
-        <ul rn-carousel rn-carousel-control class="image">
+<!--        <ul rn-carousel rn-carousel-control class="image">
             <li ng-repeat="img in event.media track by $index"> 
                 <div class="item item-image">
                     <img height='300px' src="{{img}}">
                 </div>
             </li>
-        </ul>
+        </ul>-->
+        
+            <coverflow coverflow="coverflow" images="event.media" ></coverflow>
+
 
         <div  style="background-color: transparent;margin-bottom: 20px">
             <div>
