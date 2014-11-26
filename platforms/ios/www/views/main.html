@@ -1,0 +1,63 @@
+<ion-view title="" style='background-color:transparent;overflow: visible' >
+
+    <ion-content>
+<div ng-if="ipad == false" >
+        <img class="col col-80 col-offset-20"  src="img/sections/zahra_logo.png">
+        <!-- display when it's iphone and everything else just for testing -->
+            <ion-slide-box   on-slide-changed="slideHasChanged($index)">
+                <ion-slide >
+                    <a href='#/intro/education'><img  class="col col-offset-20 col-66" src="img/main_screen/s1/education.png"></a>
+                    <div style="clear: both"></div>
+
+
+                    <img style="float:left"  class="col col-offset-20 col-33" src="img/main_screen/s1/gap1.png">
+                    <a href='#/store/main'><img style="float:left" class="col  col-33" src="img/main_screen/s1/store1.png"></a>
+
+                    <div style="clear: both"></div>
+                    <a href='#/intro/donations'><img style="float:left"  class="col col-offset-20  col-33" src="img/main_screen/s1/donations.png"></a>
+                    <a href='#/intro/hospitals'><img style="float:left" class="col col-33" src="img/main_screen/s1/hospitals.png"></a>
+
+                    <div style="clear: both"></div>
+                    <a href='#/members'><img style="float:left"  class="col col-offset-20  col-33" src="img/main_screen/s1/members.png"></a>
+                    <a href='#/intro/about'><img style="float:left" class="col col-33" src="img/main_screen/s1/about.png"></a>
+                </ion-slide>
+                <ion-slide>
+
+                    <img style="float:left"  class="col col-offset-20 col-33" src="img/main_screen/s2/gap2.png">
+                    <a href='#/intro/lamsa'><img style="float:left" class="col col-33" src="img/main_screen/s2/lamsa.png"></a>
+
+
+                    <a href='#/events'><img  class="col col-66 col-offset-20" src="img/main_screen/s2/events.png"></a>
+                    <div style="clear: both"></div>
+                    <a href='#/intro/amal'><img  class="col col-66 col-offset-20" src="img/main_screen/s2/amal.png"></a>
+                    <div style="clear: both"></div>
+                    <img style="float:left"  class="col col-offset-20 col-33" src="img/main_screen/s2/app.png">    
+                    <a href='#/contact'><img style="float:left" class="col col-33" src="img/main_screen/s2/contact.png"></a>
+
+                </ion-slide>
+            </ion-slide-box>
+</div>
+<div ng-if="ipad == true">
+                <a  href='#/intro/education'><img style="float: right"  class="col col-50" src="img/main_screen/s1/education.png"></a>
+                <a><img style="float:right"  class="col  col-25" src="img/main_screen/s1/gap1.png"></a>
+                <a href='#/intro/hospitals'><img style="float:right" class="col col-25" src="img/main_screen/s1/hospitals.png"></a>
+
+            <div style="clear: both"></div>
+            <a  href='#/store/main'><img style="float:right"   class="col  col-25" src="img/main_screen/s1/store1.png"></a>
+            <a href='#/events'><img style="float:right" class="col col-50" src="img/main_screen/s2/events.png"></a>
+            <a href='#/intro/donations'><img style="float:right"  class="col col-25" src="img/main_screen/s1/donations.png"></a>
+
+            <div style="clear: both"></div>
+            <a href='#/intro/amal'><img style="float:right"  class="col col-50" src="img/main_screen/s2/amal.png"></a>
+            <img style="float:right"  class="col col-25" src="img/main_screen/s2/gap2.png">
+            <a href='#/intro/lamsa'><img style="float:right" class="col col-25" src="img/main_screen/s2/lamsa.png"></a>
+
+
+            <div style="clear: both"></div>
+            <a href='#/members'><img style="float:right"  class="col col-25" src="img/main_screen/s1/members.png"></a>
+            <a href='#/intro/about'><img style="float:right" class="col col-25" src="img/main_screen/s1/about.png"></a>
+            <img style="float:right"  class="col  col-25" src="img/main_screen/s2/app.png">    
+            <a href='#/contact'><img style="float:right" class="col col-25" src="img/main_screen/s2/contact.png"></a>     
+</div>
+   </ion-content>
+</ion-view>

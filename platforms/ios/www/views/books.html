@@ -1,0 +1,12 @@
+<ion-view style='overflow: visible'>
+        <ion-content>
+            <ion-list >
+                <ion-item  class="item-icon-left item-icon-right"  ng-repeat="item in books" 
+                          item="item">
+                                   
+                   <a ng-click="open(item.media)"><img height="300px" width="100%" src="{{item.featured}}"></a>
+                  
+                </ion-item>
+            </ion-list>
+        </ion-content>
+</ion-view>

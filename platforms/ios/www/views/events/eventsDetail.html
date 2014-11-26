@@ -1,0 +1,76 @@
+<ion-view title="{{event.event_name}}" style='background-color:transparent;overflow: visible'>
+    <ion-nav-buttons side="right">
+        <a class="button button-positive" href='#/tickets'>
+          حجز
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="col col-90" style="margin-left:5%"  scroll='true' scrollbar-y="false">
+
+        <!-- caresoul -->
+<!--        <ul rn-carousel rn-carousel-control class="image">
+            <li ng-repeat="img in event.media track by $index"> 
+                <div class="item item-image">
+                    <img height='300px' src="{{img}}">
+                </div>
+            </li>
+        </ul>-->
+        
+            <coverflow coverflow="coverflow" images="event.media" ></coverflow>
+
+
+        <div  style="background-color: transparent;margin-bottom: 20px">
+            <div>
+                <img class="col col-25" width="90" height="70"   style="float:right"  src="{{place}}">
+                <p style='color:white;float:right;text-align:right' class="col">{{event.location[0].location_name}}</p>
+
+            </div>
+            <div style="clear:both"></div>
+            <div  >
+                <img class="col col-25" width="90" height="70" style="float:right"  src={{time}}>
+
+                <p style='color:white;float:right;text-align:right' class="col">{{event.custom_meta._event_start_time}}</p>
+
+            </div>
+
+        </div>
+        <div style="clear:both"></div>
+      
+        <div style="margin-top: 20px" >
+
+            <img ng-click="openModal()"  style="float:left" class="col col-33"  width="90" height="70"  src="{{zoom_text}}">
+
+            <a><img style="float:right" class="col col-33"  width="90" height="70"  src="{{desc}}"></a>
+                <p style='color:white;float:right;text-align:right' class="col">{{event.title}}</p>
+
+        </div>
+
+    </ion-content>
+</ion-view>
+
+
+
+
+<!-- Modal -->   
+<script id="map.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar  class="bar-positive">
+        <div class="buttons">
+        
+                  <button class="button button-icon icon ion-close-round" 
+        ng-click="closeModal()"></button>
+
+
+          <h1  class="title header-text"> مكان الفعالية</h1>
+
+
+        </div>
+    </ion-header-bar>
+        <ion-content>
+        <google-map events="map.events" control="map.control"  refresh="true" draggable="true" center="map.center" zoom="map.zoom">
+                <marker coords="searchLocationMarker.coords"  >
+        </marker>
+            
+            </google-map>
+</ion-content>
+        </div>
+</script>

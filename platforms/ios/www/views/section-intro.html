@@ -1,0 +1,13 @@
+<ion-view style='background-color:transparent;overflow: visible'>
+  
+    <ion-content>
+    <!--<img ng-src='{{intro.section-logo}}'>-->
+    <img style='float:right'class="col col-50"  src='img/sections/{{type}}/{{intro.logo}}.png'>
+
+   <img class="col col-70"  src="img/sections/{{type}}/{{intro.text}}.png" > 
+    
+   <div ng-repeat="b in intro.buttons">   
+       <a ng-href="#/{{b.to}}"><img style='margin-bottom:10px;padding:0' width="100%" class='col col-33' src="img/sections/{{type}}/{{b.image}}.png"></a>   
+   </div> 
+    </ion-content>
+</ion-view>
