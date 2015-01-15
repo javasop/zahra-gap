@@ -1,0 +1,10 @@
+{
+  "name": "ng-boilerplate",
+  "version": "0.3.2",
+  "devDependencies": {
+    "angular": "~1.2",
+    "angular-mocks": "~1.2",
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.6",
+    "ngCordova": "0.1.1-alpha"
+  }
+}
