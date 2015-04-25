@@ -1,4 +1,20 @@
 /zahra-gap/nbproject/private/
 platforms/
 .DS_Store
+node_modules/
+bower_components/
+.sass-cache/
+.idea
+.idea/
+.idea/workspace.xml
+**/.idea/workspace.xml
+/**/.idea/workspace.xml
+*.iml
+.tmp/
+dist/
+atlassian-ide-plugin.xml
+workspace.xml
+**/.DS_Store
+/**/.DS_Store
+
 
