@@ -1,9 +1,13 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', '-g', 'install', 'cordova' ]
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'generator-gulp-angular' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.37
-4 verbose cache add [ 'cordova', null ]
-5 verbose cache add name=undefined spec="cordova" args=["cordova",null]
+4 verbose cache add [ 'generator-gulp-angular', null ]
+5 verbose cache add name=undefined spec="generator-gulp-angular" args=["generator-gulp-angular",null]
 6 verbose parsed url { protocol: null,
 6 verbose parsed url   slashes: null,
 6 verbose parsed url   auth: null,
@@ -13,310 +17,183 @@
 6 verbose parsed url   hash: null,
 6 verbose parsed url   search: null,
 6 verbose parsed url   query: null,
-6 verbose parsed url   pathname: 'cordova',
-6 verbose parsed url   path: 'cordova',
-6 verbose parsed url   href: 'cordova' }
-7 silly lockFile a98f2055-cordova cordova
-8 verbose lock cordova /Users/osamaalghanmi/.npm/a98f2055-cordova.lock
-9 silly lockFile a98f2055-cordova cordova
-10 silly lockFile a98f2055-cordova cordova
-11 verbose addNamed [ 'cordova', '' ]
+6 verbose parsed url   pathname: 'generator-gulp-angular',
+6 verbose parsed url   path: 'generator-gulp-angular',
+6 verbose parsed url   href: 'generator-gulp-angular' }
+7 silly lockFile 78636691-generator-gulp-angular generator-gulp-angular
+8 verbose lock generator-gulp-angular /Users/osamaalghanmi/.npm/78636691-generator-gulp-angular.lock
+9 silly lockFile 78636691-generator-gulp-angular generator-gulp-angular
+10 silly lockFile 78636691-generator-gulp-angular generator-gulp-angular
+11 verbose addNamed [ 'generator-gulp-angular', '' ]
 12 verbose addNamed [ null, '*' ]
-13 silly lockFile de8d9fad-cordova cordova@
-14 verbose lock cordova@ /Users/osamaalghanmi/.npm/de8d9fad-cordova.lock
-15 silly addNameRange { name: 'cordova', range: '*', hasData: false }
-16 verbose request where is /cordova
+13 silly lockFile edbf5540-generator-gulp-angular generator-gulp-angular@
+14 verbose lock generator-gulp-angular@ /Users/osamaalghanmi/.npm/edbf5540-generator-gulp-angular.lock
+15 silly addNameRange { name: 'generator-gulp-angular', range: '*', hasData: false }
+16 verbose request where is /generator-gulp-angular
 17 verbose request registry https://registry.npmjs.org/
-18 verbose request id 177ac800b265eb55
-19 verbose url raw /cordova
-20 verbose url resolving [ 'https://registry.npmjs.org/', './cordova' ]
-21 verbose url resolved https://registry.npmjs.org/cordova
-22 verbose request where is https://registry.npmjs.org/cordova
-23 info trying registry request attempt 1 at 09:42:11
-24 http GET https://registry.npmjs.org/cordova
-25 http 200 https://registry.npmjs.org/cordova
+18 verbose request id 94c5e9ddb35edab0
+19 verbose url raw /generator-gulp-angular
+20 verbose url resolving [ 'https://registry.npmjs.org/', './generator-gulp-angular' ]
+21 verbose url resolved https://registry.npmjs.org/generator-gulp-angular
+22 verbose request where is https://registry.npmjs.org/generator-gulp-angular
+23 info trying registry request attempt 1 at 07:19:11
+24 http GET https://registry.npmjs.org/generator-gulp-angular
+25 http 200 https://registry.npmjs.org/generator-gulp-angular
 26 silly registry.get cb [ 200,
-26 silly registry.get   { date: 'Tue, 21 Apr 2015 15:42:01 GMT',
+26 silly registry.get   { date: 'Sat, 25 Apr 2015 13:18:52 GMT',
 26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-26 silly registry.get     etag: '"60PUO6MHZ6VD7GIRKJ1PQX9F5"',
+26 silly registry.get     etag: '"82CAPP0S9XZXAM0LVNXGNZ9OV"',
 26 silly registry.get     'content-type': 'application/json',
 26 silly registry.get     'cache-control': 'max-age=60',
-26 silly registry.get     'content-length': '344183',
+26 silly registry.get     'content-length': '48064',
 26 silly registry.get     'accept-ranges': 'bytes',
 26 silly registry.get     via: '1.1 varnish',
-26 silly registry.get     age: '20',
-26 silly registry.get     'x-served-by': 'cache-lax1426-LAX',
-26 silly registry.get     'x-cache': 'HIT',
-26 silly registry.get     'x-cache-hits': '1',
-26 silly registry.get     'x-timer': 'S1429630921.077598,VS0,VE2',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-dfw1830-DFW',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1429967932.145804,VS0,VE265',
 26 silly registry.get     vary: 'Accept',
 26 silly registry.get     'keep-alive': 'timeout=10, max=50',
 26 silly registry.get     connection: 'Keep-Alive' } ]
-27 silly addNameRange number 2 { name: 'cordova', range: '*', hasData: true }
-28 silly addNameRange versions [ 'cordova',
+27 silly addNameRange number 2 { name: 'generator-gulp-angular', range: '*', hasData: true }
+28 silly addNameRange versions [ 'generator-gulp-angular',
 28 silly addNameRange   [ '0.0.1',
-28 silly addNameRange     '0.0.2',
-28 silly addNameRange     '0.0.3',
-28 silly addNameRange     '0.0.4',
-28 silly addNameRange     '0.0.5',
-28 silly addNameRange     '0.0.6',
-28 silly addNameRange     '0.0.7',
-28 silly addNameRange     '0.0.8',
-28 silly addNameRange     '0.0.9',
-28 silly addNameRange     '0.1.0',
 28 silly addNameRange     '0.1.1',
-28 silly addNameRange     '0.1.2',
-28 silly addNameRange     '0.1.3',
-28 silly addNameRange     '0.1.4',
-28 silly addNameRange     '0.1.5',
-28 silly addNameRange     '0.1.6',
-28 silly addNameRange     '0.1.7',
-28 silly addNameRange     '0.1.8',
-28 silly addNameRange     '0.1.9',
-28 silly addNameRange     '0.1.10',
-28 silly addNameRange     '0.1.11',
-28 silly addNameRange     '0.1.12',
-28 silly addNameRange     '0.1.13',
-28 silly addNameRange     '0.1.14',
-28 silly addNameRange     '2.2.0',
-28 silly addNameRange     '2.3.0',
-28 silly addNameRange     '2.3.1',
-28 silly addNameRange     '2.3.2',
-28 silly addNameRange     '2.3.3',
-28 silly addNameRange     '2.3.5',
-28 silly addNameRange     '2.3.6',
-28 silly addNameRange     '2.4.0',
-28 silly addNameRange     '2.4.1',
-28 silly addNameRange     '2.4.2',
-28 silly addNameRange     '2.4.3',
-28 silly addNameRange     '2.4.4',
-28 silly addNameRange     '2.4.5',
-28 silly addNameRange     '2.4.6',
-28 silly addNameRange     '2.4.7',
-28 silly addNameRange     '2.4.8',
-28 silly addNameRange     '2.4.9',
-28 silly addNameRange     '2.4.10',
-28 silly addNameRange     '2.5.0',
-28 silly addNameRange     '2.5.2',
-28 silly addNameRange     '2.5.3',
-28 silly addNameRange     '2.5.4',
-28 silly addNameRange     '2.5.5',
-28 silly addNameRange     '2.6.0',
-28 silly addNameRange     '2.6.1',
-28 silly addNameRange     '2.6.2',
-28 silly addNameRange     '2.7.0-rc.1',
-28 silly addNameRange     '2.7.1-rc.1',
-28 silly addNameRange     '2.7.2',
-28 silly addNameRange     '2.7.3',
-28 silly addNameRange     '2.7.4',
-28 silly addNameRange     '2.8.0',
-28 silly addNameRange     '2.8.1',
-28 silly addNameRange     '2.8.2',
-28 silly addNameRange     '2.8.3',
-28 silly addNameRange     '2.8.4',
-28 silly addNameRange     '2.8.5',
-28 silly addNameRange     '2.8.6',
-28 silly addNameRange     '2.8.7',
-28 silly addNameRange     '2.8.8',
-28 silly addNameRange     '2.8.9',
-28 silly addNameRange     '2.8.10',
-28 silly addNameRange     '2.8.11',
-28 silly addNameRange     '2.8.12',
-28 silly addNameRange     '2.8.13',
-28 silly addNameRange     '2.8.14',
-28 silly addNameRange     '2.8.15',
-28 silly addNameRange     '2.8.16',
-28 silly addNameRange     '2.8.17',
-28 silly addNameRange     '2.8.18',
-28 silly addNameRange     '2.8.19',
-28 silly addNameRange     '2.8.20',
-28 silly addNameRange     '2.8.21',
-28 silly addNameRange     '2.8.22',
-28 silly addNameRange     '2.8.23',
-28 silly addNameRange     '2.8.24',
-28 silly addNameRange     '2.8.25',
-28 silly addNameRange     '2.9.0',
-28 silly addNameRange     '2.9.1',
-28 silly addNameRange     '2.9.2',
-28 silly addNameRange     '2.9.3',
-28 silly addNameRange     '2.9.4',
-28 silly addNameRange     '2.9.5',
-28 silly addNameRange     '2.9.6',
-28 silly addNameRange     '2.9.7',
-28 silly addNameRange     '3.0.0-rc1',
-28 silly addNameRange     '3.0.0-rc1-1',
-28 silly addNameRange     '3.0.0-rc1-3',
-28 silly addNameRange     '3.0.0',
-28 silly addNameRange     '3.0.1',
-28 silly addNameRange     '3.0.2',
-28 silly addNameRange     '3.0.3',
-28 silly addNameRange     '3.0.4',
-28 silly addNameRange     '3.0.5',
-28 silly addNameRange     '3.0.6',
-28 silly addNameRange     '3.0.7',
-28 silly addNameRange     '3.0.8',
-28 silly addNameRange     '3.0.9',
-28 silly addNameRange     '3.0.10',
-28 silly addNameRange     '3.1.0-0.1.0',
-28 silly addNameRange     '3.1.0-0.2.0',
-28 silly addNameRange     '3.2.0-rc.1',
-28 silly addNameRange     '3.2.0-0.1.0',
-28 silly addNameRange     '3.2.0-0.2.0',
-28 silly addNameRange     '3.2.0-0.3.0',
-28 silly addNameRange     '3.2.0-0.4.0',
-28 silly addNameRange     '3.3.0-rc.1',
-28 silly addNameRange     '3.3.0-0.1.1',
-28 silly addNameRange     '3.3.1-0.1.2',
-28 silly addNameRange     '2.9.0-rc1',
-28 silly addNameRange     '3.3.1-0.3.0',
-28 silly addNameRange     '3.3.1-0.3.1',
-28 silly addNameRange     '3.3.1-0.4.1',
-28 silly addNameRange     '3.3.1-0.4.2',
-28 silly addNameRange     '3.4.0-0.1.0',
-28 silly addNameRange     '3.4.0-0.1.1',
-28 silly addNameRange     '3.4.0-0.1.2',
-28 silly addNameRange     '3.4.0-0.1.3',
-28 silly addNameRange     '0.0.0-fake',
-28 silly addNameRange     '3.4.1-0.1.0',
-28 silly addNameRange     '3.5.0-0.2.0',
-28 silly addNameRange     '3.5.0-0.2.1',
-28 silly addNameRange     '3.5.0-0.2.2',
-28 silly addNameRange     '3.5.0-0.2.3',
-28 silly addNameRange     '3.5.0-0.2.4',
-28 silly addNameRange     '3.5.0-0.2.6',
-28 silly addNameRange     '3.5.0-0.2.7',
-28 silly addNameRange     '3.6.0-0.2.8',
-28 silly addNameRange     '3.6.0-0.2.9',
-28 silly addNameRange     '3.6.1-0.2.10',
-28 silly addNameRange     '3.6.3-0.2.11',
-28 silly addNameRange     '3.6.3-0.2.12',
-28 silly addNameRange     '3.6.3-0.2.13',
-28 silly addNameRange     '4.0.0',
-28 silly addNameRange     '4.0.1',
-28 silly addNameRange     '4.1.0',
-28 silly addNameRange     '4.1.1',
-28 silly addNameRange     '4.1.2',
-28 silly addNameRange     '4.1.3-nightly.2014.10.21',
-28 silly addNameRange     '4.2.0',
-28 silly addNameRange     '4.3.0',
-28 silly addNameRange     '5.0.0' ] ]
-29 verbose addNamed [ 'cordova', '4.3.0' ]
-30 verbose addNamed [ '4.3.0', '4.3.0' ]
-31 silly lockFile 9ec5c886-cordova-4-3-0 cordova@4.3.0
-32 verbose lock cordova@4.3.0 /Users/osamaalghanmi/.npm/9ec5c886-cordova-4-3-0.lock
-33 silly lockFile c4c2f9fa-js-org-cordova-cordova-4-3-0-tgz https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz
-34 verbose lock https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz /Users/osamaalghanmi/.npm/c4c2f9fa-js-org-cordova-cordova-4-3-0-tgz.lock
-35 verbose addRemoteTarball [ 'https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz',
-35 verbose addRemoteTarball   '3386c35f454591eee58458584a6006f7bfcb3f0c' ]
-36 info retry fetch attempt 1 at 09:42:12
-37 verbose fetch to= /var/folders/7l/7fym0j2j6r737q13b9v3r6f80000gn/T/npm-2341-enG-ubtD/registry.npmjs.org/cordova/-/cordova-4.3.0.tgz
-38 http GET https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz
-39 http 200 https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz
-40 silly lockFile c4c2f9fa-js-org-cordova-cordova-4-3-0-tgz https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz
-41 silly lockFile c4c2f9fa-js-org-cordova-cordova-4-3-0-tgz https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz
-42 silly lockFile 9ec5c886-cordova-4-3-0 cordova@4.3.0
-43 silly lockFile 9ec5c886-cordova-4-3-0 cordova@4.3.0
-44 silly lockFile de8d9fad-cordova cordova@
-45 silly lockFile de8d9fad-cordova cordova@
-46 silly resolved [ { name: 'cordova',
-46 silly resolved     version: '4.3.0',
-46 silly resolved     preferGlobal: 'true',
-46 silly resolved     description: 'Cordova command line interface tool',
-46 silly resolved     main: 'cordova',
-46 silly resolved     engines: { node: '>=0.9.9' },
-46 silly resolved     engineStrict: true,
-46 silly resolved     bin: { cordova: './bin/cordova' },
-46 silly resolved     scripts:
-46 silly resolved      { test: 'node node_modules/jasmine-node/bin/jasmine-node --captureExceptions --color spec',
-46 silly resolved        cover: 'node node_modules/istanbul/lib/cli.js cover --root src --print detail node_modules/jasmine-node/bin/jasmine-node -- spec' },
+28 silly addNameRange     '0.2.0',
+28 silly addNameRange     '0.2.1',
+28 silly addNameRange     '0.3.0',
+28 silly addNameRange     '0.3.1',
+28 silly addNameRange     '0.4.0',
+28 silly addNameRange     '0.4.1',
+28 silly addNameRange     '0.5.0',
+28 silly addNameRange     '0.5.1',
+28 silly addNameRange     '0.6.0',
+28 silly addNameRange     '0.6.1',
+28 silly addNameRange     '0.6.2',
+28 silly addNameRange     '0.7.0',
+28 silly addNameRange     '0.7.1',
+28 silly addNameRange     '0.7.2',
+28 silly addNameRange     '0.7.3',
+28 silly addNameRange     '0.8.0',
+28 silly addNameRange     '0.8.1',
+28 silly addNameRange     '0.9.0',
+28 silly addNameRange     '0.9.1',
+28 silly addNameRange     '0.10.0',
+28 silly addNameRange     '0.11.0' ] ]
+29 verbose addNamed [ 'generator-gulp-angular', '0.11.0' ]
+30 verbose addNamed [ '0.11.0', '0.11.0' ]
+31 silly lockFile 63dacce2-generator-gulp-angular-0-11-0 generator-gulp-angular@0.11.0
+32 verbose lock generator-gulp-angular@0.11.0 /Users/osamaalghanmi/.npm/63dacce2-generator-gulp-angular-0-11-0.lock
+33 silly lockFile 88e00c61-enerator-gulp-angular-0-11-0-tgz https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz
+34 verbose lock https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz /Users/osamaalghanmi/.npm/88e00c61-enerator-gulp-angular-0-11-0-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz',
+35 verbose addRemoteTarball   '50f80568822f95815d7289281d750da7deb3d70c' ]
+36 info retry fetch attempt 1 at 07:19:12
+37 verbose fetch to= /var/folders/7l/7fym0j2j6r737q13b9v3r6f80000gn/T/npm-58336-L0yWdhrX/registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz
+38 http GET https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz
+39 http 200 https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz
+40 silly lockFile 88e00c61-enerator-gulp-angular-0-11-0-tgz https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz
+41 silly lockFile 88e00c61-enerator-gulp-angular-0-11-0-tgz https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz
+42 silly lockFile 63dacce2-generator-gulp-angular-0-11-0 generator-gulp-angular@0.11.0
+43 silly lockFile 63dacce2-generator-gulp-angular-0-11-0 generator-gulp-angular@0.11.0
+44 silly lockFile edbf5540-generator-gulp-angular generator-gulp-angular@
+45 silly lockFile edbf5540-generator-gulp-angular generator-gulp-angular@
+46 silly resolved [ { name: 'generator-gulp-angular',
+46 silly resolved     version: '0.11.0',
+46 silly resolved     preferGlobal: true,
+46 silly resolved     description: 'Yeoman generator for AngularJS with GulpJS',
+46 silly resolved     keywords:
+46 silly resolved      [ 'yeoman-generator',
+46 silly resolved        'angular',
+46 silly resolved        'gulp',
+46 silly resolved        'restangular',
+46 silly resolved        'ui-router',
+46 silly resolved        'bootstrap',
+46 silly resolved        'angular-material',
+46 silly resolved        'foundation',
+46 silly resolved        'sass',
+46 silly resolved        'less',
+46 silly resolved        'es6',
+46 silly resolved        'babel',
+46 silly resolved        'traceur',
+46 silly resolved        'typescript',
+46 silly resolved        'coffeescript',
+46 silly resolved        'jade',
+46 silly resolved        'haml',
+46 silly resolved        'webpack',
+46 silly resolved        'jshint' ],
+46 silly resolved     license: 'MIT',
+46 silly resolved     author: { name: 'Matthieu Lux & Mehdy Dara' },
+46 silly resolved     contributors: [ [Object], [Object] ],
+46 silly resolved     files: [ 'app' ],
+46 silly resolved     main: 'app/index.js',
 46 silly resolved     repository:
 46 silly resolved      { type: 'git',
-46 silly resolved        url: 'https://git-wip-us.apache.org/repos/asf/cordova-cli.git' },
-46 silly resolved     bugs:
-46 silly resolved      { url: 'https://issues.apache.org/jira/browse/CB',
-46 silly resolved        email: 'dev@cordova.apache.org' },
-46 silly resolved     keywords: [ 'cordova', 'client', 'cli' ],
+46 silly resolved        url: 'https://github.com/Swiip/generator-gulp-angular' },
+46 silly resolved     scripts:
+46 silly resolved      { pretest: 'node test/template-cli.js prepare && node test/template-cli.js deps && cd test/tmp/deps && npm install && bower install',
+46 silly resolved        test: 'mocha test/** -ig protractor',
+46 silly resolved        coveralls: 'istanbul cover ./node_modules/mocha/bin/_mocha -- test/** -ig protractor && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js',
+46 silly resolved        cover: 'istanbul cover ./node_modules/mocha/bin/_mocha -- test/**' },
+46 silly resolved     config: { blanket: [Object] },
 46 silly resolved     dependencies:
-46 silly resolved      { 'cordova-lib': '4.3.0',
-46 silly resolved        q: '1.0.1',
-46 silly resolved        nopt: '3.0.1',
-46 silly resolved        underscore: '1.7.0' },
+46 silly resolved      { chalk: '~1.0.0',
+46 silly resolved        lodash: '~2.4.1',
+46 silly resolved        slash: '~1.0.0',
+46 silly resolved        'yeoman-generator': '~0.18.10',
+46 silly resolved        yosay: '~1.0.0' },
 46 silly resolved     devDependencies:
-46 silly resolved      { istanbul: '^0.3.4',
-46 silly resolved        grunt: '0.4.5',
-46 silly resolved        'grunt-retire': '0.3.7',
-46 silly resolved        'jasmine-node': '1.14.5' },
-46 silly resolved     author: { name: 'Anis Kadri' },
-46 silly resolved     contributors:
-46 silly resolved      [ [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object] ],
-46 silly resolved     license: 'Apache version 2.0',
-46 silly resolved     _id: 'cordova@4.3.0',
-46 silly resolved     _shasum: '3386c35f454591eee58458584a6006f7bfcb3f0c',
-46 silly resolved     _resolved: 'https://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz',
-46 silly resolved     _from: 'cordova@',
-46 silly resolved     _npmVersion: '2.5.1',
-46 silly resolved     _nodeVersion: '0.10.36',
-46 silly resolved     _npmUser: { name: 'stevegill', email: 'stevengill97@gmail.com' },
-46 silly resolved     maintainers:
-46 silly resolved      [ [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object],
-46 silly resolved        [Object] ],
+46 silly resolved      { bower: '~1.3.12',
+46 silly resolved        chai: '~1.9.1',
+46 silly resolved        'chai-as-promised': '~4.1.1',
+46 silly resolved        commander: '^2.6.0',
+46 silly resolved        coveralls: '~2.11.0',
+46 silly resolved        'cross-spawn': '~0.2.3',
+46 silly resolved        'fixture-stdout': '~0.2.1',
+46 silly resolved        istanbul: '~0.3.0',
+46 silly resolved        'js-beautify': '^1.5.4',
+46 silly resolved        mkdirp: '^0.5.0',
+46 silly resolved        mocha: '~2.0.0',
+46 silly resolved        'mocha-lcov-reporter': '0.0.1',
+46 silly resolved        q: '^1.1.2',
+46 silly resolved        'recursive-readdir': '^1.2.1',
+46 silly resolved        sinon: '^1.12.2',
+46 silly resolved        'sinon-chai': '^2.7.0',
+46 silly resolved        wrench: '^1.5.8' },
+46 silly resolved     peerDependencies: { yo: '>=1.0.0' },
+46 silly resolved     engines: { node: '>=0.10.0' },
+46 silly resolved     gitHead: 'a461b2c39e1185b5f24bcdaa834ff65cfd4453bf',
+46 silly resolved     bugs: { url: 'https://github.com/Swiip/generator-gulp-angular/issues' },
+46 silly resolved     homepage: 'https://github.com/Swiip/generator-gulp-angular',
+46 silly resolved     _id: 'generator-gulp-angular@0.11.0',
+46 silly resolved     _shasum: '50f80568822f95815d7289281d750da7deb3d70c',
+46 silly resolved     _from: 'generator-gulp-angular@',
+46 silly resolved     _npmVersion: '2.6.0',
+46 silly resolved     _nodeVersion: '0.10.26',
+46 silly resolved     _npmUser: { name: 'zckrs', email: 'mdara@eleven-labs.com' },
+46 silly resolved     maintainers: [ [Object], [Object] ],
 46 silly resolved     dist:
-46 silly resolved      { shasum: '3386c35f454591eee58458584a6006f7bfcb3f0c',
-46 silly resolved        tarball: 'http://registry.npmjs.org/cordova/-/cordova-4.3.0.tgz' },
-46 silly resolved     directories: {} } ]
-47 info install cordova@4.3.0 into /usr/local/lib
-48 info installOne cordova@4.3.0
-49 verbose lib/node_modules/cordova unbuild
-50 verbose tar unpack /Users/osamaalghanmi/.npm/cordova/4.3.0/package.tgz
-51 silly lockFile 9557e84b-r-local-lib-node-modules-cordova tar:///usr/local/lib/node_modules/cordova
-52 verbose lock tar:///usr/local/lib/node_modules/cordova /Users/osamaalghanmi/.npm/9557e84b-r-local-lib-node-modules-cordova.lock
-53 silly lockFile ee6eb294-mi-npm-cordova-4-3-0-package-tgz tar:///Users/osamaalghanmi/.npm/cordova/4.3.0/package.tgz
-54 verbose lock tar:///Users/osamaalghanmi/.npm/cordova/4.3.0/package.tgz /Users/osamaalghanmi/.npm/ee6eb294-mi-npm-cordova-4-3-0-package-tgz.lock
+46 silly resolved      { shasum: '50f80568822f95815d7289281d750da7deb3d70c',
+46 silly resolved        tarball: 'http://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz' },
+46 silly resolved     directories: {},
+46 silly resolved     _resolved: 'https://registry.npmjs.org/generator-gulp-angular/-/generator-gulp-angular-0.11.0.tgz' } ]
+47 info install generator-gulp-angular@0.11.0 into /usr/local/lib
+48 info installOne generator-gulp-angular@0.11.0
+49 verbose lib/node_modules/generator-gulp-angular unbuild
+50 verbose tar unpack /Users/osamaalghanmi/.npm/generator-gulp-angular/0.11.0/package.tgz
+51 silly lockFile dd8f84c7-e-modules-generator-gulp-angular tar:///usr/local/lib/node_modules/generator-gulp-angular
+52 verbose lock tar:///usr/local/lib/node_modules/generator-gulp-angular /Users/osamaalghanmi/.npm/dd8f84c7-e-modules-generator-gulp-angular.lock
+53 silly lockFile 9fe9c005--gulp-angular-0-11-0-package-tgz tar:///Users/osamaalghanmi/.npm/generator-gulp-angular/0.11.0/package.tgz
+54 verbose lock tar:///Users/osamaalghanmi/.npm/generator-gulp-angular/0.11.0/package.tgz /Users/osamaalghanmi/.npm/9fe9c005--gulp-angular-0-11-0-package-tgz.lock
 55 silly gunzTarPerm modes [ '755', '644' ]
-56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/cordova'
-56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/cordova']
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/generator-gulp-angular'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/generator-gulp-angular']
 56 error   errno: 3,
 56 error   code: 'EACCES',
-56 error   path: '/usr/local/lib/node_modules/cordova',
+56 error   path: '/usr/local/lib/node_modules/generator-gulp-angular',
 56 error   fstream_type: 'Directory',
-56 error   fstream_path: '/usr/local/lib/node_modules/cordova',
+56 error   fstream_path: '/usr/local/lib/node_modules/generator-gulp-angular',
 56 error   fstream_class: 'DirWriter',
 56 error   fstream_stack:
 56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
@@ -324,17 +201,17 @@
 56 error      'Object.oncomplete (fs.js:108:15)' ] }
 57 error Please try running this command again as root/Administrator.
 58 error System Darwin 14.3.0
-59 error command "node" "/usr/local/bin/npm" "-g" "install" "cordova"
+59 error command "node" "/usr/local/bin/npm" "install" "-g" "generator-gulp-angular"
 60 error cwd /Users/osamaalghanmi/Desktop/zahra-gap
 61 error node -v v0.10.37
 62 error npm -v 1.4.28
-63 error path /usr/local/lib/node_modules/cordova
-64 error fstream_path /usr/local/lib/node_modules/cordova
+63 error path /usr/local/lib/node_modules/generator-gulp-angular
+64 error fstream_path /usr/local/lib/node_modules/generator-gulp-angular
 65 error fstream_type Directory
 66 error fstream_class DirWriter
 67 error code EACCES
 68 error errno 3
-69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/cordova'
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/generator-gulp-angular'
 70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
 70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
 70 error fstream_stack Object.oncomplete (fs.js:108:15)
