@@ -2,7 +2,8 @@
 angular.module('zahra', [
   'ionic',
   'ngCordova',
-  'home'
+  'home',
+  'store'
 ])
 
   //.run(function ($ionicPlatform, $cordovaSplashscreen) {
