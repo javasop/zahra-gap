@@ -15,17 +15,18 @@
 /* Empty. Add your own CSS if you like */
 
 /** main menu font type  **/
-@font-face{
-  font-family:stc;
-  src:url("stc.otf") format("opentype");
-}
-p{
-  font-family:stc;
-}
+//@font-face{
+//  font-family:stc;
+//  src:url("stc.otf") format("opentype");
+//}
+//p{
+//  font-family:stc;
+//}
 body{
 
   background:
   url(/assets/images/background/background@2x.png)!important;
+
 }
 /* Chrome, Safari, Opera */
 @-webkit-keyframes myfirst
@@ -57,15 +58,12 @@ body{
 
 }
 .background-2{
+
 }
 .background-3{
 
+
 }
-
-
-
-
-
 
 a, u {
   text-decoration: none;
