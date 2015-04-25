@@ -1,14 +1,16 @@
 'use strict';
+angular.module('zahra', [
+  'ionic',
+  'ngCordova',
+  'home'
+])
 
-angular.module('zahra', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
-      });
+  //.run(function ($ionicPlatform, $cordovaSplashscreen) {
+  //})
 
-    $urlRouterProvider.otherwise('/');
-  })
-;
+  .config(['$urlRouterProvider', function ($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/home');
+  }])
+  .constant('host','http://galamr.com/zahrahControl/wp-json/zahra/');
+
+
