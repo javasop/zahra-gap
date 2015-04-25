@@ -126,7 +126,11 @@ $ionicLoading.hide();
 
 
             stores.getStoreDetail($stateParams.product_id);
-           
+
+            $scope.images = [
+                '../img/about.png',
+                '../img/button_ask.png'
+            ]
 
             $rootScope.go = stores.go;
             
