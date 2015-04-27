@@ -1,5 +1,7 @@
 'use strict';
 angular.module('store', ['store.service', 'store.product', 'store.buy','store.checkout'])
+
+
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('products', {
       url: '/store/:type',

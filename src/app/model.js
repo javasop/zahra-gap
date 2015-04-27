@@ -60,7 +60,7 @@ angular.module('zahra')
 
             this.formEmpty = function (obj) {
 
-                for (el in obj) {
+                for (var el in obj) {
                     if (obj[el] == null) {
                         return false;
                     }
