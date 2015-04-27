@@ -13,7 +13,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module('store', [
+angular.module('store.checkout', [
 ])
 
 /**
@@ -21,29 +21,26 @@ angular.module('store', [
  * will handle ensuring they are all available at run-time, but splitting it
  * this way makes each module more "self-contained".
  */
-    .config(function config($stateProvider) {
-        $stateProvider.state('checkout', {
-            url: '/checkout',
-            views: {
-                "main": {
-                    controller: 'CheckoutCtrl',
-                    templateUrl: 'app/store/checkout/checkout/checkout.html'
-                }
-            }
-        });
-    })
+
+  .config(['$stateProvider', function ($stateProvider) {
+    $stateProvider.state('checkout', {
+      url: '/checkout',
+      templateUrl: 'app/store/checkout/checkout.html',
+      controller: 'CheckoutCtrl'
+    });
+  }])
 
 /**
  * And of course we define a controller for our route.
  */
-    .controller('CheckoutCtrl', function ($scope, $rootScope, $stateParams, $location, stores, forms) {
+    .controller('CheckoutCtrl', function ($scope, $rootScope, $stateParams, $location, storeData, forms) {
 
         forms.get("store");
 
         $scope.submit = function () {
             //send request
-            stores.submitOrder();
+            storeData.submitOrder();
 
         }
 
-    })
+    });

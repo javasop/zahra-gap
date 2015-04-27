@@ -202,7 +202,6 @@ a, u {
 
 .cardflow-card{
   float:left;
-  margin-right: 10px;
 
   width: 200px;
   height: 200px;
@@ -317,7 +316,7 @@ cardflow .cardflow-wrapper {
 }
 
 cardflow .cardflow-card {
-  margin:0 10px 0 10px;
+  //margin:0 10px 0 10px;
   -webkit-box-shadow: 0 0 8px 8px rgba(0,0,0,0.5);
   box-shadow: 0 0 8px 8px rgba(0,0,0,0.5);
   -webkit-box-reflect: below 1px -webkit-gradient( linear, left top, left bottom, from(transparent), color-stop(0.6, transparent), to(rgba(255, 255, 255, 0.5)) );

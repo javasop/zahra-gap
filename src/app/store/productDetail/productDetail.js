@@ -8,7 +8,7 @@ angular.module('store.product',[])
         });
     }])
 
-    .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup) {
+    .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup,$state) {
 
         var img_folder = "assets/images/sections/stores/";
         $scope.desc = img_folder + "description_text.png";
@@ -34,16 +34,20 @@ angular.module('store.product',[])
 
 
         $scope.addCart = function () {
-            $rootScope.currentCart = products.addCart($rootScope.product);
+            $rootScope.currentCart = storeData.addCart($rootScope.product);
         }
 
         $rootScope.deleteCart = function (item) {
-            products.deleteCart(item);
+            storeData.deleteCart(item);
 
         }
 
+        $rootScope.go = storeData.go;
 
-        //carts Modal
+
+
+
+    //carts Modal
         $ionicModal.fromTemplateUrl('cart.html', {
             scope: $rootScope,
             animation: 'slide-in-up'
