@@ -24,9 +24,19 @@
 //}
 body{
 
-  background:
-  url(/assets/images/background/background@2x.png)!important;
+    background-color: #790A58!important;
 
+  //background-color: ;
+}
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"]{
+
+  background-color: inherit!important;
+}
+.bar{
+  background: transparent!important;
+}
+.pane{
+  background-color: #790A58!important;
 }
 /* Chrome, Safari, Opera */
 @-webkit-keyframes myfirst
@@ -61,8 +71,6 @@ body{
 
 }
 .background-3{
-
-
 }
 
 a, u {

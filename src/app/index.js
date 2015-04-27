@@ -3,15 +3,26 @@ angular.module('zahra', [
   'ionic',
   'ngCordova',
   'home',
-  'store'
+  'store',
+  'angularSpinner'
 ])
 
   //.run(function ($ionicPlatform, $cordovaSplashscreen) {
   //})
 
+  .constant('host','http://galamr.com/zahrahControl/wp-json/zahra/')
+
   .config(['$urlRouterProvider', function ($urlRouterProvider) {
+
     $urlRouterProvider.otherwise('/home');
-  }])
-  .constant('host','http://galamr.com/zahrahControl/wp-json/zahra/');
+
+  }]);
+
+  //.controller('AppController',function($scope,$ionicHistory){
+  //
+  //
+  //})
+
+
 
 

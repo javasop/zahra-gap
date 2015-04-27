@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Each section of the site has its own module. It probably also has
  * submodules, though this boilerplate is too simple to demonstrate it. Within
@@ -12,8 +13,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module('store', [
-])
+angular.module('store')
 
 /**
  * Each section or module of the site can also have its own routes. AngularJS

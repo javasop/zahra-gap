@@ -1,22 +1,8 @@
-angular.module('zahra', [])
+'use strict';
+angular.module('zahra')
+  .service('Model', function ($rootScope, $http, $stateParams, $ionicPopup, $location,host,usSpinnerService) {
 
-    .provider('Model', function mainModelProvider() {
-
-
-
-        var host = "";
-
-        this.host = function(val){
-
-           host = val;
-
-        }
-
-
-        //object declaration for factory
-        function mainModel($ionicLoading,$http,host){
-
-            that = this;
+            var that = this;
 
             this.getUrl= function(service) {
 
@@ -51,16 +37,10 @@ angular.module('zahra', [])
 
 
             this.get = function (service, par, temp) {
-                var tem
-                (temp == undefined) ? tem = '...    جاري التحميل' : tem = temp;
-                //params optional
 
-                $ionicLoading.show({
-                    template: tem
-                });
                 //the state params has the id?
-                var ur = that.getUrl(service);
-                console.log(ur);
+              usSpinnerService.spin('spinner-1');
+              var ur = that.getUrl(service);
                 return $http.get(ur, {params: par});
             };
 
@@ -93,22 +73,9 @@ angular.module('zahra', [])
             //this is a general post method
             this.post = function (service, data, temp) {
 
-                var tem;
-                (temp == undefined) ? tem = '... الطلب قيد التنفيذ' : tem = temp;
-                //params optional
-
-                $ionicLoading.show({
-                    template: tem
-                });
                 //the state params has the id?
                 var ur = that.getUrl(service);
                 return $http.post(ur, data);
 
             }
-
-        }
-
-        this.$get =  function mainModelFactory($ionicLoading,$http) {
-            return new mainModel($ionicLoading,$http,host);
-        };
-    })
+   })

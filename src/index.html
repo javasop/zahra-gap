@@ -25,13 +25,24 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-       <div class="background">
-        <img src="/assets/images/background/font1.png" class="background-1">
-        <img src="/assets/images/background/font1.png" class="background-2">
-        <img src="/assets/images/background/font1.png" class="background-3">
-    </div>
 
-    <div ui-view></div>
+
+    <span us-spinner spinner-key="spinner-1"></span>
+
+    <ion-nav-bar class="nav-title-slide-ios7" style='background-color: transparent'>
+      <ion-nav-back-button class="button-icon ion-ios7-arrow-left" style="color:rgb(52, 152, 254)" > الرجوع
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view>
+    </ion-nav-view>
+
+
+    <div class="background">
+      <img src="assets/images/background/font1.png" class="background-1">
+      <img  src="assets/images/background/font1.png" class="background-2">
+      <img src="assets/images/background/font1.png" class="background-3">
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

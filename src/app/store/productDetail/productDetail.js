@@ -1,5 +1,5 @@
-angular.module('store', [])
-
+'use strict';
+angular.module('store.product',[])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('productDetail', {
             url: '/store/:type/:id',
@@ -10,7 +10,7 @@ angular.module('store', [])
 
     .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup) {
 
-        var img_folder = "img/sections/products/";
+        var img_folder = "assets/images/sections/stores/";
         $scope.desc = img_folder + "description_text.png";
         $scope.pricelb = img_folder + "price_text.png";
         $scope.button_add = img_folder + "button_add.png";
@@ -20,11 +20,7 @@ angular.module('store', [])
 
         $scope.coverflow = {};
 
-
-        storeData.getProductsDetail($stateParams.product_id);
-
-
-        $rootScope.go = products.go;
+        storeData.getProductDetail($stateParams.id);
 
 
         $scope.addCart = function () {
