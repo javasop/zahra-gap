@@ -7,9 +7,10 @@
     </ion-nav-buttons>
     <ion-content class="col col-90" style="margin-left:5%"  scroll='true' scrollbar-y="false">
 
-
-    <coverflow coverflow="coverflow" images="product.media" ></coverflow>
-
+      <cardflow model="cardflowSnapKinetic" mode="swipeSnapKinetic">
+        <div class="cardflow-card" ng-repeat="image in images" style="background-image: url( {{image}} )">
+        </div>
+      </cardflow>
 
         <div  style="background-color: transparent;margin-bottom: 20px">
             <div>

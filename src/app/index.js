@@ -4,7 +4,8 @@ angular.module('zahra', [
   'ngCordova',
   'home',
   'store',
-  'angularSpinner'
+  'angularSpinner',
+  'angular-cardflow'
 ])
 
   //.run(function ($ionicPlatform, $cordovaSplashscreen) {

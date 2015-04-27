@@ -18,7 +18,17 @@ angular.module('store.product',[])
 
         //if($rootScope.products == undefined) request it from server
 
-        $scope.coverflow = {};
+        $scope.images = [
+          "assets/images/about.png",
+          "assets/images/ionic.png"
+        ]
+
+    $scope.cardflowSnapKinetic = {};
+
+
+    $scope.coverflow = {};
+
+
 
         storeData.getProductDetail($stateParams.id);
 
