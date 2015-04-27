@@ -17,7 +17,6 @@ angular.module('store.checkout', ['forms'])
         $scope.submit = function () {
             //send request
             formsData.post("store");
-
         }
 
     });

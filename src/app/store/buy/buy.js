@@ -18,7 +18,11 @@ angular.module('store.buy',[])
 
         //data has to be prepared
         $rootScope.data = {'products': $rootScope.currentCart};
-    
+
+        $scope.go = function(){
+          $location.path('/checkout');
+        }
+
         $scope.checkCoupon = function () {
             //send request
             storeData.checkCoupon($scope.co.cc);
