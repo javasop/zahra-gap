@@ -16,6 +16,8 @@ angular.module('store.product',[])
         $scope.button_add = img_folder + "button_add.png";
         $scope.button_tweet = img_folder + "button_tweet.png";
 
+        $scope.cardflowSnapKinetic = {}
+
         //if($rootScope.products == undefined) request it from server
 
         $scope.images = [
