@@ -13,7 +13,9 @@
  * specified, as shown below.
  */
 angular.module('hospital', [
-    'ui.router'
+    'ui.router',
+    'hospital.service',
+    'hospital.detail'
 ])
 
 /**
@@ -32,39 +34,8 @@ angular.module('hospital', [
 /**
  * And of course we define a controller for our route.
  */
-    .controller('HospitalCtrl', function ($scope, $rootScope, $stateParams, $location, lists, $ionicPopup) {
-        //display the map
-        lists.getDetail($stateParams.id)
+    .controller('HospitalCtrl', function ($scope, $rootScope, $stateParams, $location, hospitalData, $ionicPopup) {
 
-
-        $scope.map = {
-            center: {
-                latitude: 24.6757,
-                longitude: 46.6701
-            },
-            zoom: 8,
-            control: {},
-            events: {}
-        };
-
-        $scope.coords = {};
-
-
-        $scope.$watch('list', function (n, d) {
-
-            //when event is updated
-            if (n != undefined) {
-                $scope.coords = {
-                    latitude: $rootScope.list.custom_meta._pronamic_google_maps_latitude[0],
-                    longitude: $rootScope.list.custom_meta._pronamic_google_maps_longitude[0]
-                }
-                $scope.map.control.refresh();
-
-
-            }
-
-
-        })
-
+      hospitalData.all();
 
     })

@@ -6,9 +6,11 @@ angular.module('zahra', [
   'store',
   'angularSpinner',
   'angular-cardflow',
+  'uiGmapgoogle-maps',
   'zahra.event',
   'zahra.forms',
   'zahra.lists',
+  'hospital',
   'intro'
 ])
 
