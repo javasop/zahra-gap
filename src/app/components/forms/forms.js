@@ -1,4 +1,4 @@
-angular.module('forms', [])
+angular.module('zahra.forms', [])
   .service('formsData', function ($rootScope, $http, Model, $stateParams, $ionicPopup, $location, usSpinnerService) {
 
 

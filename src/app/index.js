@@ -7,6 +7,9 @@ angular.module('zahra', [
   'angularSpinner',
   'angular-cardflow',
   'zahra.event',
+  'zahra.forms',
+  'zahra.lists',
+  'intro'
 ])
 
   //.run(function ($ionicPlatform, $cordovaSplashscreen) {
