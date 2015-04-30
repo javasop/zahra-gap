@@ -1,63 +1,64 @@
 <ion-view style='background-color:transparent;overflow: visible'>
   <ion-nav-buttons side="right">
-  <button style="color:white" class="button button-icon"
-  ng-click="data.showDelete = !data.showDelete;
-  data.showReorder = false">تعديل</button>
+    <button style="color:white" class="button button-icon"
+            ng-click="data.showDelete = !data.showDelete;
+  data.showReorder = false">تعديل
+    </button>
   </ion-nav-buttons>
   <div class="modal">
-  <ion-content>
-    <ion-list show-delete="data.showDelete" canSwipeItems="true">
-      <ion-item class="item-icon-left item-icon-right" ng-repeat="item in currentCart"
-                item="item">
+    <ion-content>
+      <ion-list show-delete="data.showDelete" canSwipeItems="true">
+        <ion-item class="item-icon-left item-icon-right" ng-repeat="item in currentCart"
+                  item="item">
 
-        <select style="margin-left: 2px" ng-model="item.quantity"
-                ng-options="n for n in [] | range:1:{{item.stock}}"></select>
+          <select style="margin-left: 2px" ng-model="item.quantity"
+                  ng-options="n for n in [] | range:1:{{item.stock}}"></select>
 
-        <img width="50" height="50" style="float:right" ng-src="{{item.featured}}">
+          <img width="50" height="50" style="float:right" ng-src="{{item.featured}}">
 
-        <p style="float:right">
-          {{item.title}}
-        </p>
+          <p style="float:right">
+            {{item.title}}
+          </p>
 
-        <p style="float:left;margin-right:5px">{{currency}}</p>
+          <p style="float:left;margin-right:5px">{{currency}}</p>
 
-        <p style="float:left">
-          {{item.price}}
-        </p>
-        <ion-delete-button class="ion-minus-circled"
-                           ng-click="onItemDelete(item)">
-        </ion-delete-button>
-      </ion-item>
+          <p style="float:left">
+            {{item.price}}
+          </p>
+          <ion-delete-button class="ion-minus-circled"
+                             ng-click="onItemDelete(item)">
+          </ion-delete-button>
+        </ion-item>
 
-      <ion-item class="" item="item">
-        <p style="float:right;font-size:18px">الاجمالي</p>
+        <ion-item class="" item="item">
+          <p style="float:right;font-size:18px">الاجمالي</p>
 
-        <p style="float:left;margin-right:5px">{{currency}}</p>
+          <p style="float:left;margin-right:5px">{{currency}}</p>
 
-        <p style="float:left">
-          {{total.value}}
-        </p>
+          <p style="float:left">
+            {{total.value}}
+          </p>
 
-      </ion-item>
+        </ion-item>
 
 
-      <ion-item class="item-icon-left item-icon-right" item="item">
+        <ion-item class="item-icon-left item-icon-right" item="item">
 
-        <a ng-click="go()" class="button button-positive" style="float:left">شراء</a>
+          <a ng-click="go()" class="button button-positive" style="float:left">شراء</a>
 
-      </ion-item>
+        </ion-item>
 
-      <ion-item class="item-icon-left item-icon-right" item="item">
+        <ion-item class="item-icon-left item-icon-right" item="item">
 
-        <!--<label class="item item-input">-->
+          <!--<label class="item item-input">-->
           <!--<input ng-blur="checkCoupon()" ng-model="co.cc" type="text" style="text-align: right"-->
-                 <!--placeholder="رقم الكوبون">-->
-        <!--</label>-->
+          <!--placeholder="رقم الكوبون">-->
+          <!--</label>-->
 
-      </ion-item>
+        </ion-item>
 
 
-    </ion-list>
-  </ion-content>
+      </ion-list>
+    </ion-content>
   </div>
 </ion-view>

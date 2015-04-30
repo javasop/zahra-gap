@@ -16,7 +16,9 @@ angular.module('zahra.event', [
   'ui.router',
   'event.service',
   'datePicker',
-  'event.eventDetail'
+  'event.eventDetail',
+  'event.ticket',
+  'event.booking'
 ])
 
 /**

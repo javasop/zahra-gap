@@ -2,6 +2,8 @@
 angular.module('store.service', [])
   .service('storeData', function ($rootScope, $http, Model, $stateParams, usSpinnerService, $ionicPopup, $location, $state) {
 
+
+
     this.products = "";
 
     this.store = "";

@@ -6,13 +6,13 @@ angular.module('zahra', [
   'store',
   'angularSpinner',
   'angular-cardflow',
-  'zahra.event'
+  'zahra.event',
 ])
 
   //.run(function ($ionicPlatform, $cordovaSplashscreen) {
   //})
 
-  .constant('host','http://galamr.com/zahrahControl/wp-json/zahra/')
+  .constant('host', 'http://galamr.com/zahrahControl/wp-json/zahra/')
 
   .config(['$urlRouterProvider', function ($urlRouterProvider) {
 
@@ -20,10 +20,10 @@ angular.module('zahra', [
 
   }]);
 
-  //.controller('AppController',function($scope,$ionicHistory){
-  //
-  //
-  //})
+//.controller('AppController',function($scope,$ionicHistory){
+//
+//
+//})
 
 
 

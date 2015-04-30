@@ -12,8 +12,8 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module('zahra.booking', [
-    'ui.router'
+angular.module('event.booking', [
+  'ui.router'
 ])
 
 /**
@@ -21,33 +21,26 @@ angular.module('zahra.booking', [
  * will handle ensuring they are all available at run-time, but splitting it
  * this way makes each module more "self-contained".
  */
-    .config(function config($stateProvider) {
-        $stateProvider.state('booking', {
-            url: '/booking',
-            views: {
-                "main": {
-                    controller: 'bookingCtrl',
-                    templateUrl: 'booking/booking.tpl.html'
-                }
-            },
-            data: {pageTitle: 'bookings'}
-        });
-    })
+  .config(function config($stateProvider) {
+    $stateProvider.state('booking', {
+      url: '/booking',
+      templateUrl: 'app/event/booking/booking.html',
+      controller: 'BookingCtrl'
+    });
+  })
 
 /**
  * And of course we define a controller for our route.
  */
-    .controller('BookingCtrl', function ($scope, $rootScope, $stateParams, $location, eventData, $ionicPopup, forms) {
+  .controller('BookingCtrl', function ($scope, $rootScope, $stateParams, $location, eventData, $ionicPopup, formsData,eventData) {
 
 
-        //got all the forms ...
-        forms.get("events");
+    //got all the forms ...
+    formsData.get("events");
 
-        $scope.submit = function () {
+    $scope.submit = function () {
+      formsData.post("events");
+    }
 
-            events.book();
-        }
-
-
-    });
+  });
 

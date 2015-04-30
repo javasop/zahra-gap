@@ -12,11 +12,11 @@ angular.module('store.checkout', ['forms'])
 
   .controller('CheckoutCtrl', function ($scope, $rootScope, $stateParams, $location, storeData, formsData) {
 
-        formsData.get("store");
+    formsData.get("store");
 
-        $scope.submit = function () {
-            //send request
-            formsData.post("store");
-        }
+    $scope.submit = function () {
+      //send request
+      formsData.post("store");
+    }
 
-    });
+  });

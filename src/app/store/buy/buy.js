@@ -1,5 +1,5 @@
 'use strict';
-angular.module('store.buy',[])
+angular.module('store.buy', [])
 
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('buy', {
@@ -12,22 +12,22 @@ angular.module('store.buy',[])
 /**
  * And of course we define a controller for our route.
  */
-    .controller('BuyCtrl', function ($scope, $rootScope, $stateParams, $location, storeData) {
+  .controller('BuyCtrl', function ($scope, $rootScope, $stateParams, $location, storeData) {
 
-        $scope.co = {cc: ""};
+    $scope.co = {cc: ""};
 
-        //data has to be prepared
-        $rootScope.data = {'products': $rootScope.currentCart};
+    //data has to be prepared
+    $rootScope.data = {'products': $rootScope.currentCart};
 
-        $scope.go = function(){
-          $location.path('/checkout');
-        }
+    $scope.go = function () {
+      $location.path('/checkout');
+    }
 
-        $scope.checkCoupon = function () {
-            //send request
-            storeData.checkCoupon($scope.co.cc);
+    $scope.checkCoupon = function () {
+      //send request
+      storeData.checkCoupon($scope.co.cc);
 
-        }
+    }
 
-    })
+  })
 

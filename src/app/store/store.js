@@ -1,5 +1,5 @@
 'use strict';
-angular.module('store', ['store.service', 'store.product', 'store.buy','store.checkout'])
+angular.module('store', ['store.service', 'store.product', 'store.buy', 'store.checkout'])
 
 
   .config(['$stateProvider', function ($stateProvider) {

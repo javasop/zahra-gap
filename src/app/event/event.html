@@ -1,20 +1,20 @@
 <ion-view style='background-color:transparent;overflow: visible;margin-top:50px'>
-    <ion-content scroll='true' scrollbar-y="false">
+  <ion-content scroll='true' scrollbar-y="false">
 
-        <div class="card">
-            <div date-picker="start" marked='marked' marks='marks' clicked='clicked' max-view="date" min-view='date'></div>
-        </div>
+    <div class="card">
+      <div date-picker="start" marked='marked' marks='marks' clicked='clicked' max-view="date" min-view='date'></div>
+    </div>
 
-        <div class="list list-inset">
-            <div ng-repeat="s in sel track by $index" class="item item-icon-right item-icon-left">
-                <a href='#/events/{{s.id}}'>
-                    <span style='float:right'>{{s.name}}</span>
-                    <i class='icon ion-calendar'></i>
-                    <span style='text-align:left'>{{s.date| date:'yyyy-MM-dd'}}</span>
-                    <i class='icon ion-ios7-arrow-right'></i>
-                </a>
-            </div>
-        </div>
+    <div class="list list-inset">
+      <div ng-repeat="s in sel track by $index" class="item item-icon-right item-icon-left">
+        <a href='#/events/{{s.id}}'>
+          <span style='float:right'>{{s.name}}</span>
+          <i class='icon ion-calendar'></i>
+          <span style='text-align:left'>{{s.date| date:'yyyy-MM-dd'}}</span>
+          <i class='icon ion-ios7-arrow-right'></i>
+        </a>
+      </div>
+    </div>
 
-    </ion-content>
+  </ion-content>
 </ion-view>

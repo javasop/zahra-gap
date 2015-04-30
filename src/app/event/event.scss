@@ -86,7 +86,7 @@
 }
 
 [date-picker] table {
-  width:100%;
+  width: 100%;
   margin: 0;
 }
 
@@ -149,7 +149,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
-[date-picker] .marked{
+[date-picker] .marked {
   color: #ffffff;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -158,7 +158,7 @@
   background-image: -moz-linear-gradient(top, #cc0022, #cc0022);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cc0022), to(#cc0022));
   background-image: -webkit-linear-gradient(top, #cc0022, #cc0022);
-  background-image: -o-linear-gradient(top, #cc0022,#cc0022);
+  background-image: -o-linear-gradient(top, #cc0022, #cc0022);
   background-image: linear-gradient(to bottom, #cc0022, #cc0022);
   background-repeat: repeat-x;
   border-color: #0044cc #0044cc #002a80;
