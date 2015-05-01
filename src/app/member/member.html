@@ -1,0 +1,22 @@
+<ion-view style='background-color:transparent;overflow: visible;margin-top:50px'>
+
+    <ion-content>
+        <!--<img ng-src='{{intro.section-logo}}'>-->
+        <img style='float:right'class="col col-50"  src='img/sections/members/members_logo.png'>
+        <div style='clear:both'></div>
+        <div  deckgrid class="deckgrid repeat-item" source="types">
+            <div  class="a-card">
+                <a><img  width="100%" style="padding:10px"  src="" data-ng-src="img/sections/members/{{card}}.png" alt="{{card}}"></a>
+                <p style="font-size:18px;color:white;text-align:center">{{card.product_name}}</p>
+
+            </div>
+        </div>
+
+        <div style="clear:both"></div>
+        
+        <a href="#/form/members"><img style='margin-bottom:50px' class='col col-33 col-offset-33' src='img/sections/members/members_button_1.png'></a>
+        
+
+    </ion-content>
+</ion-view>
+

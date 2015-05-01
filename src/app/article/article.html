@@ -1,0 +1,17 @@
+<ion-view style='background-color:transparent;overflow: visible'>
+
+
+  <ion-content style="margin-top:25px">
+
+    <ion-list>
+      <ion-item  href="#/article/{{article.ID}}"   class="item-icon-left item-icon-right"  ng-repeat="article in articles"
+                 item="item">
+
+        <h2 style="text-align: right;color:rgb(123, 41, 95)">{{article.title}}</h2>
+        <p ng-if="article.custom_meta.discount[0]" style="text-align:right" >{{article.custom_meta.discount[0]}}: قيمة الخصم </p>
+        <p style="text-align: right">{{article.custom_meta.excerpt}}</p>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

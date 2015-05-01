@@ -11,8 +11,11 @@ angular.module('zahra', [
   'zahra.forms',
   'zahra.lists',
   'hospital',
-  'intro'
+  'intro',
+  'article',
+  'story'
 ])
+
 
   //.run(function ($ionicPlatform, $cordovaSplashscreen) {
   //})
