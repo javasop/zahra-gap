@@ -1,3 +1,4 @@
+'use strict';
 angular.module('event.service', [])
   .service('eventData', function ($rootScope, $http, usSpinnerService, Model, $stateParams, $ionicPopup, $location) {
 
@@ -15,7 +16,7 @@ angular.module('event.service', [])
 
 
         //it's not know why it's showing the previous day, I am assuming it's parsing
-        d.setDate(d.getDate() + 1)
+        d.setDate(d.getDate() + 1);
         mark.date = d;
         mark.name = el.title;
         mark.id = el.ID;
@@ -42,7 +43,7 @@ angular.module('event.service', [])
 
       }
 
-    }
+    };
 
 
     this.get = function (id) {
@@ -51,7 +52,7 @@ angular.module('event.service', [])
           usSpinnerService.stop('spinner-1');
           $rootScope.events = a;
           $rootScope.marks = [];
-          formatDates($rootScope.marks)
+          formatDates($rootScope.marks);
           if (id) {
             this.getEventDetail(id);
           }
@@ -71,7 +72,7 @@ angular.module('event.service', [])
       }
 
 
-    }
+    };
 
     this.getTickets = function () {
 

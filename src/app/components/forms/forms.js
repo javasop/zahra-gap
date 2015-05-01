@@ -1,8 +1,8 @@
+'use strict';
 angular.module('zahra.forms', [])
   .service('formsData', function ($rootScope, $http, Model, $stateParams, $ionicPopup, $location, usSpinnerService) {
 
 
-    //TODO: this could be used to get the forms ...
     this.get = function (type) {
       //get the type from here ..
       Model.get("forms", {type: type}).success(function (a) {
@@ -22,12 +22,11 @@ angular.module('zahra.forms', [])
 
       if (this.validate(data)) {
 
-        var temp = '... الطلب قيد التنفيذ'
+        var temp = '... الطلب قيد التنفيذ';
 
         Model.post(type, data, temp).success(function (a) {
 
           usSpinnerService.stop('spinner-1');
-          console.log(a);
 
         });
 
@@ -35,13 +34,13 @@ angular.module('zahra.forms', [])
       }
 
 
-    }
+    };
 
     this.validate = function (form) {
 
 
-      var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>'
-      var email = '<p class="alert">البريد الالكتروني غير صحيح</p>'
+      var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>';
+      var email = '<p class="alert">البريد الالكتروني غير صحيح</p>';
 
       var valid = Model.formEmpty(form);
       if (!valid) {

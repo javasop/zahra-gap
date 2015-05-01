@@ -1,12 +1,8 @@
+'use strict';
 angular.module('event.ticket', [
   'ui.router'
 ])
 
-/**
- * Each section or module of the site can also have its own routes. AngularJS
- * will handle ensuring they are all available at run-time, but splitting it
- * this way makes each module more "self-contained".
- */
   .config(function config($stateProvider) {
     $stateProvider.state('ticket', {
       url: '/tickets',
@@ -15,9 +11,6 @@ angular.module('event.ticket', [
     });
   })
 
-/**
- * And of course we define a controller for our route.
- */
   .controller('TicketCtrl', function ($scope, $rootScope, $stateParams, $location, eventData) {
 
     //get the events list
@@ -65,5 +58,5 @@ angular.module('event.ticket', [
     }
 
 
-  })
+  });
 

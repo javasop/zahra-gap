@@ -21,7 +21,7 @@ angular.module('store.buy', [])
 
     $scope.go = function () {
       $location.path('/checkout');
-    }
+    };
 
     $scope.checkCoupon = function () {
       //send request
@@ -29,5 +29,5 @@ angular.module('store.buy', [])
 
     }
 
-  })
+  });
 

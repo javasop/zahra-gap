@@ -8,7 +8,7 @@ angular.module('store.product', [])
     });
   }])
 
-  .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup, $state) {
+  .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal) {
 
     var img_folder = "assets/images/sections/stores/";
     $scope.desc = img_folder + "description_text.png";
@@ -16,14 +16,14 @@ angular.module('store.product', [])
     $scope.button_add = img_folder + "button_add.png";
     $scope.button_tweet = img_folder + "button_tweet.png";
 
-    $scope.cardflowSnapKinetic = {}
+    $scope.cardflowSnapKinetic = {};
 
     //if($rootScope.products == undefined) request it from server
 
     $scope.images = [
       "assets/images/about.png",
       "assets/images/ionic.png"
-    ]
+    ];
 
     $scope.cardflowSnapKinetic = {};
 
@@ -36,12 +36,12 @@ angular.module('store.product', [])
 
     $scope.addCart = function () {
       $rootScope.currentCart = storeData.addCart($rootScope.product);
-    }
+    };
 
     $rootScope.deleteCart = function (item) {
       storeData.deleteCart(item);
 
-    }
+    };
 
     $rootScope.go = storeData.go;
 
@@ -61,7 +61,7 @@ angular.module('store.product', [])
     };
     $rootScope.submit = function () {
       $rootScope.closeModal();
-    }
+    };
     //Cleanup the modal when we're done with it!
     $rootScope.$on('$destroy', function () {
       $rootScope.modal.remove();
@@ -76,5 +76,5 @@ angular.module('store.product', [])
     });
 
 
-  })
+  });
 

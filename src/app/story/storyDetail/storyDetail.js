@@ -9,11 +9,10 @@ angular.module('story.detail', [])
     });
   }])
 
-  .controller('storyDetailController', function ($scope, storyData, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup, $state) {
+  .controller('storyDetailController', function ($scope, storyData, $rootScope, $stateParams) {
 
     //display the map
     storyData.find($stateParams.id)
 
-
-  })
+  });
 

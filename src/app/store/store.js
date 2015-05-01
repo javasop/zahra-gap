@@ -1,7 +1,6 @@
 'use strict';
 angular.module('store', ['store.service', 'store.product', 'store.buy', 'store.checkout'])
 
-
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('products', {
       url: '/store/:type',
@@ -13,12 +12,12 @@ angular.module('store', ['store.service', 'store.product', 'store.buy', 'store.c
 /**
  * And of course we define a controller for our route.
  */
-  .controller('storeController', function ($scope, $rootScope, storeData, $stateParams, $location, $ionicPopup) {
+  .controller('storeController', function ($scope, $rootScope, storeData, $stateParams, $location) {
 
     $scope.go = function (id) {
       console.log('store/' + $stateParams.type + '/' + id);
       $location.path('store/' + $stateParams.type + '/' + id);
-    }
+    };
     storeData.get();
 
   })
@@ -32,7 +31,3 @@ angular.module('store', ['store.service', 'store.product', 'store.buy', 'store.c
       return input;
     };
   });
-
-
-//add the model here
-

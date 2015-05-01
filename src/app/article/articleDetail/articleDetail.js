@@ -15,6 +15,5 @@ angular.module('article.detail', [])
     articleData.find($stateParams.id)
 
 
-
-  })
+  });
 

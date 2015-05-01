@@ -1,17 +1,17 @@
 'use strict';
 angular.module('article.service', [])
 
-  .service('articleData', function ($rootScope, $http, Model, $stateParams, usSpinnerService, $ionicPopup, $location, $state) {
+  .service('articleData', function ($rootScope, $http, Model, $stateParams, usSpinnerService) {
 
 
-    this.all = function() {
+    this.all = function () {
 
       //get the type from here ..
-      var type = "articles"
+      var type = "articles";
 
       //update when there's no list or it's a different list
-      if(!$rootScope.articles){
-        Model.get(type).success(function(a) {
+      if (!$rootScope.articles) {
+        Model.get(type).success(function (a) {
           usSpinnerService.stop('spinner-1');
           $rootScope.articles = a;
         })
@@ -19,12 +19,11 @@ angular.module('article.service', [])
 
     };
 
-    this.find = function(id) {
+    this.find = function (id) {
 
       $rootScope.article = Model.search("ID", id, $rootScope.articles);
 
     }
-
 
 
   });

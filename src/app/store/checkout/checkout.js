@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('store.checkout', ['zahra.forms'])
 
   .config(['$stateProvider', function ($stateProvider) {

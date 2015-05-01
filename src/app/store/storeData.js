@@ -1,6 +1,6 @@
 'use strict';
 angular.module('store.service', [])
-  .service('storeData', function ($rootScope, $http, Model, $stateParams, usSpinnerService, $ionicPopup, $location, $state) {
+  .service('storeData', function ($rootScope, $http, Model, $stateParams, usSpinnerService, $ionicPopup, $location) {
 
 
     this.products = "";
@@ -25,7 +25,7 @@ angular.module('store.service', [])
 
       }
 
-    }
+    };
 
     function update() {
       //loop through the items and update the total?
@@ -52,23 +52,23 @@ angular.module('store.service', [])
 
       return ser;
 
-    }
+    };
 
     //store in cart all the values
     $rootScope.cart = {
       "store": [],
       "lamsa": []
 
-    }
+    };
 
-    $rootScope.currency = "ريال"
+    $rootScope.currency = "ريال";
 
     $rootScope.$watch("store", function (n, d) {
       var up = true;
-    })
+    });
     $rootScope.$watch("currentCart", function (n, d) {
       update();
-    }, true)
+    }, true);
 
 
     this.get = function (id, callback) {
@@ -105,7 +105,7 @@ angular.module('store.service', [])
         this.get(id);
       }
 
-    }
+    };
     this.addCart = function (item) {
 
       //this will have both the item and the value
@@ -129,7 +129,7 @@ angular.module('store.service', [])
 
       return $rootScope.cart[ser]
 
-    }
+    };
     this.deleteCart = function (item) {
 
       //this will have both the item and the value
@@ -141,7 +141,7 @@ angular.module('store.service', [])
       $rootScope.currentCart.splice(0, 1);
 
 
-    }
+    };
     this.checkCoupon = function (number) {
 
       //call the service to check the coupon
@@ -182,7 +182,7 @@ angular.module('store.service', [])
       }
 
 
-    }
+    };
     //this.submitOrder= function (data) {
     //
     //  //order is the form info

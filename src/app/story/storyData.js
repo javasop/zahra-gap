@@ -1,17 +1,17 @@
 'use strict';
 angular.module('story.service', [])
 
-  .service('storyData', function ($rootScope, $http, Model, $stateParams, usSpinnerService, $ionicPopup, $location, $state) {
+  .service('storyData', function ($rootScope, $http, Model, $stateParams, usSpinnerService) {
 
 
-    this.all = function() {
+    this.all = function () {
 
       //get the type from here ..
-      var type = "stories"
+      var type = "stories";
 
       //update when there's no list or it's a different list
-      if(!$rootScope.stories){
-        Model.get(type).success(function(a) {
+      if (!$rootScope.stories) {
+        Model.get(type).success(function (a) {
           usSpinnerService.stop('spinner-1');
           $rootScope.stories = a;
         })
@@ -19,12 +19,11 @@ angular.module('story.service', [])
 
     };
 
-    this.find = function(id) {
+    this.find = function (id) {
 
       $rootScope.story = Model.search("ID", id, $rootScope.stories);
 
     }
-
 
 
   });
