@@ -4,12 +4,11 @@
   <ion-content style="margin-top:25px">
 
     <ion-list>
-      <ion-item  href="#/hospital/{{hospital.ID}}"   class="item-icon-left item-icon-right"  ng-repeat="hospital in hospitals"
+      <ion-item  href="#/story/{{story.ID}}"   class="item-icon-left item-icon-right"  ng-repeat="story in stories"
                  item="item">
 
-        <h2 style="text-align: right;color:rgb(123, 41, 95)">{{hospital.title}}</h2>
-        <p ng-if="hospital.custom_meta.discount[0]" style="text-align:right" >{{hospital.custom_meta.discount[0]}}: قيمة الخصم </p>
-        <p style="text-align: right">{{hospital.custom_meta.excerpt}}</p>
+        <h2 style="text-align: right;color:rgb(123, 41, 95)">{{story.title}}</h2>
+
       </ion-item>
     </ion-list>
 

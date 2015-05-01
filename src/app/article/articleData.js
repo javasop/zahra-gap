@@ -21,7 +21,7 @@ angular.module('article.service', [])
 
     this.find = function(id) {
 
-      $rootScope.hospital = Model.search("id", id, $rootScope.articles);
+      $rootScope.article = Model.search("ID", id, $rootScope.articles);
 
     }
 

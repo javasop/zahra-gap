@@ -15,6 +15,5 @@ angular.module('story.detail', [])
     storyData.find($stateParams.id)
 
 
-
   })
 

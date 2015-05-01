@@ -21,7 +21,7 @@ angular.module('story.service', [])
 
     this.find = function(id) {
 
-      $rootScope.story = Model.search("id", id, $rootScope.stories);
+      $rootScope.story = Model.search("ID", id, $rootScope.stories);
 
     }
 
