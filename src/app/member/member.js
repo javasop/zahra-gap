@@ -15,7 +15,7 @@ angular.module('member', [
 
   .controller('MemberCtrl', function ($scope, model, $stateParams) {
     //all the member types ...
-    $scope.types = ["type_1", "type_2", "type_3", "type_4", "type_5", "type_6"];
+    $scope.types = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5', 'type_6'];
 
 
   });

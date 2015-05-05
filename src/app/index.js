@@ -9,11 +9,11 @@ angular.module('zahra', [
   'uiGmapgoogle-maps',
   'zahra.event',
   'zahra.forms',
-  'zahra.lists',
   'hospital',
   'intro',
   'article',
-  'story'
+  'story',
+  'contact'
 ])
 
 

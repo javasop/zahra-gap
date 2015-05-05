@@ -11,11 +11,11 @@ angular.module('event.ticket', [
     });
   })
 
-  .controller('TicketCtrl', function ($scope, $rootScope, $stateParams, $location, eventData) {
+  .controller('TicketCtrl', function ($scope, $rootScope) {
 
     //get the events list
     // look for the days where there's events, call update to add all events to the calendar and mark them?
-//            [{"ticket_id": "28", "ticket_name": "Standard Ticket", "ticket_spaces": "10", "booked_spaces": "10", "remaining_spaces": "-10", "ticket_price": "500.00"}]
+//            [{'ticket_id': '28', 'ticket_name': 'Standard Ticket', 'ticket_spaces': '10', 'booked_spaces': '10', 'remaining_spaces': '-10', 'ticket_price': '500.00'}]
 
     //events.getTickets();
 
@@ -23,7 +23,7 @@ angular.module('event.ticket', [
 
     $scope.current;
 
-    $rootScope.data = {"event_id": $rootScope.event.ID, "ticket_spaces": 1};
+    $rootScope.data = {'event_id': $rootScope.event.ID, 'ticket_spaces': 1};
 
     //check one box only
     $scope.change = function (index) {
@@ -35,7 +35,7 @@ angular.module('event.ticket', [
 
       $scope.checked.forEach(function (el) {
         //if($scope.checked.indexOf(true))
-        i = $scope.checked.indexOf(el);
+        var i = $scope.checked.indexOf(el);
 
         if (i != $scope.current) {
           $scope.checked[i] = false;
@@ -47,11 +47,11 @@ angular.module('event.ticket', [
       //check the availabilit of the tickets and change the nav button accordingly
       var remaining = parseInt($rootScope.event.tickets[index].ticket_spaces);
       if (!remaining || remaining > 0) {
-        $scope.nav_text = "حجز";
+        $scope.nav_text = 'حجز';
       }
       else {
 
-        $scope.nav_text = "حجز انتظار";
+        $scope.nav_text = 'حجز انتظار';
 
       }
 

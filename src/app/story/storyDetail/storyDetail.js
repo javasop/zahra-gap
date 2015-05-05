@@ -12,7 +12,7 @@ angular.module('story.detail', [])
   .controller('storyDetailController', function ($scope, storyData, $rootScope, $stateParams) {
 
     //display the map
-    storyData.find($stateParams.id)
+    storyData.find($stateParams.id);
 
   });
 

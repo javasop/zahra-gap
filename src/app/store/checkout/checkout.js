@@ -11,11 +11,11 @@ angular.module('store.checkout', ['zahra.forms'])
 
   .controller('CheckoutCtrl', function ($scope, $rootScope, $stateParams, $location, storeData, formsData) {
 
-    formsData.get("store");
+    formsData.get('store');
 
     $scope.submit = function () {
       //send request
-      formsData.post("store");
-    }
+      formsData.post('store');
+    };
 
   });

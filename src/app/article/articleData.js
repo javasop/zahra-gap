@@ -7,7 +7,7 @@ angular.module('article.service', [])
     this.all = function () {
 
       //get the type from here ..
-      var type = "articles";
+      var type = 'articles';
 
       //update when there's no list or it's a different list
       if (!$rootScope.articles) {
@@ -21,7 +21,7 @@ angular.module('article.service', [])
 
     this.find = function (id) {
 
-      $rootScope.article = Model.search("ID", id, $rootScope.articles);
+      $rootScope.article = Model.search('ID', id, $rootScope.articles);
 
     }
 

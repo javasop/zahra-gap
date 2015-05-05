@@ -10,19 +10,19 @@ angular.module('store.product', [])
 
   .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal) {
 
-    var img_folder = "assets/images/sections/stores/";
-    $scope.desc = img_folder + "description_text.png";
-    $scope.pricelb = img_folder + "price_text.png";
-    $scope.button_add = img_folder + "button_add.png";
-    $scope.button_tweet = img_folder + "button_tweet.png";
+    var imageFolder = 'assets/images/sections/stores/';
+    $scope.desc = imageFolder + 'description_text.png';
+    $scope.pricelb = imageFolder + 'price_text.png';
+    $scope.button_add = imageFolder + 'button_add.png';
+    $scope.button_tweet = imageFolder + 'button_tweet.png';
 
     $scope.cardflowSnapKinetic = {};
 
     //if($rootScope.products == undefined) request it from server
 
     $scope.images = [
-      "assets/images/about.png",
-      "assets/images/ionic.png"
+      'assets/images/about.png',
+      'assets/images/ionic.png'
     ];
 
     $scope.cardflowSnapKinetic = {};

@@ -15,10 +15,10 @@ angular.module('event.booking', [
 
 
     //got all the forms ...
-    formsData.get("events");
+    formsData.get('events');
 
     $scope.submit = function () {
-      formsData.post("events");
+      formsData.post('events');
     }
 
   });

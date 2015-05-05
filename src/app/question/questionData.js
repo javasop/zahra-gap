@@ -7,7 +7,7 @@ angular.module('hospital.service', [])
     this.all = function () {
 
       //get the type from here ..
-      var type = "hospitals";
+      var type = 'hospitals';
 
 
       //update when there's no list or it's a different list
@@ -21,7 +21,7 @@ angular.module('hospital.service', [])
     };
 
     this.find = function (id) {
-      $rootScope.hospital = Model.search("id", id, $rootScope.hospitals);
+      $rootScope.hospital = Model.search('id', id, $rootScope.hospitals);
     }
 
 

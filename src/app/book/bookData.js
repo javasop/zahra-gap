@@ -18,7 +18,7 @@ angular.module('book.service', [])
 
     //maybe this will be moved to model
     this.openPDF = function (name) {
-      $rootScope.book = model.search("id", id, $rootScope.books);
+      $rootScope.book = model.search('id', id, $rootScope.books);
     }
 
 

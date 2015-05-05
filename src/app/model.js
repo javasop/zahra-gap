@@ -6,7 +6,7 @@ angular.module('zahra')
 
     this.getUrl = function (service) {
 
-      var ser = ""
+      var ser = ''
       this.services.forEach(function (s) {
         if (s[service] != undefined)
           ser = s[service]
@@ -18,19 +18,19 @@ angular.module('zahra')
     }
 
     this.services = [
-      {"store": "products?tax[wpsc_product_category]=main"},
-      {"lamsa": "products?tax[wpsc_product_category]=lamsa"},
-      {"order": "products"},
-      {"verify_coupon": "products/coupons"},
-      {"events": "events"},
-      {"questions": "questions"},
-      {"articles": "posts"},
-      {"stories": "stories"},
-      {"booklets": "booklets"},
-      {"brochures": "brochures"},
-      {"hospitals": "hospitals"},
-      {"members": "members"},
-      {"forms": "forms"}
+      {'store': 'products?tax[wpsc_product_category]=main'},
+      {'lamsa': 'products?tax[wpsc_product_category]=lamsa'},
+      {'order': 'products'},
+      {'verify_coupon': 'products/coupons'},
+      {'events': 'events'},
+      {'questions': 'questions'},
+      {'articles': 'posts'},
+      {'stories': 'stories'},
+      {'booklets': 'booklets'},
+      {'brochures': 'brochures'},
+      {'hospitals': 'hospitals'},
+      {'members': 'members'},
+      {'forms': 'forms'}
     ]
 
 

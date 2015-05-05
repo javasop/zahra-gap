@@ -9,7 +9,7 @@ angular.module('hospital.detail', [])
     });
   }])
 
-  .controller('hospitalDetailController', function ($scope, hospitalData, $rootScope, $stateParams, $location, $ionicModal, $ionicPopup, $state) {
+  .controller('hospitalDetailController', function ($scope, hospitalData, $rootScope, $stateParams) {
 
     //display the map
     hospitalData.find($stateParams.id);
@@ -31,7 +31,7 @@ angular.module('hospital.detail', [])
     $scope.$watch('list', function (n, d) {
 
       //when event is updated
-      if (n != undefined) {
+      if (n !== undefined) {
         $scope.coords = {
           latitude: $rootScope.list.custom_meta._pronamic_google_maps_latitude[0],
           longitude: $rootScope.list.custom_meta._pronamic_google_maps_longitude[0]

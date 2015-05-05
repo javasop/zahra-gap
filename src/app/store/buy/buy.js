@@ -14,7 +14,7 @@ angular.module('store.buy', [])
  */
   .controller('BuyCtrl', function ($scope, $rootScope, $stateParams, $location, storeData) {
 
-    $scope.co = {cc: ""};
+    $scope.co = {cc: ''};
 
     //data has to be prepared
     $rootScope.data = {'products': $rootScope.currentCart};
@@ -27,7 +27,7 @@ angular.module('store.buy', [])
       //send request
       storeData.checkCoupon($scope.co.cc);
 
-    }
+    };
 
   });
 

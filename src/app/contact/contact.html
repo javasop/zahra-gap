@@ -1,9 +1,9 @@
 <ion-view style='background-color:transparent;overflow:visible'>
   <ion-content>
-    <img class="col col-75 col-offset-33" src='img/sections/contact/contact_logo.png'>
-    <img width="100%" src="img/sections/contact/contact_text.png">
+    <img class="col col-75 col-offset-33" src='assets/images/sections/contact/contact_logo.png'>
+    <img width="100%" src="assets/images/sections/contact/contact_text.png">
 
-    <div>
+    <div class="contact-map">
       <a href='' ng-click="show('ahsa')" style="position: absolute;top: 45%;left: 65%;height: 10%;width: 10%;">Ahsa</a>
       <a href='' ng-click="show('riyadh')"
          style="position: absolute;top: 40%;left: 50%;height: 10%;width: 10%;">Riyadh</a>
@@ -12,9 +12,16 @@
          style="position: absolute;top: 50%;left: 20%;height: 10%;width: 10%;">Jeddah</a>
       <a href='' ng-click="show('abha')" style="position: absolute;top: 61%;left: 33%;height: 10%;width: 10%;">Abha</a>
 
+      <img width="100%" src="assets/images/sections/contact/contact_map.png">
 
-      <img width="100%" src="img/sections/contact/contact_map.png">
 
+    </div>
+
+
+
+    <div class="row" ng-repeat="region in regions">
+
+      <img class="col-90" ng-show="region.show" ng-src="assets/images/sections/contact/iphone/{{region.name}}_text.png" >
 
     </div>
 

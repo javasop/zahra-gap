@@ -3,9 +3,9 @@ angular.module('store.service', [])
   .service('storeData', function ($rootScope, $http, Model, $stateParams, usSpinnerService, $ionicPopup, $location) {
 
 
-    this.products = "";
+    this.products = '';
 
-    this.store = "";
+    this.store = '';
 
     var that = this;
 
@@ -42,12 +42,12 @@ angular.module('store.service', [])
     this.checkStore = function () {
 
       var ser;
-      if ($stateParams.type == "main") {
-        ser = "store"
+      if ($stateParams.type == 'main') {
+        ser = 'store'
       }
       else {
 
-        ser = "lamsa"
+        ser = 'lamsa'
       }
 
       return ser;
@@ -56,17 +56,17 @@ angular.module('store.service', [])
 
     //store in cart all the values
     $rootScope.cart = {
-      "store": [],
-      "lamsa": []
+      'store': [],
+      'lamsa': []
 
     };
 
-    $rootScope.currency = "ريال";
+    $rootScope.currency = 'ريال';
 
-    $rootScope.$watch("store", function (n, d) {
+    $rootScope.$watch('store', function (n, d) {
       var up = true;
     });
-    $rootScope.$watch("currentCart", function (n, d) {
+    $rootScope.$watch('currentCart', function (n, d) {
       update();
     }, true);
 
@@ -99,7 +99,7 @@ angular.module('store.service', [])
     this.getProductDetail = function (id) {
 
       if ($rootScope.products) {
-        $rootScope.product = Model.search("ID", id, $rootScope.products);
+        $rootScope.product = Model.search('ID', id, $rootScope.products);
       }
       else {
         this.get(id);
@@ -110,9 +110,9 @@ angular.module('store.service', [])
 
       //this will have both the item and the value
       var ser = that.checkStore();
-      item["quantity"] = 1;
+      item['quantity'] = 1;
       //check if the item is in the cart already ..
-      if (Model.search("ID", item.ID, $rootScope.currentCart)) {
+      if (Model.search('ID', item.ID, $rootScope.currentCart)) {
         var alertPopup = $ionicPopup.alert({
           title: '<p class="alert">تم اضافة المنتج مسبقا  </p>',
           template: 'المنتج موجود حاليا في سلة المشتريات'
@@ -157,8 +157,8 @@ angular.module('store.service', [])
       }
       else {
         var temp = '... جاري التحقق من الكوبون';
-        Model.get("verify_coupon", cop, temp).success(function (a) {
-          if (a == "No code") {
+        Model.get('verify_coupon', cop, temp).success(function (a) {
+          if (a == 'No code') {
             var alertPopup = $ionicPopup.alert({
               title: '<p class="alert">لم يتم العثور علئ الكوبون</p>',
               template: 'الرجاء التأكد من الرقم '
@@ -167,7 +167,7 @@ angular.module('store.service', [])
           }
           else {
 
-            var tm = "%" + parseInt(a.value) + " " + 'قيمة الخصم ';
+            var tm = '%' + parseInt(a.value) + ' ' + 'قيمة الخصم ';
             var alertPopup = $ionicPopup.alert({
               title: '<p class="success"> تم العثور علئ الكوبون</p>',
               template: tm

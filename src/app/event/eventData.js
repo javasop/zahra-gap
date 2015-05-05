@@ -3,7 +3,7 @@ angular.module('event.service', [])
   .service('eventData', function ($rootScope, $http, usSpinnerService, Model, $stateParams, $ionicPopup, $location) {
 
 
-    this.products = "hello";
+    this.products = 'hello';
 
     function formatDates(obj) {
 
@@ -48,7 +48,7 @@ angular.module('event.service', [])
 
     this.get = function (id) {
       if (!$rootScope.events) {
-        Model.get("events").success(function (a) {
+        Model.get('events').success(function (a) {
           usSpinnerService.stop('spinner-1');
           $rootScope.events = a;
           $rootScope.marks = [];
@@ -65,7 +65,7 @@ angular.module('event.service', [])
     window.getEventDetail = this.getEventDetail = function (id) {
 
       if ($rootScope.events) {
-        $rootScope.event = Model.search("ID", id, $rootScope.events);
+        $rootScope.event = Model.search('ID', id, $rootScope.events);
       }
       else {
         this.get(id);
@@ -77,7 +77,7 @@ angular.module('event.service', [])
     this.getTickets = function () {
 
       //get tickets for the current event
-      Model.get("tickets", {event_id: $rootScope.event.event_id}).success(function (a) {
+      Model.get('tickets', {event_id: $rootScope.event.event_id}).success(function (a) {
         usSpinnerService.stop('spinner-1');
         $rootScope.tickets = a;
       })

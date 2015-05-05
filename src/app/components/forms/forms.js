@@ -5,7 +5,7 @@ angular.module('zahra.forms', [])
 
     this.get = function (type) {
       //get the type from here ..
-      Model.get("forms", {type: type}).success(function (a) {
+      Model.get('forms', {type: type}).success(function (a) {
         usSpinnerService.stop('spinner-1');
         $rootScope.forms = a;
       })
@@ -44,7 +44,7 @@ angular.module('zahra.forms', [])
 
       var valid = Model.formEmpty(form);
       if (!valid) {
-        if (form["email"] == undefined) {
+        if (form['email'] == undefined) {
 
           var alertPopup = $ionicPopup.alert({
             title: empty + email
