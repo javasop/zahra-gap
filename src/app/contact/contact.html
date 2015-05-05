@@ -19,14 +19,14 @@
 
 
 
-    <div class="row" ng-repeat="region in regions">
+    <div ng-repeat="region in regions">
 
-      <img class="col-90" ng-show="region.show" ng-src="assets/images/sections/contact/iphone/{{region.name}}_text.png" >
+      <img style="width: 100%" ng-show="region.show" ng-src="assets/images/sections/contact/iphone/{{region.name}}_text.png" >
 
     </div>
 
-    <div style="margin-left:2%;margin-top:20%" class='col'>
-      <img ng-click="openExternal()" style="margin-right:1%" ng-repeat="s in social" src='{{folder}}{{s}}.png'>
+    <div class="row pull-right">
+      <img class="col col-10 pull-right" ng-click="openExternal()" style="margin-right:1%" ng-repeat="s in social" src='{{folder}}{{s}}.png'>
     </div>
   </ion-content>
 </ion-view>
