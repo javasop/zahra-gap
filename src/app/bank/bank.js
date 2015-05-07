@@ -1,7 +1,6 @@
 'use strict';
 angular.module('bank', [
-  'ui.router',
-  'bank.service'
+  'ui.router'
 ])
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('bank', {
@@ -14,7 +13,7 @@ angular.module('bank', [
   .controller('BankCtrl', function ($scope) {
 
     //prepare a local json with all the banks ...
-    $scope.folder = 'img/banks/';
+    $scope.folder = 'assets/images/banks/';
     $scope.banks = [
       {
         'image': 'riyadh_bank_ipad',

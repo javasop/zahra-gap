@@ -24,17 +24,17 @@ angular.module('intro', [])
         'amal': {
           'logo': 'amal_logo',
           'text': 'amal_text',
-          buttons: [{'image': 'amal_button_1', 'to': 'books/brochures'}, {
+          buttons: [{'image': 'amal_button_1', 'to': 'book/brochures'}, {
             'image': 'amal_button_2',
             'to': 'story'
-          }, {'image': 'amal_button_3', 'to': 'list/questions'}]
+          }, {'image': 'amal_button_3', 'to': 'question'}]
         }
       },
       {
         'donations': {
           'logo': 'donations_logo',
           'text': 'donations_text',
-          buttons: [{'image': 'donations_button_1', 'to': 'banks'}, {
+          buttons: [{'image': 'donations_button_1', 'to': 'bank'}, {
             'image': 'donations_button_2',
             'to': 'external/text'
           }]
@@ -44,7 +44,7 @@ angular.module('intro', [])
         'education': {
           'logo': 'education_logo',
           'text': 'education_text',
-          buttons: [{'image': 'education_button_1', 'to': 'books/booklets'}, {
+          buttons: [{'image': 'education_button_1', 'to': 'book/booklets'}, {
             'image': 'education_button_2',
             'to': 'article'
           }]

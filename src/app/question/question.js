@@ -1,21 +1,26 @@
 'use strict';
-angular.module('hospital', [
+angular.module('question', [
   'ui.router',
-  'hospital.service',
-  'hospital.detail'
+  'question.service',
+  'question.detail'
 ])
 
   .config(['$stateProvider', function ($stateProvider) {
-    $stateProvider.state('hospital', {
-      url: '/hospital',
-      templateUrl: 'app/hospital/hospital.html',
-      controller: 'HospitalCtrl'
+    $stateProvider.state('question', {
+      url: '/question',
+      templateUrl: 'app/question/question.html',
+      controller: 'questionCtrl'
     });
   }])
 
 
-  .controller('HospitalCtrl', function ($scope, $rootScope, $stateParams, $location, hospitalData) {
+  .controller('questionCtrl', function ($scope, $rootScope, $stateParams, $location, questionData) {
 
-    hospitalData.all();
+    questionData.all();
+    $scope.question = ""
+    $scope.postQ = function(){
+      questionData.postQ($scope.question)
+    }
+
 
   });

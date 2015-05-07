@@ -11,12 +11,11 @@ angular.module('book', [
     });
   }])
 
-  .controller('BookCtrl', function ($scope, $rootScope, $stateParams, $location, books, $ionicPopup) {
+  .controller('BookCtrl', function ($scope, $rootScope, $stateParams, $location, bookData, $ionicPopup) {
 
-    books.get();
+    bookData.get();
     $scope.open = function (link) {
       var rf = window.open(link, '_blank');
-
     }
 
   });

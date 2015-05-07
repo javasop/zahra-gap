@@ -13,7 +13,10 @@ angular.module('zahra', [
   'intro',
   'article',
   'story',
-  'contact'
+  'contact',
+  'book',
+  'bank',
+  'question'
 ])
 
 

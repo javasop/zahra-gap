@@ -1,6 +1,6 @@
 'use strict';
 angular.module('book.service', [])
-  .service('bookData', function ($rootScope, $http, usSpinnerService, model, $stateParams) {
+  .service('bookData', function ($rootScope, $http, usSpinnerService, Model, $stateParams) {
 
     this.get = function () {
       //get the type from here ..
@@ -8,7 +8,7 @@ angular.module('book.service', [])
       var up = type != $rootScope.bookType;
       $rootScope.bookType = type;
       if (!$rootScope.books || up) {
-        model.get(type).success(function (a) {
+        Model.get(type).success(function (a) {
           usSpinnerService.stop('spinner-1');
           $rootScope.books = a;
         })
@@ -16,9 +16,9 @@ angular.module('book.service', [])
 
     };
 
-    //maybe this will be moved to model
+    //maybe this will be moved to Model
     this.openPDF = function (name) {
-      $rootScope.book = model.search('id', id, $rootScope.books);
+      $rootScope.book = Model.search('id', id, $rootScope.books);
     }
 
 

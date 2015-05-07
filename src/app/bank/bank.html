@@ -1,10 +1,11 @@
-<ion-view style='overflow: visible'>
+<ion-view style='background-color:transparent;overflow:visible'>
   <ion-content>
     <ion-list>
-      <ion-item class="item-icon-left item-icon-right" ng-repeat="item in books"
-                item="item">
+      <ion-item  class=""  ng-repeat="item in banks"
+                 item="item">
 
-        <a ng-click="open(item.media)"><img height="300px" width="100%" src="{{item.featured}}"></a>
+        <p style="float:left;user-select:text" class="col col-66">{{item.iban}}</p>
+        <img class="col col-33" style="width:100%;float:right" src="{{folder}}{{item.image}}.png">
 
       </ion-item>
     </ion-list>
