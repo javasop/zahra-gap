@@ -1,4 +1,4 @@
-<ion-view style='background-color:transparent;overflow:visible'>
+<ion-view style='background-color:transparent'>
   <ion-content>
     <img class="col col-75 col-offset-33" src='assets/images/sections/contact/contact_logo.png'>
     <img width="100%" src="assets/images/sections/contact/contact_text.png">
@@ -25,9 +25,11 @@
 
     </div>
 
-    <div class="row pull-right">
-      <img class="col col-10 pull-right" ng-click="openExternal()" style="margin-right:1%" ng-repeat="s in social" src='{{folder}}{{s}}.png'>
+    <div class="row center-block">
+      <img class="col col-20" ng-click="openExternal()"  ng-repeat="s in social" src='{{folder}}{{s}}.png'>
     </div>
+
+
   </ion-content>
 </ion-view>
 
