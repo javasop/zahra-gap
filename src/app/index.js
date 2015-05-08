@@ -16,7 +16,8 @@ angular.module('zahra', [
   'contact',
   'book',
   'bank',
-  'question'
+  'question',
+  'member'
 ])
 
 
