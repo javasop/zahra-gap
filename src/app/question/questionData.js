@@ -27,13 +27,23 @@ angular.module('question.service', [])
     this.postQ = function(question) {
 
       //if q is empty pop a modal
-      if (question == "") {
+      if (!question.title || question.title == "") {
         var alertPopup = $ionicPopup.alert({
           title: '<p class="alert">الرجاء ادخال السؤال</p>'
         });
       }
       else{
         //call the service to post the question ...
+        Model.post('questions',question).success(function(data){
+
+          question.title = ""
+          var alertPopup = $ionicPopup.alert({
+            title: '<p class="success">'
+             + "تم استلام سؤالك. سيظهر الجواب حالما يتم الرد"
+             +'</p>'
+          });
+
+        })
       }
     }
 

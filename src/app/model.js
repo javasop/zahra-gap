@@ -69,7 +69,7 @@ angular.module('zahra')
 
     }
     //this is a general post method
-    this.post = function (service, data, temp) {
+    this.post = function (service, data) {
 
       //the state params has the id?
       var ur = that.getUrl(service);

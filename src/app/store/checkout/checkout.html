@@ -1,14 +1,14 @@
 <ion-view style='background-color:transparent;overflow: visible'>
   <ion-content>
     <form>
-
       <div style="margin-bottom:40px;color:white" class="col col-90 col-offset-20" ng-repeat='f in forms'>
         <label style="float:right" class="col col-50">{{f.ar}}</label>
         <input style="float:right;border-radius:10px" class="col col-50" type={{f.type}} required
                placeholder={{f.placeholder}} ng-model="f.value"/>
       </div>
-
-      <button ng-click="submit()"></button>
+      <button style="margin:0 auto 0 auto" class="button button-block button-positive col col-50 center-block">
+        ارسل الطلب
+      </button>
     </form>
   </ion-content>
 </ion-view>

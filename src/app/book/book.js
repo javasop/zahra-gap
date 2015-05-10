@@ -11,11 +11,38 @@ angular.module('book', [
     });
   }])
 
-  .controller('BookCtrl', function ($scope, $rootScope, $stateParams, $location, bookData, $ionicPopup) {
+  .controller('BookCtrl', function ($scope, $rootScope, $stateParams, $location, bookData, $ionicPlatform,$cordovaInAppBrowser) {
+
 
     bookData.get();
-    $scope.open = function (link) {
-      var rf = window.open(link, '_blank');
-    }
+
+
+    $ionicPlatform.ready(function() {
+
+
+      var options = {
+        location: 'yes',
+        clearcache: 'yes',
+        toolbar: 'yes',
+        closebuttoncaption: 'الرجوع'
+      };
+
+      $scope.open = function(link) {
+        $cordovaInAppBrowser.open(link, '_blank', options)
+          .then(function(event) {
+            // success
+          })
+          .catch(function(event) {
+            // error
+          });
+      }
+
+    });
+
+    //bookData.get();
+    //
+    //$scope.open = function (link) {
+    //  var rf = window.open(link, '_self','location=yes');
+    //}
 
   });

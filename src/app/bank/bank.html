@@ -4,8 +4,8 @@
       <ion-item  class=""  ng-repeat="item in banks"
                  item="item">
 
-        <p style="float:left;user-select:text" class="col col-66">{{item.iban}}</p>
-        <img class="col col-33" style="width:100%;float:right" src="{{folder}}{{item.image}}.png">
+        <p style="float:left;word-wrap: break-word;" class="col col-75">{{item.iban}}</p>
+        <img class="col col-25" style="width:100%;float:right" src="{{folder}}{{item.image}}.png">
 
       </ion-item>
     </ion-list>

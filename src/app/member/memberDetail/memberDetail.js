@@ -1,5 +1,5 @@
 'use strict';
-angular.module('member.detail', [])
+angular.module('member.detail', ['zahra.forms'])
 
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('memberDetail', {
@@ -9,9 +9,13 @@ angular.module('member.detail', [])
     });
   }])
 
-  .controller('memberDetailController', function ($scope, memberData, $rootScope, $stateParams) {
+  .controller('memberDetailController', function ($scope, $rootScope, $stateParams,formsData) {
 
-    //display the map
-    memberData.find($stateParams.id);
+    formsData.get("members")
+
+    $scope.submit = function(){
+      //sumbit to forms here
+      formsData.post("members")
+    }
 
   });

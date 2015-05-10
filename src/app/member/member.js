@@ -1,8 +1,7 @@
 'use strict';
 angular.module('member', [
   'ui.router',
-  'member.detail',
-  'member.service'
+  'member.detail'
 ])
 
   .config(['$stateProvider', function ($stateProvider) {

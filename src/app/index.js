@@ -17,12 +17,19 @@ angular.module('zahra', [
   'book',
   'bank',
   'question',
-  'member'
+  'member',
+  'external'
 ])
 
 
-  //.run(function ($ionicPlatform, $cordovaSplashscreen) {
-  //})
+  .run(function ($ionicPlatform, $cordovaSplashscreen) {
+
+    $ionicPlatform.ready(function(){
+      //var isIPad = $ionicPlatform.isIPad();
+      //console.log(isIPad);
+    })
+
+  })
 
   .constant('host', 'http://galamr.com/zahrahControl/wp-json/zahra/')
 

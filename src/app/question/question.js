@@ -17,7 +17,7 @@ angular.module('question', [
   .controller('questionCtrl', function ($scope, $rootScope, $stateParams, $location, questionData) {
 
     questionData.all();
-    $scope.question = ""
+    $scope.question = {title:""}
     $scope.postQ = function(){
       questionData.postQ($scope.question)
     }

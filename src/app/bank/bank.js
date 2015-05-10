@@ -17,7 +17,7 @@ angular.module('bank', [
     $scope.banks = [
       {
         'image': 'riyadh_bank_ipad',
-        'iban': 'SA932 0000 0021 2044 8869 940',
+        'iban': 'SA932 0000 0021 2044 8869 940'
       },
       {
         'image': 'bilad_ipad',
