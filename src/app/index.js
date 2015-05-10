@@ -25,8 +25,7 @@ angular.module('zahra', [
   .run(function ($ionicPlatform, $cordovaSplashscreen) {
 
     $ionicPlatform.ready(function(){
-      //var isIPad = $ionicPlatform.isIPad();
-      //console.log(isIPad);
+      console.log("hello");
     })
 
   })
@@ -37,12 +36,20 @@ angular.module('zahra', [
 
     $urlRouterProvider.otherwise('/home');
 
-  }]);
+  }])
 
-//.controller('AppController',function($scope,$ionicHistory){
-//
-//
-//})
+.controller('AppController',function($scope,$rootScope,$ionicHistory){
+
+    $rootScope.ipad = ionic.Platform.isIPad();
+
+    ionic.Platform.ready(function(){
+      // will execute when device is ready, or immediately if the device is already ready.
+      $rootScope.ipad = ionic.Platform.isIPad();
+
+    });
+
+
+});
 
 
 

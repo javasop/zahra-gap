@@ -7,11 +7,6 @@ angular.module('home', [])
       controller: 'homeController'
     });
   }])
-  .controller('homeController', function ($rootScope) {
-
-    $rootScope.ipad = false;
-
-    //mapping here?
+  .controller('homeController', function ($rootScope,$timeout,$scope) {
 
   });
-
