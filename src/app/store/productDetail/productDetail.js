@@ -18,12 +18,17 @@ angular.module('store.product', [])
 
     $scope.cardflowSnapKinetic = {};
 
+    $scope.coverflow = {};
+
     //if($rootScope.products == undefined) request it from server
 
-    $scope.images = [
-      'assets/images/about.png',
-      'assets/images/ionic.png'
-    ];
+    //storeData.getDummyImages().success(function(data){
+    //
+    //  $scope.images = data
+    //
+    //})
+
+
 
     $scope.cardflowSnapKinetic = {};
 

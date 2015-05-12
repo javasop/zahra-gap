@@ -9,6 +9,8 @@ angular.module('store.service', [])
 
     var that = this;
 
+    var dummyUrl = "assets/dummy/images.json"
+
 
     this.go = function () {
 
@@ -106,6 +108,11 @@ angular.module('store.service', [])
       }
 
     };
+    this.getDummyImages = function(){
+
+      return $http.get(dummyUrl);
+
+    }
     this.addCart = function (item) {
 
       //this will have both the item and the value

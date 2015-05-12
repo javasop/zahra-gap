@@ -6,6 +6,7 @@ angular.module('zahra', [
   'store',
   'angularSpinner',
   'angular-cardflow',
+  'zahra.coverflow',
   'uiGmapgoogle-maps',
   'zahra.event',
   'zahra.forms',
@@ -22,13 +23,9 @@ angular.module('zahra', [
 ])
 
 
-  .run(function ($ionicPlatform, $cordovaSplashscreen) {
-
-    $ionicPlatform.ready(function(){
-      console.log("hello");
-    })
-
-  })
+  //.run(function ($ionicPlatform, $cordovaSplashscreen) {
+  //
+  //})
 
   .constant('host', 'http://galamr.com/zahrahControl/wp-json/zahra/')
 
