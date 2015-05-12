@@ -1,10 +1,10 @@
 <ion-view title="" style='background-color:transparent;overflow: visible;'>
-  <ion-content>
-    <div ng-repeat="p in products">
+  <ion-content class="row">
+    <div class="col col-33" style="display: inline-block" ng-repeat="p in products">
       <a ng-click="go(p.ID)">
         <img class="photos item" height="250px" width="100%" ng-src="{{p.featured}}">
       </a>
-      <p style="color:white;text-align:center">{{p.title}}</p>
+      <p style="color:white;text-align:center;font-size:28px;margin-top: 20px;">{{p.title}}</p>
     </div>
   </ion-content>
 </ion-view>

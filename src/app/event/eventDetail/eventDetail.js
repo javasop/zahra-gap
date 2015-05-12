@@ -20,6 +20,7 @@ angular.module('event.eventDetail', [
     $scope.desc = img_folder + 'description_text.png';
     $scope.zoom_text = img_folder + 'zoom_text.png';
 
+    $scope.coverflow = {};
 
     eventData.getEventDetail($stateParams.id);
 

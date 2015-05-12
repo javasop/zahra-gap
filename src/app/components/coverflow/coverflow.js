@@ -12,7 +12,7 @@ angular.module('zahra.coverflow').directive('zahraCoverflow', function(){
 
 			// Initialize
       scope.coverflow = new Coverflow({
-        width:   568,
+        width:   800,
         height:  320,
         element: element,
         scope:   scope,
@@ -160,7 +160,7 @@ var Coverflow = function(params){
 	this.element            = params.element;
 	this.center             = this.width/2;
 	this.scope              = params.scope;
-	this.totalCovers        = 4;
+	this.totalCovers        = 3;
 	this.visibleCovers      = 3;
 	this.centerIndex        = Math.ceil(this.visibleCovers/2);
 	this.covers             = [];
