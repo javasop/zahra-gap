@@ -9,11 +9,11 @@ angular.module('contact.detail', [])
     });
   }])
 
-  .controller('contactDetailController', function ($scope, contactData, $rootScope, $stateParams) {
+  .controller('contactDetailController', function ($scope, $rootScope, $stateParams) {
 
     //display the map
     //contactData.find($stateParams.region);
-    console.log($stateParams.region);
+    $scope.region = $stateParams.region;
 
   });
 

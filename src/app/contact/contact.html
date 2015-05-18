@@ -4,13 +4,13 @@
     <img width="100%" src="assets/images/sections/contact/contact_text.png">
 
     <div class="contact-map">
-      <a href='' ng-click="show('ahsa')" style="position: absolute;top: 45%;left: 65%;height: 10%;width: 10%;">Ahsa</a>
+      <a href='' ng-click="show('ahsa')" style="position: absolute;top: 45%;left: 65%;height: 10%;width: 10%;"></a>
       <a href='' ng-click="show('riyadh')"
-         style="position: absolute;top: 40%;left: 50%;height: 10%;width: 10%;">Riyadh</a>
-      <a href='' ng-click="show('madinah')" style="position: absolute;top: 40%;left: 20%;height: 10%;width: 10%;">Madinah</a>
+         style="position: absolute;top: 40%;left: 50%;height: 10%;width: 10%;"></a>
+      <a href='' ng-click="show('madinah')" style="position: absolute;top: 40%;left: 20%;height: 10%;width: 10%;"></a>
       <a href='' ng-click="show('jeddah')"
-         style="position: absolute;top: 60%;left: 20%;height: 10%;width: 10%;">Jeddah</a>
-      <a href='' ng-click="show('abha')" style="position: absolute;top: 75%;left: 33%;height: 10%;width: 10%;">Abha</a>
+         style="position: absolute;top: 60%;left: 20%;height: 10%;width: 10%;"></a>
+      <a href='' ng-click="show('abha')" style="position: absolute;top: 75%;left: 33%;height: 10%;width: 10%;"></a>
 
       <img width="100%" src="assets/images/sections/contact/contact_map.png">
 
@@ -18,12 +18,11 @@
     </div>
 
 
+      <div ng-repeat="region in regions">
 
-    <div ng-repeat="region in regions">
+        <img style="width: 100%" ng-show="region.show" ng-src="assets/images/sections/contact/iphone/{{region.name}}_text.png" >
 
-      <img style="width: 100%" ng-show="region.show" ng-src="assets/images/sections/contact/iphone/{{region.name}}_text.png" >
-
-    </div>
+      </div>
 
     <div class="row center-block">
       <img class="col col-20" ng-click="openExternal()"  ng-repeat="s in social" src='{{folder}}{{s}}.png'>

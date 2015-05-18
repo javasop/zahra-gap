@@ -1,6 +1,7 @@
 'use strict';
 angular.module('contact', [
-  'ui.router'
+  'ui.router',
+  'contact.detail'
 ])
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('contact', {
@@ -10,7 +11,8 @@ angular.module('contact', [
     });
   }])
 
-  .controller('ContactCtrl', function ($scope) {
+  .controller('ContactCtrl', function ($scope,$rootScope,$location) {
+
 
     $scope.regions = [
 
@@ -22,19 +24,24 @@ angular.module('contact', [
 
     ]
     //show the different contact info
+
     $scope.show = function (name) {
 
-      $scope.regions.forEach(function(region){
+      if($rootScope.ipad) {
+        $scope.regions.forEach(function (region) {
+          if (region.name == name) {
+            region.show = true;
+          }
+          else {
+            region.show = false;
+          }
 
+        })
+      }
+      else{
+        $location.path('contact/'+ name);
+      }
 
-        if(region.name == name){
-          region.show = true;
-        }
-        else{
-          region.show = false;
-        }
-
-      })
 
     };
 

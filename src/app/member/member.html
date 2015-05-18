@@ -2,14 +2,11 @@
 
   <!-- if not ipad -->
   <div ng-if="ipad">
-
-    <ion-header-bar align-title="left" class="bar-positive">
-
+    <ion-header-bar align-title="left">
       <div class="buttons pull-right">
-        <button class="button">Right Button</button>
+        <a>Right Button</a>
       </div>
     </ion-header-bar>
-
   </div>
 
 
@@ -32,11 +29,21 @@
     <!--<img ng-src='{{intro.section-logo}}'>-->
     <img style='float:right' class="col col-50" src='assets/images/sections/members/members_logo.png'>
 
-    <div style='clear:both'></div>
+    <div style="clear:both"></div>
 
-    <img ng-src="assets/images/sections/members/members_text_iphone.png" ng-if="!ipad"/>
+    <ion-scroll direction="y" style="height: 500px;width: 100%" ng-if="!ipad">
+      <div  style="height: 500px;">
+        <img  class="col col-80 center-block" ng-src="assets/images/sections/members/members_text_iphone.png" />
+      </div>
+    </ion-scroll>
 
-    <img ng-src="assets/images/sections/members/members_text_ipad" ng-if="ipad" />
+
+    <ion-scroll direction="y" style="height: 500px;width: 100%" ng-if="ipad">
+      <div  style="height: 500px;">
+        <img class="col col-80 center-block" ng-src="assets/images/sections/members/members_text_ipad.png"  />
+      </div>
+      </ion-scroll>
+
 
     <div style="clear:both"></div>
 

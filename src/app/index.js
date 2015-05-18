@@ -39,6 +39,8 @@ angular.module('zahra', [
 
     $rootScope.ipad = ionic.Platform.isIPad();
 
+    console.log($rootScope.ipad);
+
     ionic.Platform.ready(function(){
       // will execute when device is ready, or immediately if the device is already ready.
       $rootScope.ipad = ionic.Platform.isIPad();
