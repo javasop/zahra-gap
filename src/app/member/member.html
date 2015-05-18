@@ -1,32 +1,12 @@
 <ion-view style='background-color:transparent;overflow: visible'>
 
-  <!-- if not ipad -->
-  <div ng-if="ipad">
-    <ion-header-bar align-title="left">
-      <div class="buttons pull-right">
-        <a>Right Button</a>
-      </div>
-    </ion-header-bar>
-  </div>
-
-
   <ion-content>
 
-    <!-- if ipad, design the form the other way -->
-    <div ng-if="ipad">
-
-      <!-- if $index == 4 then break the form just like we have in the screenshots -->
-      <form>
-        <div style="margin-bottom:40px;color:white" class="col col-90 col-offset-20" ng-repeat='f in forms'>
-          <label style="float:right" class="col col-50">{{f.ar}}</label>
-          <input style="float:right;border-radius:10px" class="col col-50" type={{f.type}} required
-                 placeholder={{f.placeholder}} ng-model="f.value"/>
-        </div>
-      </form>
-
-    </div>
-
     <!--<img ng-src='{{intro.section-logo}}'>-->
+    <a href="#/member/detail">
+      <img style='margin-bottom:50px' class="pull-right"
+           src='assets/images/sections/members/members_button_1.png'/>
+    </a>
     <img style='float:right' class="col col-50" src='assets/images/sections/members/members_logo.png'>
 
     <div style="clear:both"></div>
@@ -39,17 +19,10 @@
 
 
     <ion-scroll direction="y" style="height: 500px;width: 100%" ng-if="ipad">
-      <div  style="height: 500px;">
+      <div  style="height: 600px;">
         <img class="col col-80 center-block" ng-src="assets/images/sections/members/members_text_ipad.png"  />
       </div>
-      </ion-scroll>
-
-
-    <div style="clear:both"></div>
-
-    <a href="#/member/detail"><img style='margin-bottom:50px' class='col col-33 col-offset-33'
-                                  src='assets/images/sections/members/members_button_1.png'></a>
-
+    </ion-scroll>
 
   </ion-content>
 </ion-view>

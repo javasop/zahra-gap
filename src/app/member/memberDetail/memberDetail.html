@@ -1,10 +1,11 @@
 <ion-view style='background-color:transparent;overflow: visible'>
-  <ion-header-bar align-title="left" class="bar-positive">
 
-    <div class="buttons pull-right">
-      <button class="button" ng-click="submit()">Right Button</button>
-    </div>
-  </ion-header-bar>
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="go()">
+      متابعة
+    </button>
+  </ion-nav-buttons>
+
   <ion-content>
     <form>
       <div style="margin-bottom:40px;color:white" class="col col-90 col-offset-20" ng-repeat='f in forms'>

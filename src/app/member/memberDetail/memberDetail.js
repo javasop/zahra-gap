@@ -9,13 +9,17 @@ angular.module('member.detail', ['zahra.forms'])
     });
   }])
 
-  .controller('memberDetailController', function ($scope, $rootScope, $stateParams,formsData) {
+  .controller('memberDetailController', function ($scope, $rootScope, $stateParams,formsData,$location) {
 
     formsData.get("members")
 
     $scope.submit = function(){
-      //sumbit to forms here
       formsData.post("members")
+    }
+
+    $scope.go = function(){
+      $location.path('member/type');
+
     }
 
   });
