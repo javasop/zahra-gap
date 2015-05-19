@@ -8,9 +8,9 @@
 
   <ion-content>
     <form>
-      <div style="margin-bottom:40px;color:white" class="col col-90 col-offset-20" ng-repeat='f in forms'>
-        <label style="float:right" class="col col-50">{{f.ar}}</label>
-        <input style="float:right;border-radius:10px" class="col col-50" type={{f.type}} required
+      <div style="color:white" class="col col-50 pull-right" ng-repeat='f in forms'>
+        <label style="font-size:24px" class="pull-right">{{f.ar}}</label>
+        <input class="col" style="border-radius:10px" type={{f.type}} required
                placeholder={{f.placeholder}} ng-model="f.value"/>
       </div>
     </form>

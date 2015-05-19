@@ -549,11 +549,11 @@
       "\n" +
       "      <tr>\r" +
       "\n" +
-      "        <th ng-click=\"prev()\">‹</th>\r" +
+      "        <th class=\"prev\" ng-click=\"prev()\">‹</th>\r" +
       "\n" +
-      "        <th colspan=\"5\" class=\"switch\" ng-click=\"setView('month')\">{{date|date:\"yyyy MMMM\"}}</th>\r" +
+      "        <th class=\"month\" colspan=\"5\" class=\"switch\" ng-click=\"setView('month')\">{{date|date:\"yyyy MMMM\"}}</th>\r" +
       "\n" +
-      "        <th ng-click=\"next()\">›</i></th>\r" +
+      "        <th class=\"next\" ng-click=\"next()\">›</i></th>\r" +
       "\n" +
       "      </tr>\r" +
       "\n" +

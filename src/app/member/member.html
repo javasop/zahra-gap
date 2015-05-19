@@ -2,16 +2,17 @@
 
   <ion-content>
 
-    <!--<img ng-src='{{intro.section-logo}}'>-->
-    <a href="#/member/detail">
-      <img style='margin-bottom:50px' class="pull-right"
-           src='assets/images/sections/members/members_button_1.png'/>
-    </a>
+    <div class="pull-left" ng-if="ipad">
+      <a  class="pull-left col-offset-33" href="#/member/detail">
+        <img style='margin-bottom:50px;margin-top: 20px' class="pull-right"
+             src='assets/images/sections/members/members_button_1.png'/>
+      </a>
+    </div>
     <img style='float:right' class="col col-50" src='assets/images/sections/members/members_logo.png'>
 
     <div style="clear:both"></div>
 
-    <ion-scroll direction="y" style="height: 500px;width: 100%" ng-if="!ipad">
+    <ion-scroll direction="y" style="height: 400px;width: 100%" ng-if="!ipad">
       <div  style="height: 500px;">
         <img  class="col col-80 center-block" ng-src="assets/images/sections/members/members_text_iphone.png" />
       </div>
@@ -23,6 +24,17 @@
         <img class="col col-80 center-block" ng-src="assets/images/sections/members/members_text_ipad.png"  />
       </div>
     </ion-scroll>
+
+
+    <!--<img ng-src='{{intro.section-logo}}'>-->
+    <div ng-if="!ipad">
+      <a  class="pull-left col-offset-33" href="#/member/detail">
+        <img style='margin-bottom:50px;margin-top: 20px' class="pull-right"
+             src='assets/images/sections/members/members_button_1.png'/>
+      </a>
+    </div>
+
+
 
   </ion-content>
 </ion-view>
