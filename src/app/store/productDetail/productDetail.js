@@ -8,7 +8,7 @@ angular.module('store.product', [])
     });
   }])
 
-  .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal) {
+  .controller('productDetailController', function ($scope, storeData, $rootScope, $stateParams, $location, $ionicModal,$cordovaSocialSharing) {
 
     var imageFolder = 'assets/images/sections/stores/';
     $scope.desc = imageFolder + 'description_text.png';
@@ -20,13 +20,6 @@ angular.module('store.product', [])
 
     $scope.coverflow = {};
 
-    //if($rootScope.products == undefined) request it from server
-
-    //storeData.getDummyImages().success(function(data){
-    //
-    //  $scope.images = data
-    //
-    //})
 
 
 
@@ -38,6 +31,25 @@ angular.module('store.product', [])
 
     storeData.getProductDetail($stateParams.id);
 
+
+
+    $scope.tweet = function(product){
+
+      var title =          "انا الان اقوم بالتسوق بمتجر زهرة الالكتروني للهواتف الذكية";
+
+
+      $cordovaSocialSharing
+        .shareViaTwitter(title)
+        .then(function(result) {
+          // Success!
+          console.log(result);
+        }, function(err) {
+          // An error occurred. Show a message to the user
+          console.log(err);
+
+        });
+
+    };
 
     $scope.addCart = function () {
       $rootScope.currentCart = storeData.addCart($rootScope.product);

@@ -25,7 +25,7 @@
       </div>
 
     <div class="row center-block">
-      <img class="col col-20" ng-click="openExternal()"  ng-repeat="s in social" src='{{folder}}{{s}}.png'>
+      <img class="col col-20" ng-click="openExternal(s.link)"  ng-repeat="s in social" src='{{folder}}{{s.image}}.png'>
     </div>
 
 

@@ -45,7 +45,29 @@ angular.module('contact', [
 
     };
 
-    $scope.folder = 'assets/images//sections/contact/'
-    $scope.social = ['button_tweet', 'button_tube', 'button_fb', 'button_inst', 'button_home']
+    $scope.folder = 'assets/images//sections/contact/';
+
+    $scope.openExternal = function(link){
+      var url = $scope.links[link];
+      var rf = window.open(url, '_blank', 'location=yes');
+
+    };
+    $scope.links =
+    {
+      "home": "http://www.Zahra.org.sa",
+      "instagram": "http://instagram.com/ZAHRA_KSA",
+      "facebook": "https://www.facebook.com/groups/ZahraAssociation/",
+      "youtube": "http://www.youtube.com/user/ZahraAssociaChannel",
+      "twitter": "https://twitter.com/zahra_ksa"
+    };
+
+    $scope.social =
+      [
+        {"image": "button_tweet", "link": "twitter"},
+        {"image": 'button_tube', "link": "youtube"},
+        {"image": 'button_fb', "link": "facebook"},
+        {"image": 'button_inst', "link": "instagram"},
+        {"image": 'button_home', "link": "home"}
+      ];
 
   });
