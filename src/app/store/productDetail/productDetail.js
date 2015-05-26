@@ -37,7 +37,6 @@ angular.module('store.product', [])
 
       var title =          "انا الان اقوم بالتسوق بمتجر زهرة الالكتروني للهواتف الذكية";
 
-
       $cordovaSocialSharing
         .shareViaTwitter(title)
         .then(function(result) {

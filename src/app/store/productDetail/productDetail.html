@@ -5,12 +5,12 @@
       سلة المشتريات
     </button>
   </ion-nav-buttons>
-  <ion-content class="col col-90" style="margin-left:5%" scroll='true' scrollbar-y="false">
+  <ion-content scroll='true' scrollbar-y="false">
     <zahra-coverflow coverflow="coverflow" images="product.media"></zahra-coverflow>
 
     <!--<cardflow model="cardflowSnapKinetic" mode="swipeSnapKinetic">-->
-      <!--<div class="cardflow-card" ng-repeat="image in product.media" style="background-image: url( {{image}} )">-->
-      <!--</div>-->
+    <!--<div class="cardflow-card" ng-repeat="image in product.media" style="background-image: url( {{image}} )">-->
+    <!--</div>-->
     <!--</cardflow>-->
 
     <div style="background-color: transparent;margin-bottom: 20px">
@@ -36,7 +36,8 @@
     </div>
     <div style="clear:both"></div>
 
-    <img style="float:left" ng-click="tweet(product)" class="col col-33" width="90" height="70" alt="hello" src="{{button_tweet}}">
+    <img style="float:left" ng-click="tweet(product)" class="col col-33" width="90" height="70" alt="hello"
+         src="{{button_tweet}}">
 
     <img style="float:right" class="col col-33" ng-click="addCart()" width="90" height="70" alt="hello"
          src="{{button_add}}">
@@ -47,21 +48,17 @@
 
 <!-- Modal -->
 <script id="cart.html" type="text/ng-template">
-  <div class="modal">
-    <ion-header-bar class="bar-positive">
-      <div class="buttons">
 
-        <button class="button button-icon icon ion-close-round"
-                ng-click="closeModal()"></button>
+  <ion-modal-view>
+    <ion-header-bar>
+      <button class="button button-icon ion-close-round"
+              ng-click="closeModal()"></button>
+      <h1 class="title header-text"> سلة المشتريات</h1>
 
-
-        <!--go back one month --> <h1 class="title header-text"> سلة المشتريات</h1>
-        <button class="button button-icon"
-                ng-click="data.showDelete = !data.showDelete;
+      <button class="button button-icon"
+              ng-click="data.showDelete = !data.showDelete;
                         data.showReorder = false">تعديل
-        </button>
-
-      </div>
+      </button>
     </ion-header-bar>
     <ion-content>
       <ion-list show-delete="data.showDelete" canSwipeItems="true">
@@ -107,5 +104,8 @@
 
       </ion-list>
     </ion-content>
-  </div>
+
+  </ion-modal-view>
+
+
 </script>

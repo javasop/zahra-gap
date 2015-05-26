@@ -160,7 +160,7 @@ var Coverflow = function(params){
 	this.element            = params.element;
 	this.center             = this.width/2;
 	this.scope              = params.scope;
-	this.totalCovers        = 3;
+	this.totalCovers        = 5;
 	this.visibleCovers      = 3;
 	this.centerIndex        = Math.ceil(this.visibleCovers/2);
 	this.covers             = [];
@@ -180,7 +180,7 @@ var Coverflow = function(params){
 
 //we should create a method here that would take the list of images, coverflow and just update the covers
 Coverflow.prototype.updateCovers = function(images,coverflow){
-  for(var i = 0; i < images.length; i++){
+  for(var i = 0; i < this.totalCovers; i++){
     coverflow.covers[i].updateCover(images[i]);
   }
 };
