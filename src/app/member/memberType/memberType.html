@@ -1,12 +1,33 @@
 <ion-view style='background-color:transparent;overflow: visible'>
 
+  <ion-nav-buttons side="right">
+    <a ng-click="submit()">
+
+      اشترك
+
+    </a>
+  </ion-nav-buttons>
 
   <ion-content>
 
-    <img  class="col col-80 center-block" ng-src="assets/images/sections/members/members_terms_iphone.png" />
+      <img  class="col col-66 center-block" ng-src="assets/images/sections/members/members_terms_iphone.png" />
+    <div class="row">
+      <div class="col">
 
-    <form>
+        <p style="color:white;font-size:24px" class="pull-right">اختيار نوع العضوية</p>
 
-    </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col center-block">
+        <form>
+          <select class="center-block">
+            <option ng-repeat="type in artypes" value="types[$index]">{{type}}</option>
+          </select>
+        </form>
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>

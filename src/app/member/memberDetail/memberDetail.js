@@ -9,17 +9,19 @@ angular.module('member.detail', ['zahra.forms'])
     });
   }])
 
-  .controller('memberDetailController', function ($scope, $rootScope, $stateParams,formsData,$location) {
+  .controller('memberDetailController', function ($scope, $rootScope, $stateParams,formsData,$location,$ionicPopup) {
 
     formsData.get("members")
 
+    var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>';
+
+
     $scope.submit = function(){
       formsData.post("members")
-    }
+    };
 
     $scope.go = function(){
-      $location.path('member/type');
-
+        $location.path('member/type');
     }
 
   });

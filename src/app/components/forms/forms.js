@@ -15,57 +15,51 @@ angular.module('zahra.forms', [])
 
       var data = $rootScope.data;
 
-      for (f in $rootScope.forms) {
-        data[$rootScope.forms[f]['element_name']] = $rootScope.forms[f]['value'];
+      var valid = this.validate($rootScope.forms);
 
-      }
+      if(valid) {
 
-      if (this.validate(data)) {
+        for (var f in $rootScope.forms) {
+          data[$rootScope.forms[f]['element_name']] = $rootScope.forms[f]['value'];
 
-        var temp = '... الطلب قيد التنفيذ';
+        }
 
-        Model.post(type, data, temp).success(function (a) {
+        Model.post(type, data).success(function (a) {
 
           usSpinnerService.stop('spinner-1');
 
         });
-
-
       }
-
 
     };
 
     this.validate = function (form) {
 
+      var emptyField = this.formEmpty(form);
 
-      var empty = '<p class="alert">الرجاء تعبئة جميع البيانات</p>';
-      var email = '<p class="alert">البريد الالكتروني غير صحيح</p>';
-
-      var valid = Model.formEmpty(form);
-      if (!valid) {
-        if (form['email'] == undefined) {
+      if (emptyField) {
+        var message =
+          " الرجاء ادخال " + emptyField + " بشكل صحيح ";
 
           var alertPopup = $ionicPopup.alert({
-            title: empty + email
+            title:"<p class='alert'>"+message+"</p>"
           });
-
-        }
-        else {
-
-          var alertPopup = $ionicPopup.alert({
-            title: empty
-          });
-
-
-        }
         return false;
-
+      }
+      else{
+        return true;
       }
 
-      return true;
-
-    }
+    };
+    this.formEmpty = function (obj) {
+      var elementName;
+      obj.forEach(function(element){
+        if (element.value == "" || element.value == undefined) {
+          elementName = element.ar;
+        }
+      });
+      return elementName;
+    };
 
 
   });

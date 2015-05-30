@@ -62,18 +62,17 @@ angular.module('zahra')
         if (obj[el] == null) {
           return false;
         }
-
       }
       return true;
 
 
-    }
+    };
     //this is a general post method
     this.post = function (service, data) {
-
+      usSpinnerService.spin('spinner-1');
       //the state params has the id?
       var ur = that.getUrl(service);
       return $http.post(ur, data);
 
     }
-  })
+  });
