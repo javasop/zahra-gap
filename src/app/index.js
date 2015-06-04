@@ -19,7 +19,8 @@ angular.module('zahra', [
   'bank',
   'question',
   'member',
-  'external'
+  'external',
+  'info'
 ])
 
 
