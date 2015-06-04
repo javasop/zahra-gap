@@ -20,7 +20,7 @@ var options = {
     exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap\.css/]
   }
 };
-
+//require all gulp tasks
 wrench.readdirSyncRecursive('./gulp').filter(function(file) {
   return (/\.(js|coffee)$/i).test(file);
 }).map(function(file) {
