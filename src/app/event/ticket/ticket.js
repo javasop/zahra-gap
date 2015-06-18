@@ -23,8 +23,7 @@ angular.module('event.ticket', [
 
     $scope.current;
 
-
-    $rootScope.data = {'event_id': $rootScope.event.ID, 'ticket_spaces': 1};
+    $rootScope.data = {'event_id': $rootScope.event.custom_meta._event_id, 'ticket_spaces': 1};
 
     $rootScope.data['ticket_id'] = -1;
 

@@ -50,6 +50,7 @@ angular.module('event.service', [])
       if (!$rootScope.events) {
         Model.get('events').success(function (a) {
           usSpinnerService.stop('spinner-1');
+          console.log(a);
           $rootScope.events = a;
           $rootScope.marks = [];
           formatDates($rootScope.marks);
