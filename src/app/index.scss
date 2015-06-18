@@ -193,11 +193,13 @@ a, u {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
+  padding:0px;
 }
 
 .photos .item {
   width: 100% !important;
   margin-bottom: 10px;
+
 }
 
 .cardflow-wrapper {
