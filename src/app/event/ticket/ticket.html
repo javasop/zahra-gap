@@ -21,8 +21,11 @@
       <li style="background-color: transparent;border:none;font-size:24px" ng-repeat='t in event.tickets'
           class="item item-checkbox">
 
-        <span style="color:white">{{t.ticket_name}}</span>
-        <input ng-model="checked[$index]" ng-click="change($index)" ng-change="current = $index" type="checkbox">
+        <span style="color:white"></span>
+        <ion-radio ng-click="change(t)" ng-model="choice" ng-value="t.ticket_id">{{t.ticket_name}}</ion-radio>
+        <!--<ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>-->
+        <!--<ion-radio ng-model="choice" ng-value="'C'">Choose C</ion-radio>-->
+        <!--<input ng-model="checked[$index]" ng-click="change($index)" ng-change="current = $index" type="checkbox">-->
       </li>
     </ul>
 

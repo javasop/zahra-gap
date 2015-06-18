@@ -1,6 +1,6 @@
 'use strict';
 angular.module('zahra.forms', [])
-  .service('formsData', function ($rootScope, $http, Model, $stateParams, $ionicPopup, $location, usSpinnerService) {
+  .service('formsData', function ($rootScope, $http, Model, $stateParams, $ionicPopup, $location, usSpinnerService,$state) {
 
 
     this.get = function (type) {
@@ -15,18 +15,27 @@ angular.module('zahra.forms', [])
 
       var data = $rootScope.data;
 
+      usSpinnerService.spin('spinner-1');
+
       var valid = this.validate($rootScope.forms);
 
       if(valid) {
 
         for (var f in $rootScope.forms) {
           data[$rootScope.forms[f]['element_name']] = $rootScope.forms[f]['value'];
-
         }
 
         Model.post(type, data).success(function (a) {
 
+          var message =
+          "تم ارسال الطلب";
+
+          var alertPopup = $ionicPopup.alert({
+            title:"<p class='success'>"+message+"</p>"
+          });
+
           usSpinnerService.stop('spinner-1');
+          $state.go('home');
 
         });
       }
