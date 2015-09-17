@@ -74,27 +74,25 @@ body {
 	-webkit-animation: myfirst 70s infinite; /* Chrome, Safari, Opera */
 	animation: myfirst 70s;
 	z-index: -2;
+	width:700px;
+	height:700px;
 
 }
 
 .background-1 {
 	position: absolute;
 	left: -400px;
-	top: -600px;
+	top: -200px;
 
 }
 
 .background-2 {
 	position: absolute;
-	left: -200px;
-	top: -300px;
+	left: -100px;
+	top: -100px;
 }
 
-.background-3 {
-	position: absolute;
-	left: -100px;
-	top: -50px;
-}
+
 
 a, u {
 	text-decoration: none;
@@ -161,6 +159,10 @@ a, u {
 
 .item-content {
 	padding: 6px!important;
+}
+.item-book{
+width:400px;
+margin:0 auto
 }
 
 .bar-header {
