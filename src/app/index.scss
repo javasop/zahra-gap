@@ -26,7 +26,6 @@
 body {
 
 	background-color: #790A58 !important;
-
 	//background-color: ;
 }
 
@@ -36,7 +35,9 @@ body {
 }
 
 .bar {
-	background: transparent !important;
+	background-color:#312E2E;
+	border-bottom:none;
+	opacity:0.9;
 }
 
 .pane {
