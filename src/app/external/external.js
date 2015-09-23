@@ -13,7 +13,7 @@ angular.module('external', [])
     //check the param and open the file accordingly ...
     var links = {
       "video": "https://www.youtube.com/watch?v=-p3TFqIFpP4",
-      "text": "sms:3490322111"
+      "text": "sms:5092"
     }
 
     var type = links[$stateParams.type];
