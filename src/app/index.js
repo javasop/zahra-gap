@@ -28,7 +28,7 @@ angular.module('zahra', [
   //
   //})
 
-  .constant('host', 'http://galamr.com/zahrahControl/wp-json/zahra/')
+  .constant('host', 'http://zahracontrol.com/zahrahControl/wp-json/zahra/')
 
   .config(['$urlRouterProvider', function ($urlRouterProvider) {
 
